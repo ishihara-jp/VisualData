@@ -62,7 +62,7 @@ svg {
 .popover.fade.top.in,
 .popover.fade.bottom.in{
     background-color: transparent; /* 背景色なし設定 */
-    background: url("http://localhost/AlphaWhite.png");
+    background: url("AlphaWhite.png");
 }
 
 val{

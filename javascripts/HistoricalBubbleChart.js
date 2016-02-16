@@ -530,14 +530,20 @@ function ready(error, data1, data2) {
     //　アニメーション開始
     function startAnimation() {
         startTime = Date.now(); //開始時間
-        svg.transition()
-            .duration(ANIMATION_TIME)           //アニメーション時間
-            .ease("linear")                     //トランジション方式
-            .tween("year", tweenYear)           //アニメーションイベント
-            .each("end", enableInteraction);    //アイメーション後イベント
-        if(playMode=="default")
-            svg.each("start", enableInteraction);   //アニメーション中イベント
-
+        if(playMode=="default"){
+            svg.transition()
+                .duration(ANIMATION_TIME)           //アニメーション時間
+                .ease("linear")                     //トランジション方式
+                .tween("year", tweenYear)           //アニメーションイベント
+                .each("start", enableInteraction)   //アニメーション中イベント
+                .each("end", enableInteraction);    //アイメーション後イベント        
+        }else{
+            svg.transition()
+                .duration(ANIMATION_TIME)           //アニメーション時間
+                .ease("linear")                     //トランジション方式
+                .tween("year", tweenYear)           //アニメーションイベント
+                .each("end", enableInteraction);    //アイメーション後イベント                    
+        }
     }
 
     //　アニメーション一時停止

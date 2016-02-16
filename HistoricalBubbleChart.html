@@ -92,10 +92,14 @@
     <script type="text/javascript" src="javascripts/HistoricalBubbleChart.js" charset="utf-8"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        //set LangKey
+        //Language
         setLangKey("Japan");
         //setLangKey("English");
-                
+        
+        //playMode
+        setPlayMode("seario");
+        //setPlayMode("default");
+        
         //click on companie's category button
         $('#filters_company_category a').click(function() {
             var c_categoryId = $(this).attr("id");

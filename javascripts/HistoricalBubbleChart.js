@@ -4,6 +4,7 @@ var DATA_SRC2 = "data/FinancialData.json";
 var companyData;
 var currencyData;
 var langKey;
+var playMode = "default";    //再生モード
 var ANIMATION_TIME = 60*1000; //アニメーション時間 (仕上がり：12*35*1000、キャプチャ時：24*35*1000)
 var nCompanies;
 var startTime;
@@ -19,6 +20,11 @@ var formatT2 = d3.format(".2f");
 function setLangKey(_langKey){
     //"Japan" or "English";
     langKey = _langKey;        
+}
+
+//再生モード設定
+function setPlayMode(_modeKey){
+    playMode = _modeKey;
 }
 
 //Loading data
@@ -504,9 +510,17 @@ function ready(error, data1, data2) {
 
 
         // 年代推移によるトランジション開始
-        startAnimation(); //インタラクティブモード
-        //senarioDemo();  //シナリオモード
-    
+        switch(playMode){
+            case "senario":
+                //シナリオモード
+                senarioDemo();
+                break;
+            case "default":
+            default:
+                //インタラクティブモード
+                startAnimation();
+                break;
+        }    
     
         //　アニメーション開始
         function startAnimation() {
@@ -515,8 +529,10 @@ function ready(error, data1, data2) {
                 .duration(ANIMATION_TIME)           //アニメーション時間
                 .ease("linear")                     //トランジション方式
                 .tween("year", tweenYear)           //アニメーションイベント
-                .each("start", enableInteraction)  //イベントリスナー登録
-                .each("end", enableInteraction);  //イベントリスナー登録            
+                .each("end", enableInteraction);    //アイメーション後イベント
+            if(playMode=="default")
+                svg.each("start", enableInteraction);   //アニメーション中イベント
+
         }
     
         //　アニメーション一時停止

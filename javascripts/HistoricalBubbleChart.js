@@ -512,6 +512,7 @@ function ready(error, data1, data2) {
         // 年代推移によるトランジション開始
         switch(playMode){
             case "senario":
+                ANIMATION_TIME = 12*35*1000;
                 //シナリオモード
                 senarioDemo();
                 break;

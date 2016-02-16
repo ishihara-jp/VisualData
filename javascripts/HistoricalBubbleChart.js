@@ -1,6 +1,6 @@
 //グローバル変数
-var DATA_SRC1 = "javascripts/CurrencyRate.json";
-var DATA_SRC2 = "javascripts/FinancialData.json";
+var DATA_SRC1 = "data/CurrencyRate.json";
+var DATA_SRC2 = "data/FinancialData.json";
 var companyData;
 var currencyData;
 var langKey;

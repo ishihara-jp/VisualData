@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <title>世界の電機メーカーの総資産の変遷</title>
+    <!--
+    <title>ICT major companies' total assets of 1981 - 2015</title>
+    -->
+    <link href="stylesheets/bootstrap.css" rel="stylesheet" charset="utf-8">
+    <link href="stylesheets/GeographicalBubbleChart.css" rel="stylesheet" charset="utf-8">
+    <!--
+    <script type="text/javascript" src="javascripts/GoogleAnalytics.js" charset="utf-8"></script>
+-->
+</head>
+<body>
+    <center>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active" id="3DMap">
+                <input type="radio" name="options"> 3D地図
+                <!--
+                <input type="radio" name="options"> 3D Map
+                -->
+            </label>
+
+            <label class="btn btn-primary" id="2DMap">
+                <input type="radio" name="options"> 2D地図
+                <!--
+                <input type="radio" name="options"> 2D Map
+                -->
+            </label>
+            
+            <label class="btn btn-primary" id="area_jp">
+                <input type="radio" name="options"> エリア
+            <!--
+            <label class="btn btn-primary" id="Area">
+                <input type="radio" name="options"> Region
+            -->
+            </label>
+            <label class="btn btn-primary" id="category_jp">
+                <input type="radio" name="options"> タイプ
+            <!--
+            <label class="btn btn-primary" id="Category">
+                <input type="radio" name="options"> Type
+            -->
+            </label>
+        </div>
+        <div id="map"></div>
+        <div id="info"></div>
+    </center>
+    <!--
+    <div>
+        <span class="note">
+            <br>Reference:
+            <br><a href="http://bl.ocks.org/KoGor/7024546">http://bl.ocks.org/KoGor/7024546</a>
+            <br><a href="http://bl.ocks.org/KoGor/7025316">http://bl.ocks.org/KoGor/7025316</a>
+            <br><a href="http://bl.ocks.org/RandomEtc/4052873">http://bl.ocks.org/RandomEtc/4052873</a>
+        </span>
+    </div>
+    -->
+    
+    <script type="text/javascript" src="javascripts/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/topojson.v1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/queue.v1.min.js" charset="utf-8"></script>
+    <script src="javascripts/bootstrap.js" charset="utf-8"></script>
+    <script src="javascripts/underscore.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/GeographicalBubbleChart.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        setLangKey("Japan"); 
+        //setLangKey("English");
+    });
+    </script>
+</body>
+</html>

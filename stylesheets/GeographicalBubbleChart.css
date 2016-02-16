@@ -1,0 +1,72 @@
+body{
+    background: #000;
+    font-family:'Meiryo UI', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    margin: 0px, 0px, 0px, 0px;
+}
+span.note{
+    font-size: 0.8em;
+    fill: #444;
+    margin-left: 50px;
+}
+#map {
+    width: 100%;
+    position: absolute;
+}
+#info {
+    width: 100%;
+    position: absolute;
+}
+svg {
+  pointer-events: all;
+}
+.bubbles{
+    fill: #1cd2d2;
+    opacity: 0;
+}
+.bubbles.visible{
+    opacity: 0.5;    
+}
+.yearLabel{
+    font-size: 5em;
+    fill: #66C2FF;
+}
+
+.debugLabel{
+    font-size: 0.5em; 
+    fill: #66C2FF;
+}
+
+.cLabels{
+    text-anchor: middle;
+    opacity: 0;
+}
+.cLabels.visible{
+    font-size: 1em;
+    fill: #66C2FF;    
+    opacity: 1;
+}
+.cLines{
+    stroke: #66C2FF;
+    fill: none;
+    opacity: 0;
+}
+.cLines.visible{
+    opacity: 0.4;
+}
+.labelCluster{
+    font-size: 2em;
+    fill: #fff;
+}
+
+.popover.fade.top.in,
+.popover.fade.bottom.in{
+    background-color: transparent; /* 背景色なし設定 */
+    background: url("http://localhost/AlphaWhite.png");
+}
+
+val{
+    font-size: 1.2em;
+    font-weight: bold;
+    color:#005BFF;
+}

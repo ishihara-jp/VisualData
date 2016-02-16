@@ -1,0 +1,270 @@
+/* Normalize */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, figure, form, fieldset, input, p, blockquote, th, td, legend, br {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    position: relative;
+    padding:1em;
+    font-family:'Meiryo UI', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+
+span.note{
+    font-size: 0.8em;
+    fill: #333;
+    margin-left: 50px;
+}
+
+#senario text {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+/* 補助線 */
+.x.axis line,
+.y.axis line
+{
+  fill: none;
+  stroke: none;
+}
+.c.axis line,
+.t.axis line{
+  fill: none;
+  stroke: #bbb;
+  shape-rendering: crispEdges;
+  opacity: 0.5;
+}
+.axisLine{
+  fill: none;
+  stroke: #333;
+  shape-rendering: crispEdges;
+  opacity: 0.5;
+}
+.label {
+  fill: #777;
+}
+.year.label {
+    font-size: 30em;
+    font-family:  "Helvetica Neue";
+    fill: #ddd;
+}
+.year.label.active {
+    fill: #aaa;
+}
+.overlay {
+  fill: none;
+  pointer-events: all;
+  cursor: ew-resize;
+}
+
+/* 凡例 */
+.hanrei
+{
+    stroke: #C7C7C7;
+    fill: none;
+}
+text.hanrei
+{
+    font-size: 0.8em;
+    font-weight: bold;
+    fill: #C7C7C7;
+    stroke: none; /* ふちどりの色 */
+}
+/* 軸ラベル */
+text.y.label,
+text.x.label,
+text.c.label,
+text.t.label
+{
+    font-size: 1.5em;    
+	font-weight: bold;
+}
+
+/* ドット */
+.dot,
+.dot.highlight
+{
+    stroke: none;
+    opacity: 0.4;    
+}
+.dot.un-highlight
+{
+    fill: #C7C7C7;
+}
+.dot.selected{
+    stroke: #000;
+    stroke-width: 1px;
+}
+
+.dot-label
+{
+    font-size: 1.5em;
+    font-weight: bold;
+    fill: #000;
+}
+.dot-label.un-highlight,
+.dot-label.un-highlight.selected
+{
+    fill: none/*#C7C7C7*/;
+}
+.dot-label.highlight
+{
+    fill: #000;
+}
+.dot-label.selected,
+.dot-label.highlight.selected{
+    fill: #be1932;
+}
+
+.dot-label_bg{
+    font-size: 1.5em;
+	font-weight: bold;
+    fill: #fff;
+    stroke: #fff; /* ふちどりの色 */
+    stroke-width: 0.2em;  /* ふちどりのふとさ */
+}
+.dot-label_bg.un-highlight{
+    fill: none;
+    stroke: none;
+}
+
+.dot-label2
+{
+    font-weight: bold;
+}
+
+/* 軌跡 */
+.path,
+.path.un-highlight
+{
+    stroke: none;
+    fill:none;
+}
+.path.selected,
+.path.highlight
+{
+    stroke: #be1932;
+    stroke-width: 1;
+    opacity: 0.8;
+}
+/* タイムライン軌跡 */
+.path2, 
+.path2.un-highlight
+{
+    stroke: #C7C7C7;
+    stroke-width: 0.9;
+    opacity: 0;
+    fill: none;
+}
+.path2.highlight
+{
+    stroke: steelblue;
+    stroke-width: 1.5;
+    opacity: 1.0;
+}
+.path2.highlight.selected
+{
+    stroke: #be1932;   
+}
+/* タイムライン領域 */
+.area2,
+.area2.un-highlight
+{
+    opacity: 0.0;
+}
+.area2.highlight{
+    opacity: 0.5;
+}
+/*シーク位置*/
+.seek, 
+.seek.un-highlight
+{
+    stroke: none;
+    fill: none;
+}
+.seek.highlight{
+    fill: #4682b4;
+    stroke: #000;
+    stroke-width: 1.4;
+    opacity: 0.3;
+}
+.seek.highlight.selected{
+    fill: #be1932;    
+}
+.seek.dragging{
+    stroke: #be1932;
+}
+
+.seek-label, 
+.seek-label.un-highlight
+{
+    font-size: 1.5em;
+	font-weight: bold;
+    stroke: none;
+    fill: none;
+}
+.seek-label.highlight{
+    fill: #000;
+}
+.seek-label.highlight.selected{
+    fill: #be1932;
+}
+
+#filters {
+    display: block; /*縦並び*/
+}
+#filters_company_category, 
+#filters_company {
+    margin:0.1em 0em;
+    vertical-align: middle;
+    text-align: left;
+    
+    border-collapse:separate;
+	border-spacing:2px 2px;
+}
+#filters_company_category a,
+#filters_company a {
+	display: inline-block;
+    text-align: center;
+    width: 60px;
+    padding: 3px 5px;
+        
+    color: #000;
+    font-size: 10px;
+    border : 1px solid #fff ;
+    background: #e2e2e2;
+    cursor: pointer;
+}
+
+#filters_company_category a.group, 
+#filters_company a.group {
+    color: #C7C7C7;
+	display: inline-block;
+    text-align: center;
+    width: 60px;
+    padding: 3px 5px;
+    margin: 0 0.1em;
+
+    background: #fff;
+    border : 1px solid #C7C7C7 ;
+    cursor: pointer;
+}
+
+#filters_company_category a.highlight, 
+#filters_company a.highlight,
+#filters_company_category a.highlight.selected, 
+#filters_company a.highlight.selected,
+#filters_company_category a.group.highlight, 
+#filters_company a.group.highlight {
+	font-weight: bold;
+    border : 1px solid #fff;
+    background: #be1932;
+    color: #fff;
+}
+
+#filters_company a.selected {
+	font-weight: bold;
+    border : 1px solid #be1932;
+    color: #be1932
+}

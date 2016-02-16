@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>世界の電機メーカーの時価総額・業績の変遷</title>
+    <link rel="stylesheet" href="stylesheets/HistoricalBubbleChart.css">
+    <script type="text/javascript" src="javascripts/GoogleAnalytics.js" charset="utf-8"></script>
+</head>
+<body>
+    <h1>世界の電機メーカーの時価総額・業績の変遷</h1>
+    <div id="filters">
+        <div id="filters_company_category">
+            <a id="ALL" class="group">すべて</a>
+            <a id="Heavy electronics">重電</a>
+            <a id="Consumer electronics">家電</a>
+            <a id="Computer technology">ICT</a>
+            <a id="Audio-visual electronics">AV</a>
+            <a id="Semiconductor electronics">電子</a>
+            <a id="Photonics">光学</a>
+            <a id="Telecommunications equipment">通信</a>
+            <a id="Precision manufacturing">精密</a>
+            <a id="Electronics manufacturing">製造</a>
+        </div>
+        <div id="filters_company">
+            <div>
+            <a id="JAPAN" class="group">日本</a>
+            <a id="HITACHI" class="HITACHI">日立</a>
+            <a id="TOSHIBA" class="TOSHIBA">東芝</a>
+            <a id="MITSUBISHI" class="MITSUBISHI">三菱電機</a>
+            <a id="PANASONIC" class="PANASONIC">パナソニック</a>
+            <a id="SHARP" class="SHARP">シャープ</a>
+            <a id="SONY" class="SONY">ソニー</a>
+            <a id="PIONEER" class="PIONEER">パイオニア</a>
+            <a id="FUJITSU" class="FUJITSU">富士通</a>
+            <a id="NEC" class="NEC">NEC</a>
+            <a id="FUJIFILM" class="FUJIFILM">富士フィルム</a>
+            <a id="CANON" class="CANON">キヤノン</a>
+            <a id="RICOH" class="RICOH">リコー</a>
+            <a id="CASIO" class="CASIO">カシオ</a>
+            <a id="EPSON" class="EPSON">エプソン</a>
+            <a id="KYOCERA" class="KYOCERA">京セラ</a>
+            <a id="SANYO" class="SANYO">三洋電機</a>
+            </div>
+            <div>
+            <a id="USA" class="group">米国</a>
+            <a id="GE" class="GE">GE</a>
+            <a id="IBM" class="IBM">IBM</a>
+            <a id="MICROSOFT" class="MICROSOFT">Microsoft</a>
+            <a id="INTEL" class="INTEL">Intel</a>
+            <a id="APPLE" class="APPLE">Apple</a>
+            <a id="DELL" class="DELL">DELL</a>
+            <a id="CISCO" class="CISCO">CISCO</a>
+            <a id="HP" class="HP">HP</a>
+            <a id="ORACLE" class="ORACLE">ORACLE</a>
+            <a id="AMAZON" class="AMAZON">AMAZON</a>
+            <a id="GOOGLE" class="GOOGLE">GOOGLE</a>
+            </div>
+            <div>
+            <a id="EU" class="group">欧州</a>
+            <a id="SIEMENS" class="SIEMENS">SIEMENS</a>
+            <a id="ERICSSON" class="ERICSSON">ERICSSON</a>
+            <a id="PHILIPS" class="PHILIPS">PHILIPS</a>
+            <a id="NOKIA" class="NOKIA">NOKIA</a>
+            </div>
+            <div>
+            <a id="ASIA" class="group">アジア</a>
+            <a id="SAMSUNG" class="SAMSUNG">SAMSUNG</a>
+            <a id="LG" class="LG">LG</a>
+            <a id="LENOVO" class="LENOVO">LENOVO</a>
+            <a id="HAIER" class="HAIER">HAIER</a>
+            <a id="FOXCONN" class="FOXCONN">FOXCONN</a>
+            <a id="TSMC" class="TSMC">TSMC</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <span class="note">
+        <br/>データ出典：　会社四季報(東洋経済新報社), 日経会社情報(日本経済新聞社), 米国証券取引所, Yahoo!Finance, GuruFocus.com, Xignite.com, Ycharts.com, Wikinvest.com, 4-traders.com, 各社決算短信・有価証券報告書, etc.
+        <br/>参考：　<a href="http://romsson.github.io/dragit/example/nations.html">Draggable scatterplot with motion trails</a>
+                    , <a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20121219/445522/">富士通、復活への正念場（日経コンピュータ2012年8月30日号）</a>
+        </span>
+    </div>    
+    
+    <div id="chart"></div>
+    <div id="TimeLine"></div>
+    <div id="senario"></div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/d3.v3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/queue.v1.min.js"></script>
+    <script type="text/javascript" src="javascripts/HistoricalBubbleChart.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        //set LangKey
+        setLangKey("Japan");
+        //setLangKey("English");
+                
+        //click on companie's category button
+        $('#filters_company_category a').click(function() {
+            var c_categoryId = $(this).attr("id");
+            switch(c_categoryId){
+                case "ALL":
+                    filterReset();
+                    setDisplayAll();
+                    break;
+                default:
+                    filterByCompanyCategory(c_categoryId);
+                    break;
+            }
+        });
+        //click on company button
+        $('#filters_company a').click(function() {
+            var companyId = $(this).attr("id");
+            switch(companyId){
+                case "JAPAN":
+                case "USA":
+                case "EU":
+                case "ASIA":
+                    filterByArea(companyId);
+                    break;
+                default:
+                    filterByCompany(companyId);
+                    break;
+            }
+        });
+    });
+    </script> 
+</body>
+</html>

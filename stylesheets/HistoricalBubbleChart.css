@@ -17,9 +17,10 @@ span.note{
     margin-left: 50px;
 }
 
-#senario text {
-    font-size: 2.5em;
+.senario{
+    font-size: 1.5em;
     font-weight: bold;
+    fill: #C7C7C7;
 }
 /* 補助線 */
 .x.axis line,

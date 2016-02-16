@@ -413,7 +413,9 @@ function ready(error, data1, data2) {
  
     // シナリオストーリー用ラベル
     var senario = svg/*d3.select("#senario")*/
-                .append("text");
+                .append("text")
+                .attr("transform", "translate(" + (margin.left + 100) + "," + height + ")")
+                .attr("dy", "-2.2em");
 
     // A bisector since many companies' data is sparsely-defined.
     var bisect = d3.bisector(function(d) {

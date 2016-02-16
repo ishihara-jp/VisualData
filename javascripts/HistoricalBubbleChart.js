@@ -415,9 +415,9 @@ function ready(error, data1, data2) {
     var senario = svg/*d3.select("#senario")*/
                 .append("g")
                 .attr("class", "senario")
-                .attr("transform", "translate(" + (margin.left + 100) + "," + height + ")")
+                .attr("transform", "translate(" + (margin.left + 120) + "," + height + ")")
                 .append("text")
-                .attr("dy", "-2.2em");
+                .attr("dy", "-1.2em");
 
     // A bisector since many companies' data is sparsely-defined.
     var bisect = d3.bisector(function(d) {
@@ -1036,7 +1036,7 @@ function ready(error, data1, data2) {
         //1988
         setTimeout(function(){
             filterByCompany("PANASONIC");
-            senario.text("パナソニック：「National」ブランドから「Panasonic」ブランドへ移行");
+            senario.text("パナソニック：家電を「National」ブランドから「Panasonic」ブランドへ移行");
             setTimeout(function(){
                 senario.text("");
                 filterReset();
@@ -1211,7 +1211,7 @@ function ready(error, data1, data2) {
         //2005
         setTimeout(function(){
             filterByCompany("SIEMENS");
-            senario.text("シーメンス：携帯部門を中国BenQへ売却");
+            senario.text("シーメンス：携帯部門を台湾BenQへ売却");
             setTimeout(function(){
                 senario.text("");
                 filterReset();
@@ -1222,7 +1222,7 @@ function ready(error, data1, data2) {
         //2006
         setTimeout(function(){
             filterByCompany("TOSHIBA");
-            senario.text("東芝：米ウェスティングハウス買収。原子力発電世界三大メーカーの一つへ");
+            senario.text("東芝：米ウェスティングハウス買収。原子力発電世界三大メーカーの一角へ");
             setTimeout(function(){
                 senario.text("");
                 filterReset();

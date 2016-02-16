@@ -16,6 +16,9 @@ function setLangKey(_langKey){
     langKey = _langKey;        
 }
 
+//ニコ動用
+var SUKEx2 = false;
+
 var mapWidth = 1200,
 mapHeight = 500,
 GlobeMode = true,
@@ -47,7 +50,11 @@ var projectionGlobe = d3.geo.orthographic()
 .scale(500)
 .center([-mapWidth/2, 0])
 .translate([mapWidth-200, mapHeight])
-.clipAngle(90);
+.clipAngle(90);  //切り取り範囲（180だと裏側も表示）
+
+/** SUKEx2 **/
+if(SUKEx2) projectionGlobe.clipAngle(180);
+/****/
 
 var projectionMap = d3.geo.equirectangular()
 .scale(200)
@@ -274,8 +281,9 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
                 }else{
                     //直前まで2Dモードだった場合
                     //変形なし
-                }                
+                }
                 clusterMode = true;
+                initBubble2DPos();
                 drawCluster(this.id);    //HTMLのid = keyとなるようにしておく                
                 break;
             default:
@@ -442,9 +450,19 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         
         //大陸
         context.beginPath();
-        context.fillStyle = "#333";//"#E6E6E6";
-        path(land);        
-        context.fill();
+        
+        /** SUKEx2 **/
+        if(SUKEx2){
+            context.strokeStyle = "#555";
+            path(land);
+            context.stroke();
+        }else{
+            context.fillStyle = "#333";;
+            path(land);
+            context.fill();
+        }
+        /****/
+        
         context.restore();  //初期状態に戻す
         context.save();     //再び保存
     }
@@ -625,6 +643,10 @@ function isVisible(companyId, angle, _currIndex){
     //変形中による制御
     if(animation === true)
         flg = false;
+    
+    /** SUKEx2 **/
+    if(SUKEx2) flg = true;
+    /****/
     
     //データ有無による制御(次年度からデータがある場合には表示開始)
     var _nextIndex = (_currIndex < nFY - 1) ? _currIndex + 1 : _currIndex;

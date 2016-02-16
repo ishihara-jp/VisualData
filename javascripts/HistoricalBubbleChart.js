@@ -417,7 +417,7 @@ function ready(error, data1, data2) {
                 .attr("class", "senario")
                 .attr("transform", "translate(" + (margin.left + 120) + "," + height + ")")
                 .append("text")
-                .attr("dy", "-1.2em");
+                .attr("dy", "-0.5em");
 
     // A bisector since many companies' data is sparsely-defined.
     var bisect = d3.bisector(function(d) {

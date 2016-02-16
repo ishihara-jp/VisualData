@@ -2,11 +2,11 @@
 //referece : 
 // http://www.delimited.io/blog/2013/12/19/force-bubble-charts-in-d3
 ////////
-var SRC_URL1 = "data/world-110m.json";
-var SRC_URL2 = "data/world-110m-country-names.tsv";
-var SRC_URL3 = "data/FinancialData.json";
-var SRC_URL4 = "data/CompanyData.json";
-var SRC_URL5 = "data/CurrencyRate.json";
+var SRC_URL1 = "http://localhost/data/world-110m.json";
+var SRC_URL2 = "http://localhost/data/world-110m-country-names.tsv";
+var SRC_URL3 = "http://localhost/data/FinancialData.json";
+var SRC_URL4 = "http://localhost/data/CompanyData.json";
+var SRC_URL5 = "http://localhost/data/CurrencyRate.json";
 var langKey;
 var currency;
 
@@ -792,6 +792,7 @@ function showPopover (d) {
         placement: 'auto top',
         container: 'body',
         trigger: 'manual',
+        //title: d.memo,
         html : true,
         content: function() { 
             return  (langKey=="Japan") ?

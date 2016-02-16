@@ -229,6 +229,22 @@ section {
   padding-bottom:50px;
 }
 
+subsection_L {
+	width:190px;
+	float:left;
+	margin: 0px;
+	padding: 5px;
+}
+
+subsection_R{
+  width:300px;
+  float:right;
+}
+
+.clear {
+  clear:both;Å@/*floatâèú*/
+}
+
 small {
   font-size:11px;
 }

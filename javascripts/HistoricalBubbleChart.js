@@ -1009,7 +1009,7 @@ function ready(error, data1, data2) {
         setTimeout(function(){
             filterByCompany("TOSHIBA");
             filterByCompany("INTEL");
-            senario.text("東芝：世界初1メガDRAM開発。メモリ開発分野で世界トップへ　／　インテル：DRAM事業撤退。CPUの開発・生産に経営資源を集中");
+            senario.text("インテル：DRAM事業撤退。CPUの開発・生産に経営資源を集中　/　東芝：世界初1メガDRAM開発。メモリ開発分野で世界トップへ");
             setTimeout(function(){
                 senario.text("");
                 filterReset();

@@ -251,7 +251,7 @@ text.t.label
     cursor: pointer;
 }
 
-#filters_company_category a.group {
+#filters_company_category a.reset {
     color: #be1932;
 	display: inline-block;
     text-align: center;

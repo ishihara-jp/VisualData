@@ -238,7 +238,6 @@ text.t.label
     cursor: pointer;
 }
 
-#filters_company_category a.group, 
 #filters_company a.group {
     color: #C7C7C7;
 	display: inline-block;
@@ -250,6 +249,19 @@ text.t.label
     background: #fff;
     border : 1px solid #C7C7C7 ;
     cursor: pointer;
+}
+
+#filters_company_category a.group {
+    color: #be1932;
+	display: inline-block;
+    text-align: center;
+    width: 60px;
+    padding: 3px 5px;
+    margin: 0 0.1em;
+
+    background: #fff;
+    border : 1px solid #be1932 ;
+    cursor: pointer;    
 }
 
 #filters_company_category a.highlight, 

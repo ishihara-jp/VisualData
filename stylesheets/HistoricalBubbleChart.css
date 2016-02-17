@@ -252,15 +252,15 @@ text.t.label
 }
 
 #filters_company_category a.reset {
-    color: #be1932;
+    color: #fff;
 	display: inline-block;
     text-align: center;
     width: 60px;
     padding: 3px 5px;
     margin: 0 0.1em;
-
-    background: #fff;
-    border : 1px solid #be1932 ;
+	font-weight: bold;
+    background: #4285f4;
+    border : 1px solid #4285f4 ;
     cursor: pointer;    
 }
 

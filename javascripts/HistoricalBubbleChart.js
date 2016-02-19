@@ -1,4 +1,7 @@
-//グローバル変数
+////////////////
+//Global Var. //
+////////////////
+
 //var localPrefix = "http://localhost/";
 var localPrefix = "";
 
@@ -7,30 +10,25 @@ var DATA_SRC2 = localPrefix + "data/FinancialData.json";
 var companyData;
 var currencyData;
 var langKey;
-var playMode = "default";    //再生モード
-var ANIMATION_TIME = 60*1000; //アニメーション時間 (仕上がり：12*35*1000、キャプチャ時：24*35*1000)
+var playMode = "default";
+var ANIMATION_TIME = 60*1000;
 var nCompanies;
 var startTime;
 var elapseTime;
 var dLabel;
 
-//書式
 var formatT0 = d3.format(".0f");
 var formatT1 = d3.format(".1f");
 var formatT2 = d3.format(".2f");
             
-//言語設定
 function setLangKey(_langKey){
-    //"Japan" or "English";
-    langKey = _langKey;        
+    langKey = _langKey; //"Japan" or "English";
 }
 
-//再生モード設定
 function setPlayMode(_modeKey){
     playMode = _modeKey;
 }
 
-//Loading data
 queue()
 .defer(d3.json, DATA_SRC1)
 .defer(d3.json, DATA_SRC2)
@@ -39,22 +37,22 @@ queue()
 
 function ready(error, data1, data2) {
 
-    //グローバル化
+    ///////////////////
+    // Initial func. //
+    ///////////////////
     currencyData = data1;
     companyData = data2;
 
-    //other : currecny rate
     function currency_rate(key, yIndex){    
         for (var i = 0; i < currencyData.length; i++)
             if (currencyData[i].currency == key)
                 return currencyData[i].value[yIndex].rate;
     }
     
-    //パラメータ
     var filterKey = "ALL";
     var visFlg = false;
     
-    //値域
+    //value range
     nCompanies = companyData.length;
     var yearLength = companyData[0].revenue.length;
     var startYear = companyData[0].revenue[0][0];
@@ -62,14 +60,12 @@ function ready(error, data1, data2) {
     var nowYearG;
     var endYear = companyData[0].revenue[yearLength - 1][0];
 
-    //[兆円] or [Billion USD]へ変換
+    //currency setting
     for(var i=0; i<nCompanies; i++){
         for(var j=0; j<yearLength; j++){
-            //データ取得
             var _revenue = companyData[i].revenue[j][1];  //[Million USD]
             var _capital = companyData[i].capital[j][1];  //[Million USD]
             var _assets  = companyData[i].assets[j][1];   //[Million USD]
-            //通貨・桁数
             var cRate, cDigit;
             switch(langKey){
                 case "Japan":
@@ -82,17 +78,16 @@ function ready(error, data1, data2) {
                     //USD
                     cRate = 1.0;
                     cDigit = 1e3;
-                    dLabel = "[Billion USD]";
+                    dLabel = "[B$]";
                     break;
             }
-            //変換＆書き換え
             companyData[i].revenue[j][1] = (_revenue / cRate) / cDigit;
             companyData[i].capital[j][1] = (_capital / cRate) / cDigit;
             companyData[i].assets[j][1]  = (_assets / cRate) / cDigit;
         }
     }
 
-    //最大・最小値
+    //value limit
     var minRevenue = 0,
         maxRevenue = 0,
         minProfitRate = -0.1,
@@ -138,7 +133,10 @@ function ready(error, data1, data2) {
         }
         return value_max;
     }
-    // Data - Visualize relation func.
+
+    /////////////////////////////////////
+    // Data - Visualize relation func. //
+    /////////////////////////////////////
     //x axis : revenue
     function xValue(d) {
         return d.revenue;
@@ -163,11 +161,11 @@ function ready(error, data1, data2) {
     function x2Value(d) {
         return d.year;
     }
-    //y2 axis : market cap. [兆円 or Billion USD]
+    //y2 axis : market cap.
     function y2Value(d) {
         return d.capital;
     }
-    //for label : total assets [兆円 or Billion USD]
+    //for label : total assets
     function assets(d) {
         return d.assets;        
     }
@@ -190,9 +188,10 @@ function ready(error, data1, data2) {
         return (_year > endYear) ? endYear - startYear : _year - startYear;   
     }
     
-
     
-    // 表示領域の設定
+    ////////////////////////
+    // Element definition //
+    ////////////////////////
     var margin = {
             top: 50,
             right: 200,
@@ -203,7 +202,7 @@ function ready(error, data1, data2) {
         height = 576 - margin.top;
         t_height = 300 - margin.bottom; //タイムラインの高さ
 
-    // スケーリング
+    // Scalling
     var xScale = d3.scale.sqrt()
         .domain([0, maxRevenue])
         .range([0, width]);
@@ -224,11 +223,11 @@ function ready(error, data1, data2) {
         .interpolate(d3.interpolateRgb)
         .range([d3.rgb(200, 0, 0), d3.rgb(0, 100, 200)]);
 
-    // 軌跡
+    // trace path
     var line = d3.svg.line()
         .x(function(d) { return xScale(xValue(d)); })
         .y(function(d) { return yScale(yValue(d)); });
-    // 時系列チャート
+    // market cap. chart
     var line2 = d3.svg.line()
         .x(function(d) { return tScale(x2Value(d));})
         .y(function(d) { return cScale(y2Value(d));});
@@ -237,71 +236,69 @@ function ready(error, data1, data2) {
         .y0(function(d) { return cScale(0);})
         .y1(function(d) { return cScale(y2Value(d));});
     
-    // X,Y軸
+    // X,Y Axis
     var xAxis = d3.svg.axis()
             .orient("bottom")
             .scale(xScale)
             .ticks(12, d3.format(",d"))
-            .innerTickSize(-height) // 目盛線の長さ（内側）
-            .outerTickSize(0) // 目盛線の長さ（外側）
-            .tickPadding(10); // 目盛線とテキストの間の長さ
+            .innerTickSize(-height)
+            .outerTickSize(0)
+            .tickPadding(10);
     var yAxis = d3.svg.axis()
             .scale(yScale)
             .orient("left")
-            .innerTickSize(-width) // 目盛線の長さ（内側）
-            .outerTickSize(0) // 目盛線の長さ（外側）
-            .tickPadding(10); // 目盛線とテキストの間の長さ
+            .innerTickSize(-width)
+            .outerTickSize(0)
+            .tickPadding(10);
     var tAxis = d3.svg.axis()
             .orient("bottom")
             .scale(tScale)
             //.tickValues([1981, 1985, 1990, 1995, 2000, 2005, 2010, 2015])
             .tickFormat(d3.format("04d"))
-            .innerTickSize(-t_height)  // 目盛線の長さ（内側）
-            .outerTickSize(0) // 目盛線の長さ（外側）
-            .tickPadding(5);  // 目盛線とテキストの間の長さ
+            .innerTickSize(-t_height)
+            .outerTickSize(0)
+            .tickPadding(5);
     var cAxis = d3.svg.axis()
             .scale(cScale)
             .orient("left")
-            .innerTickSize(-width)  // 目盛線の長さ（内側）
-            .outerTickSize(0) // 目盛線の長さ（外側）
-            .tickPadding(10); // 目盛線とテキストの間の長さ
+            .innerTickSize(-width)
+            .outerTickSize(0)
+            .tickPadding(10);
     
-    // チャート用SVGコンテナ作成
     var svg = d3.select("#chart").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    // タイムライン用SVGコンテナ作成
     var timeline = d3.select("#TimeLine").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", t_height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    // X軸の追加
+
+    //////////////////////////
+    // Element registration //
+    //////////////////////////
+    
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
-    // Y軸の追加
     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis);
-    // X軸(濃い色用)の追加
     svg.append("line")
         .attr("class", "axisLine")
         .attr("y1", height)
         .attr("y2", height)
         .attr("x1", 0)
         .attr("x2", width);
-    // Y軸(濃い色用)の追加
     svg.append("line")
         .attr("class", "axisLine")
         .attr("y1", 0)
         .attr("y2", height)
         .attr("x1", 0)
         .attr("x2", 0);
-    // 補助線（０％）の追加
     svg.append("line")
         .attr("y1",yScale(0))
         .attr("y2",yScale(0))
@@ -309,8 +306,6 @@ function ready(error, data1, data2) {
         .attr("x2",width)
         .style("stroke","gray")
         .append("title").text("Zero line");
-
-    // 凡例の追加
     var hanrei = svg.append("g")
         .attr("class", "hanrei")
         .attr("transform", "translate(" + margin.left + "," + (height - 110) + ")");
@@ -331,39 +326,31 @@ function ready(error, data1, data2) {
         .text(function(d){ return d + dLabel; })
         .text(function(d){ return d + dLabel; })
         .style("text-anchor", "middle");
-
-    // 時系列チャートY軸の追加
     timeline.append("g")
         .attr("class", "c axis")
         .call(cAxis);
-    // 時系列チャートX軸(濃い色用)の追加
     timeline.append("line")
         .attr("class", "axisLine")
         .attr("y1", t_height)
         .attr("y2", t_height)
         .attr("x1", 0)
         .attr("x2", width);
-    // 時系列チャートY軸(濃い色用)の追加
     timeline.append("line")
         .attr("class", "axisLine")
         .attr("y1", 0)
         .attr("y2", t_height)
         .attr("x1", 0)
         .attr("x2", 0);
-    // 時系列チャートX軸の追加
     timeline.append("g")
         .attr("class", "t axis")
         .attr("transform", "translate(0," + t_height + ")")
         .call(tAxis);
-    // 時系列チャートX軸ラベルの追加
     timeline.append("text")
         .attr("class", "t label")
         .attr("text-anchor", "end")
         .attr("x", width)
         .attr("y", t_height - 10)
         .text("年");
-
-    //　グラデーション
     var gradient = timeline.append("svg:defs")
         .append("svg:linearGradient")
         .attr("id", "gradient")
@@ -371,7 +358,6 @@ function ready(error, data1, data2) {
         .attr("y1", "0%")
         .attr("x2", "0%")
         .attr("y2", "100%");
-
     gradient.append("svg:stop")
         .attr("offset", "0%")
         .attr("stop-color", "#4682b4")
@@ -380,16 +366,12 @@ function ready(error, data1, data2) {
         .attr("offset", "100%")
         .attr("stop-color", "#4682b4")
         .attr("stop-opacity", 0);
-    
-    
-    // X軸ラベルの追加
     svg.append("text")
         .attr("class", "x label")
         .attr("text-anchor", "end")
         .attr("x", width)
         .attr("y", height - 6)
         .text(function(d){return ((langKey == "Japan") ? "売上高" : "Revenue") + dLabel;});
-    // Y軸ラベルの追加
     svg.append("text")
         .attr("class", "y label")
         .attr("text-anchor", "end")
@@ -397,7 +379,6 @@ function ready(error, data1, data2) {
         .attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
         .text(function(d){return ((langKey == "Japan") ? "営業利益率" : "Profit Rate") + "[%]";});
-    // 時系列チャートラベルの追加
     timeline.append("text")
         .attr("class", "c label")
         .attr("text-anchor", "end")
@@ -405,17 +386,13 @@ function ready(error, data1, data2) {
         .attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
         .text(function(d){return ((langKey == "Japan") ? "時価総額" : "Market Capital") + dLabel;});
-    // 年ラベルの追加
     var ylabel = svg.append("text")
         .attr("class", "year label")
         .attr("text-anchor", "end")
         .attr("y", height - 24)
         .attr("x", width)
         .text(startYear);
-
- 
-    // シナリオストーリー用ラベル
-    var senario = svg/*d3.select("#senario")*/
+    var senario = svg
                 .append("g")
                 .attr("class", "senario")
                 .attr("transform", "translate(" + (margin.left + 120) + "," + height + ")")
@@ -427,15 +404,12 @@ function ready(error, data1, data2) {
             return d[0];
         });
 
-    // 軌跡の追加
     var paths = svg.append("g").attr("class", "paths");
     for (i = 0; i < nCompanies; i++) {
         paths.append("path")
             .attr("d", line(getPath(startYear, i)))
             .attr("class", "path " + id(i));
     }
-
-    // 時系列チャートの追加
     var paths2 = timeline.append("g").attr("class", "paths2");
     for (i = 0; i < nCompanies; i++) {
         paths2.append("path")
@@ -449,8 +423,6 @@ function ready(error, data1, data2) {
             .attr("class", "area2 " + id(i))
             .attr("fill", "url(#gradient)");
     }
-
-    // シークボタンの追加
     var seeks = timeline.append("g").attr("class", "seeks")
         .selectAll("circle")
         .data(interpolateData(startYear))
@@ -458,7 +430,6 @@ function ready(error, data1, data2) {
         .attr("class", function(d) { return "seek " + d.id; })
         .attr("r", 10)
         .call(positionSeeks);
-    // シークラベルの追加
     var seekLabels = timeline.append("g").attr("class", "seekLabels")
         .selectAll("text")
         .data(interpolateData(startYear))
@@ -466,7 +437,7 @@ function ready(error, data1, data2) {
         .attr("class", function(d) { return "seek-label " + d.id; })
         .call(positionSeekLabels);
 
-    // プロット円の追加と色設定
+    // bubble
     var dot = svg.append("g")
         .attr("class", "dots")
         .selectAll(".dot")
@@ -480,7 +451,7 @@ function ready(error, data1, data2) {
         .call(positionDots)
         .sort(order);
 
-    // プロットラベルの追加
+    // bubble label
     var dotLabels_bg = svg.append("g").attr("class", "dotLabels_bg")
         .selectAll("text")
         .data(interpolateData(startYear))
@@ -515,72 +486,57 @@ function ready(error, data1, data2) {
         .attr("display", "inline")
         .call(positionLabels);
 
-
-    // 年代推移によるトランジション開始
+    
+    ////////////////////////
+    // Animation controll //
+    ////////////////////////    
     switch(playMode){
         case "senario":
             ANIMATION_TIME = 12*35*1000;
-            //シナリオモード
-            senarioDemo();
+            senarioDemo();      // Not Interactive mode
             break;
         case "default":
         default:
-            //インタラクティブモード
-            startAnimation();
+            startAnimation();   // Interactive mode
             break;
-    }    
-
-    //　アニメーション開始
+    }
     function startAnimation() {
-        startTime = Date.now(); //開始時間
+        startTime = Date.now();
         if(playMode=="default"){
             svg.transition()
-                .duration(ANIMATION_TIME)           //アニメーション時間
-                .ease("linear")                     //トランジション方式
-                .tween("year", tweenYear)           //アニメーションイベント
-                .each("start", enableInteraction)   //アニメーション中イベント
-                .each("end", enableInteraction);    //アイメーション後イベント        
+                .duration(ANIMATION_TIME)
+                .ease("linear")
+                .tween("year", tweenYear)
+                .each("start", enableInteraction)
+                .each("end", enableInteraction);
         }else{
             svg.transition()
-                .duration(ANIMATION_TIME)           //アニメーション時間
-                .ease("linear")                     //トランジション方式
-                .tween("year", tweenYear)           //アニメーションイベント
-                .each("end", enableInteraction);    //アイメーション後イベント                    
+                .duration(ANIMATION_TIME)
+                .ease("linear")
+                .tween("year", tweenYear)
+                .each("end", enableInteraction);
         }
     }
-
-    //　アニメーション一時停止
     function stopAnimation() {
-                //現在のトランジションを一旦停止
                 svg.transition().duration(0);
-                //経過時間
                 elapseTime = Date.now() - startTime;
-                // 残りアニメーション時間を更新
                 ANIMATION_TIME = ANIMATION_TIME - elapseTime;
-                // 開始年を直前までの更新
                 nowYear = nowYearG;            
     }
-
-
-    // マウスイベント制御
+    
+    ///////////////////////
+    // Mouse event func. //
+    ///////////////////////
     function enableInteraction() {
-        //キャンバス
         svg.on("dblclick", function(d, i){
-            //フィルタリセット
             filterReset();
             setDisplayAll();
         });
 
-
-        //円ラベル
         dotLabels
             .on("mouseover", function(d, i) {
-                //アニメーション一時停止
                 stopAnimation();
-
-                //年ラベル強調
                 ylabel.classed("active", true);
-                //軌跡&ラベルの強調
                 d3.select(".path." + d.id).classed("selected", true);
                 d3.select(".path2." + d.id).classed("selected", true);
                 d3.select(".seek." + d.id).classed("selected", true);
@@ -589,18 +545,12 @@ function ready(error, data1, data2) {
                 d3.select(".dot-label." + d.id).classed("selected", true);
                 d3.select(".dot-label2." + d.id).classed("selected", true);
                 
-                //ポップアップ表示
                 showPopover.call(this, d);
-                console.log(d.capital);
             })
             .on("mouseout", function(d) {
-
-                //アニメーション再開
                 startAnimation();
 
-               //年ラベル非強調
                 ylabel.classed("active", false);
-                //軌跡&ラベルの非強調
                 d3.select(".path." + d.id).classed("selected", false);            
                 d3.select(".path2." + d.id).classed("selected", false);
                 d3.select(".seek." + d.id).classed("selected", false);
@@ -608,47 +558,38 @@ function ready(error, data1, data2) {
                 d3.select(".dot." + d.id).classed("selected", false);
                 d3.select(".dot-label." + d.id).classed("selected", false);
                 d3.select(".dot-label2." + d.id).classed("selected", false);
-                //ポップアップ非表示
+
                 removePopovers();
             })            
             .on("click", function(d, i){
-                //アニメーション一時停止
                 stopAnimation();                    
-                //フィルタ強調表示
                 filterByCompany(d.id);
             });
 
-
-        //ドラッグ制御
         var drag = d3.behavior.drag()
             .origin(function(d) { return d; })
             .on("dragstart", dragstarted)
             .on("drag", dragged)
             .on("dragend", dragended);
-        //ドラッグ開始
         function dragstarted(d) {
             svg.transition().duration(0);
             d3.event.sourceEvent.stopPropagation();
             d3.select(this).classed("dragging", true);
         }
-        //ドラッグ中
         function dragged(d) {
-            //オブジェクト移動
             d3.select(this).attr("x", d.x = d3.event.x);
-            //平行移動分だけ年を変化
             displayYear(tScale.invert(d3.mouse(this)[0]));
         }
-        //ドラッグ終了
         function dragended(d) {
           d3.select(this).classed("dragging", false);
         }
-        //シークボタン
         seeks.call(drag);
-
     }
 
-
-    // プロット位置と半径の取得と表示制御
+    
+    ////////////////////////////
+    // Bubble position Funcs. //
+    ////////////////////////////    
     function positionDots(dot) {
         //表示位置
         dot
@@ -669,34 +610,29 @@ function ready(error, data1, data2) {
                 }
             });
     }
-    // ラベル位置の取得と表示制御
     function positionLabels(dotLabels) {
-        //表示位置
         dotLabels
             .attr("x", function(d) { return xScale(xValue(d)); })
             .attr("y", function(d) { return yScale(yValue(d)); });
     }
-    // シーク位置の取得と表示制御
     function positionSeeks(seeks) {
-        //表示位置
         seeks
             .attr("cx", function(d) { return tScale(x2Value(d)); })
             .attr("cy", function(d) { return cScale(y2Value(d)); });
     }
-    // シークラベル位置の取得と表示制御
     function positionSeekLabels(seekLabels) {
-        //表示位置
         seekLabels
             .attr("x", function(d) { return tScale(x2Value(d)); })
             .attr("y", function(d) { return cScale(y2Value(d)); });
     }
-    // 重なり順.
     function order(a, b) {
         return radius(b) - radius(a);
     }
 
-    // リアルタイム更新部分
-    // 最初のアニメーションが終了後に、補間されたデータ、ドット、ラベルを再描画
+    
+    ///////////////////
+    // Update Funcs. //
+    ///////////////////    
     function tweenYear() {
 
         var nowYearF = d3.interpolateNumber(nowYear, endYear);
@@ -704,9 +640,7 @@ function ready(error, data1, data2) {
             displayYear(nowYearF(t));
         };
     }
-    //表示の更新
     function displayYear(_yearF) {
-        //グローバル変数に現在の年（少数）を登録
         nowYearG = _yearF;
 
         dot.data(interpolateData(_yearF), key)
@@ -722,8 +656,6 @@ function ready(error, data1, data2) {
             areas2.select(".area2." + id(i))
                 .attr("d", area(getArea(_yearF, i)));
         }
-
-
         dotLabels_bg
             .data(interpolateData(_yearF), key)
             .attr("opacity", function(d) {return d.opacity * 2;})
@@ -754,12 +686,10 @@ function ready(error, data1, data2) {
                     return "none";
             })
             .sort(order);
-
         seeks
             .data(interpolateData(_yearF), key)
             .attr("opacity", function(d) {return d.opacity;})
             .call(positionSeeks);
-
         seekLabels
             .data(interpolateData(_yearF), key)
             .attr("opacity", function(d) {return d.opacity;})
@@ -768,10 +698,13 @@ function ready(error, data1, data2) {
             })
             .call(positionSeekLabels);                
 
-        //年ラベル
-        ylabel.text(Math.floor(_yearF));  //小数点切り捨て 
+        //display Year
+        ylabel.text(Math.floor(_yearF));
     }
-    // 与えられた年代に該当する各データ要素を返す
+    
+    ////////////////////////
+    // Interpolate Funcs. //
+    ////////////////////////
     function interpolateData(_yearF) {
         return companyData.map(function(d) {
             return {
@@ -797,58 +730,42 @@ function ready(error, data1, data2) {
             };
         });
     }
-
-
-    // 各年代データを線形に補間（連続値となるように）
-    // flgCurrency：trueなら 通貨レート変換を有効化
     function interpolateValues(values, _yearF, flg) {
-        //補間したい基準値
         var i = bisect.left(values, _yearF, 0, values.length - 1);
         var nextYear = values[i][0];
         var nextValue = values[i][1];
         var lastYear  = (i==0) ? nextYear : values[i - 1][0];
         var lastValue = (i==0) ? 0 : values[i - 1][1];
 
-        //補間計算
-        var weight = _yearF - lastYear;   //比率
+        var weight = _yearF - lastYear;
 
         switch(flg){
             case "revenue":
             case "assets":
             case "profit":
                 if(lastValue == 0 && nextValue != 0)
-                    //初めてデータが現れる時は補間せず初期値で
                     return nextValue;
                 else if(lastValue != 0 && nextValue == 0){
-                    //最後にデータが現れるときは補間せず最終値で    
                     return lastValue;
                 }else{
-                    //線形補間
                     return lastValue * (1 - weight) + nextValue * weight;
                 }
                 break;
-
             case "profitRate":
             case "capital_changeRate":
                 if(lastValue == 0 && nextValue != 0)
-                    //初めてデータが現れる時は補間せず初期値で
                     return nextValue;
                 else if(lastValue != 0 && nextValue == 0){
-                    //最後にデータが現れるときは補間せず最終値で    
                     return lastValue;
                 }else{
-                    //線形補間
                     return lastValue * (1 - weight) + nextValue * weight;
                 }
                 break;
-
             case "capital":
                 if (i!=0)
-                    //lastValue = 0; //前回：非表示→今回：表示の時
                     lastValue = values[i - 1][1];
                 return lastValue * (1 - weight) + nextValue * weight;
                 break;
-
             case "opacity":
                 var Omax = 0.7, Omin = 0.0;
                 if(nextValue != 0 && lastValue == 0)
@@ -860,32 +777,29 @@ function ready(error, data1, data2) {
                 break;
         }
     }
-
     // Get Sequence Data
     function getPath(_yearF, company_index) {
         var currData = [];
-        var nextYear = Math.ceil(_yearF); //少数点切り上げ
-        var lastYear = Math.floor(_yearF); //小数点切り捨て
+        var nextYear = Math.ceil(_yearF);
+        var lastYear = Math.floor(_yearF);
         for ( j = 0; j < yearLength; j++){
             if ((startYear + j) < nextYear || lastYear == nextYear) {
-                //既に通り過ぎた年度 or 年度ピッタリのとき
                 var _revenue = companyData[company_index].revenue[j][1],
                 _profitRate = companyData[company_index].profitRate[j][1];                
-                    if(_revenue > 0){    //データがある時
+                    if(_revenue > 0){
                     currData.push({
                         revenue: _revenue,
                         profitRate: _profitRate
                     });
                 }
-                if(startYear == nextYear) break; //開始時
+                if(startYear == nextYear) break;
             } else if ((startYear + j) == nextYear) {
-                //現在表示中の年度（途中なので線形補間）
                 var nextRevenue = companyData[company_index].revenue[j][1] ,
                     lastRevenue = companyData[company_index].revenue[j-1][1],
                     nextProfitRate = companyData[company_index].profitRate[j][1], 
                     lastProfitRate = companyData[company_index].profitRate[j-1][1];
                 var weight = _yearF - lastYear;
-                if(lastRevenue > 0 || nextRevenue > 0)  //データがある時
+                if(lastRevenue > 0 || nextRevenue > 0)
                     currData.push({
                         revenue: lastRevenue * (1 - weight) + nextRevenue * weight,
                         profitRate: lastProfitRate * (1 - weight) + nextProfitRate * weight
@@ -895,30 +809,25 @@ function ready(error, data1, data2) {
         }
         return currData;
     }
-
     function getPath2(_yearF, company_index) {
         var currData = [];
-        var nextYear = Math.ceil(_yearF); //少数点切り上げ
-        var lastYear = Math.floor(_yearF); //小数点切り捨て
+        var nextYear = Math.ceil(_yearF);
+        var lastYear = Math.floor(_yearF);
         for ( j = 0; j < yearLength; j++) {
             if ((startYear + j) < nextYear || lastYear == nextYear) {
-                //既に通り過ぎた年度 or 年度ピッタリのとき
                 var _year = companyData[company_index].capital[j][0],
                     _capital = companyData[company_index].capital[j][1];
-
-                if(_capital > 0)    //データがある時
+                if(_capital > 0)
                     currData.push({
                         year: _year,
                         capital: _capital
                     });
-                if(startYear == nextYear) break; //開始時
+                if(startYear == nextYear) break;
             } else if ((startYear + j) == nextYear) {
-                //現在表示中の年度（途中なので線形補間）
                 var weight = _yearF - lastYear;
                 var nextCap = companyData[company_index].capital[j][1];
                 var lastCap = companyData[company_index].capital[j-1][1];
-
-                if(lastCap > 0 || nextCap > 0) //データがある時
+                if(lastCap > 0 || nextCap > 0)
                     currData.push({
                         year: _yearF,
                         capital: lastCap * (1 - weight) + nextCap * weight
@@ -928,30 +837,25 @@ function ready(error, data1, data2) {
         }
         return currData;
     }
-
     function getArea(_yearF, company_index) {
         var currData = [];
-        var nextYear = Math.ceil(_yearF); //少数点切り上げ
-        var lastYear = Math.floor(_yearF); //小数点切り捨て
+        var nextYear = Math.ceil(_yearF);
+        var lastYear = Math.floor(_yearF);
         for ( j = 0; j < yearLength; j++) {
             if ((startYear + j) < nextYear || lastYear == nextYear) {
-                //既に通り過ぎた年度 or 年度ピッタリのとき
                 var _year = companyData[company_index].capital[j][0],
                     _capital = companyData[company_index].capital[j][1];
-
-                if(_capital > 0)    //データがある時
+                if(_capital > 0)
                     currData.push({
                     year: _year,
                     capital: _capital
                 });
-                if(startYear == nextYear) break; //開始時
+                if(startYear == nextYear) break;
             } else if ((startYear + j) == nextYear) {
-                //現在表示中の年度（途中なので線形補間）
                 var weight = _yearF - lastYear;
                 var nextCap = companyData[company_index].capital[j][1];
                 var lastCap = companyData[company_index].capital[j-1][1];
-
-                if(lastCap > 0 || nextCap > 0)  //データがある時
+                if(lastCap > 0 || nextCap > 0)
                     currData.push({
                         year: _yearF,
                         capital: lastCap * (1 - weight) + nextCap * weight
@@ -961,7 +865,11 @@ function ready(error, data1, data2) {
         }
         return currData;
     }
-    //各企業の最大時価総額
+    
+
+    /////////////////
+    // Other Func. //
+    /////////////////
     function maxCapitalById(_id) {
         var maxCap = 0;
         var currCap;
@@ -972,441 +880,59 @@ function ready(error, data1, data2) {
         return maxCap;
     }    
 
-    //シナリオモード
-    function senarioDemo(){
 
-        var SecPerYear = ANIMATION_TIME/35 + 350*2;
-        var HighlightTime = SecPerYear * 0.3;
-
-        startAnimation();
-
-        //1982
-        setTimeout(function(){
-            filterByCompany("NEC");
-            senario.text("NEC：PC-9800シリーズ発売");
-
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-
-        },SecPerYear);
-
-        //1983
-        setTimeout(function(){
-            filterByCompany("CASIO");
-            senario.text("カシオ：腕時計「G-SHOCK」発売");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*2);
-
-        //1984
-        setTimeout(function(){
-            filterByCompany("KYOCERA");
-            senario.text("京セラ：第二電電（DDI）設立。後にKDD、IDOと合併し、KDDIとなる");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*3);
-
-        //1985
-        setTimeout(function(){
-            filterByCompany("TOSHIBA");
-            filterByCompany("INTEL");
-            senario.text("インテル：DRAM事業撤退。CPUの開発・生産に経営資源を集中　/　東芝：世界初1メガDRAM開発。メモリ開発分野で世界トップへ");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime*1.5);
-        },SecPerYear*4);
-
-        //1986
-        setTimeout(function(){
-            filterByCompany("FUJIFILM");
-            senario.text("富士フィルム：レンズ付きフィルム「写ルンです」発売");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*5);
-
-        //1987
-        setTimeout(function(){
-            filterByCompany("NEC");
-            senario.text("NEC：家庭用ゲーム機「PCエンジン」発売");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*6);
-
-        //1988
-        setTimeout(function(){
-            filterByCompany("PANASONIC");
-            senario.text("パナソニック：家電を「National」ブランドから「Panasonic」ブランドへ移行");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*7);
-
-        //1989
-        setTimeout(function(){
-            filterByCompany("SONY");
-            senario.text("ソニー：コロンビア・ピクチャーズ・エンタテイメントを買収し映画事業に参入");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*8);
-
-        //1990
-        setTimeout(function(){
-            filterByCompany("PIONEER");
-            senario.text("パイオニア：世界初のGPSカーナビゲーション発売");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*9);
-
-        //1991
-        setTimeout(function(){
-            filterByCompany("IBM");
-            senario.text("IBM：メインフレームの業績悪化により49億ドルの損失発表。当時、米国史上最悪値を記録");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*10);
-
-        //1992
-        setTimeout(function(){
-            senario.text("日本ではバブル景気崩壊");
-        },SecPerYear*11);
-
-        //1993
-        setTimeout(function(){
-            filterByCompany("INTEL");
-            senario.text("インテル：x86向け第5世代CPU「Pentium」を発売");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*12);
-
-        //1994
-        setTimeout(function(){
-            filterByCompany("SONY");
-            senario.text("ソニー：家庭用ゲーム機「PlayStation」発売");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*13);
-
-        //1995
-        setTimeout(function(){
-            filterByCompany("MICROSOFT");
-            senario.text("マイクロソフト：Windows 95 発売");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*14);
-
-        //1996
-        setTimeout(function(){
-            filterByCompany("ERICSSON");
-            senario.text("エリクソン：ソニーと合弁でソニー・エリクソン設立。携帯事業へ進出");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*15);
-
-        //1997
-        setTimeout(function(){
-            filterByCompany("APPLE");
-            senario.text("アップル：スティーブ・ジョブズ復帰。iMac発表やロゴデザイン一新など新生Appleを印象付ける");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*16);
-
-        //1998
-        setTimeout(function(){
-            filterByCompany("NOKIA");
-            senario.text("ノキア：エリクソン等と共同でシンビアン社設立。同社OSは日本のフューチャーフォンに多く採用。13年間にわたり携帯シェア世界トップに君臨");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime*1.5);
-        },SecPerYear*17);
-
-        //1999
-        setTimeout(function(){
-            filterByCompany("MICROSOFT");
-            senario.text("マイクロソフト：1999年12月30日 時価総額が史上最高額を塗り替える");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*18);
-
-        //2000
-        setTimeout(function(){
-            filterByCompany("CISCO");
-            senario.text("シスコ：時価総額5,000億US$に達し、マイクロソフトを抜き世界一");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*19);
-
-        //2001
-        setTimeout(function(){
-            senario.text("ITバブル崩壊。その後、「選択と集中」の名のもと、電機業界の再編が加速してゆく");
-        },SecPerYear*20);
-
-        //2002
-        setTimeout(function(){
-            filterByCompany("HP");
-            senario.text("HP：コンピュータ大手コンパックを買収");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*21);
-
-        //2003
-        setTimeout(function(){
-            filterByCompany("HITACHI");
-            senario.text("日立：IBM HDD部門を買収。三菱電機と半導体合弁ルネサステクノロジ設立");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*22);
-
-        //2004
-        setTimeout(function(){
-            filterByCompany("LENOVO");
-            senario.text("レノボ：IBM PC部門を買収");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*23);
-
-        //2005
-        setTimeout(function(){
-            filterByCompany("SIEMENS");
-            senario.text("シーメンス：携帯部門を台湾BenQへ売却");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*24);
-
-        //2006
-        setTimeout(function(){
-            filterByCompany("TOSHIBA");
-            senario.text("東芝：米ウェスティングハウス買収。原子力発電世界三大メーカーの一角へ");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*25);
-
-        //2007
-        setTimeout(function(){
-            filterByCompany("APPLE");
-            senario.text("アップル：iPhone 発表");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*26);
-
-        //2008
-        setTimeout(function(){
-            senario.text("リーマンショックによる世界金融危機。スマホ時代の幕開けとともに、多くの国内メーカーの携帯事業が失速");
-        },SecPerYear*27);
-
-        //2009
-        setTimeout(function(){
-            filterReset();
-            setDisplayAll();
-
-            filterByCompany("SANYO");
-            senario.text("三洋電機：パナソニックによる完全子会社化が決定");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*28);
-
-        //2010
-        setTimeout(function(){
-            filterByCompany("ORACLE");
-            senario.text("オラクル：Javaやワークステーションで知られる米IT大手サン・マイクロシステムズ買収");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*29);
-
-        //2011
-        setTimeout(function(){
-            filterByCompany("FUJITSU");
-            senario.text("富士通：理研と共同でスーパーコンピュータ「京」を開発。世界一を奪還");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*30);
-
-        //2012
-        setTimeout(function(){
-            filterByCompany("APPLE");
-            filterByCompany("SAMSUNG");
-            senario.text("アップルは時価総額世界1位に。サムスンとアップルの特許訴訟は泥仕合の様相へ");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime*1.5);
-        },SecPerYear*31);
-
-        //2013
-        setTimeout(function(){
-            filterByCompany("DELL");
-            senario.text("デル：上場廃止。非公開株化");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*32);
-
-        //2014
-        setTimeout(function(){
-            filterByCompany("LENOVO");
-            filterByCompany("NOKIA");
-            senario.text("ノキア：携帯部門をマイクロソフトへ売却　／　レノボ：Googleから携帯部門モトローラ・モビリティを買収");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime*1.5);
-        },SecPerYear*33);
-
-        //2015
-        setTimeout(function(){
-            filterByCompany("TOSHIBA");
-            senario.text("東芝：不適切会計問題発覚");
-            setTimeout(function(){
-                senario.text("");
-                filterReset();
-                setDisplayAll();
-            }, HighlightTime);
-        },SecPerYear*34);
-
-    }
-
-    //可視化制御フィルタの初期化
+    //Reset
     filterReset();
-
 };
 
-//////////////////////////////////////////////////
-// 補助関数群
-//////////////////////////////////////////////////
+//////////////////
+// Filter Func. //
+//////////////////
 var filterKeyArea = [];
 var filterKeyCompany = [];
 var filterKeyCategory = [];
-var companies_highlight = [];    // ハイライト対象の企業一覧
-var VS_NUM = 2;            //比較数
-var flgHighLight = false;           //強調表示中のフラグ（全表示、デフォルトはfalseへ）
+var companies_highlight = [];
+var VS_NUM = 2;
+var flgHighLight = false;
 
-//フィルタキーの初期化
 function initFilterKey(){
     filterKeyArea = [];
     filterKeyCompany = [];
     filterKeyCategory = [];
 }
-//可視化フラグの初期化
 function initFlag(){
     for(var i=0; i<nCompanies; i++)
-        companies_highlight[i] = false; //インデックスiがsheares[i]とリンク        
+        companies_highlight[i] = false;
 }
-//全表示に戻す時
 function filterReset(){
     initFlag();
     initFilterKey();
-    flgHighLight = false; //強調表示フラグの初期化
+    flgHighLight = false;
 }
-
-//カテゴリによるフィルタ
 function filterByCompanyCategory(keyCategory){
-    //強調表示フラグON
     flgHighLight = true;
 
-    //フィルタキー存在確認
     var flgAlready = false;
     for(var i=0; i<filterKeyCategory.length; i++)
         if(filterKeyCategory[i] == keyCategory)
             flgAlready = true;
-    //フィルタキー追加（既出の時は何もしない）
+
     if(!flgAlready){
         if(filterKeyCategory.length == VS_NUM)
-            filterKeyCategory.shift();  //先頭押出し
-        filterKeyCategory.push(keyCategory);    //追加
+            filterKeyCategory.shift();
+        filterKeyCategory.push(keyCategory);
 
         for(var i=0; i<nCompanies; i++){
-            companies_highlight[i] = false; //一旦リセット
+            companies_highlight[i] = false;
             for(var j=0; j<filterKeyCategory.length; j++)
                 if(companyData[i].category_us == filterKeyCategory[j])
                     companies_highlight[i] = true;                       
         }
     }
 
-    //ボタンの強調表示(直接指定のもののみ)
-    d3.selectAll("a").classed("highlight", false);  //一旦リセット
+    d3.selectAll("a").classed("highlight", false);
     for(var i=0; i<filterKeyCategory.length; i++){
-        //空白入りのIDを指定するために置換
+        //Replace space in id name by escape sequence
         var id_name = filterKeyCategory[i];
         id_name = id_name.replace(/ /g,'\\ ');
         d3.select("#filters_company_category")
@@ -1414,74 +940,57 @@ function filterByCompanyCategory(keyCategory){
             .classed("highlight", true);
     }
 
-    //強調表示
     setHighLight();
-    //非強調表示
     setUnHighLight();
 }
-
-//企業IDによるフィルタ
 function filterByCompany(keyCompany){
-    //強調表示フラグON
     flgHighLight = true;
 
-    //フィルタキー存在確認
     var flgAlready = false;
     for(var i=0; i<filterKeyCompany.length; i++)
         if(filterKeyCompany[i] == keyCompany)
             flgAlready = true;
-    //フィルタキー追加（既出の時は何もしない）
+
     if(!flgAlready){
         if(filterKeyCompany.length == VS_NUM)
-            filterKeyCompany.shift();   //先頭押出し
-        filterKeyCompany.push(keyCompany);  //追加
+            filterKeyCompany.shift();
+        filterKeyCompany.push(keyCompany);
 
         for(var i=0; i<nCompanies; i++){
-            companies_highlight[i] = false; //一旦リセット
+            companies_highlight[i] = false;
             for(var j=0; j<filterKeyCompany.length; j++)
                 if(companyData[i].id == filterKeyCompany[j])
                     companies_highlight[i] = true;
         }
     }
 
-    //ボタンの強調表示(直接指定のもののみ)
-    d3.selectAll("a").classed("highlight", false);  //一旦リセット
+    d3.selectAll("a").classed("highlight", false);
     for(var i=0; i<filterKeyCompany.length; i++){
         d3.select("#filters_company")
             .select("a." + filterKeyCompany[i])
             .classed("highlight", true);
     }
 
-
-    //強調表示
     setHighLight();
-    //非強調表示
     setUnHighLight();
 }
-//エリアによるフィルタ
 function filterByArea(keyArea){
-    //強調表示フラグON
     flgHighLight = true;
 
-    //フィルタキー存在確認
     var flgAlready = false;
     for(var i=0; i<filterKeyArea.length; i++)
         if(filterKeyArea[i] == keyArea)
             flgAlready = true;
 
-
-    //フィルタキー追加（既出の時は何もしない）
     if(!flgAlready){
         if(filterKeyArea.length == VS_NUM)
-            filterKeyArea.shift();   //先頭押出し
-        filterKeyArea.push(keyArea);  //追加
+            filterKeyArea.shift();
+        filterKeyArea.push(keyArea);
 
-
-        //当該地域に属する企業のフラグをON
         for(var i=0; i<nCompanies; i++){
-            companies_highlight[i] = false; //一旦リセット
+            companies_highlight[i] = false;
             for(var j=0; j<filterKeyArea.length; j++){
-                var coutryList = getCompanyList(filterKeyArea[j]);//国名リスト取得
+                var coutryList = getCompanyList(filterKeyArea[j]);
                 for(var k=0; k<coutryList.length; k++)
                     if(companyData[i].country_us == coutryList[k])
                         companies_highlight[i] = true;
@@ -1489,21 +998,17 @@ function filterByArea(keyArea){
         }
     }
 
-    //ボタンの強調表示(直接指定のもののみ)
-    d3.selectAll("a").classed("highlight", false);  //一旦リセット
+    d3.selectAll("a").classed("highlight", false);
     for(var i=0; i<filterKeyArea.length; i++){
         d3.select("#filters_company")
             .select("a#" + filterKeyArea[i])
             .classed("highlight", true);
     }
 
-    //強調表示
     setHighLight();
-    //非強調表示
     setUnHighLight();
 }
 
-//指定地域に適合した国名フィルターを作成
 function getCompanyList(keyArea){
     var arr;
     switch(keyArea){
@@ -1525,9 +1030,8 @@ function getCompanyList(keyArea){
     }
     return arr;
 }
-//全表示（通常表示）
+
 function setDisplayAll(){
-    //非強調解除
     d3.selectAll(".dot").classed("un-highlight", false);
     d3.selectAll(".path").classed("un-highlight", false);
     d3.selectAll(".path2").classed("un-highlight", false);
@@ -1537,7 +1041,7 @@ function setDisplayAll(){
     d3.selectAll(".dot-label").classed("un-highlight", false);
     d3.selectAll(".dot-label_bg").classed("un-highlight", false);
     d3.selectAll(".dot-label2").classed("un-highlight", false);
-    //強調解除
+    
     d3.selectAll(".dot").classed("highlight", false);
     d3.selectAll(".path").classed("highlight", false);
     d3.selectAll(".path2").classed("highlight", false);
@@ -1551,7 +1055,6 @@ function setDisplayAll(){
     d3.selectAll("a").classed("highlight", false);
 }
 
-//非強調表示
 function setUnHighLight(){
     for(var i=0; i<nCompanies; i++){
         if(!companies_highlight[i]){
@@ -1567,7 +1070,6 @@ function setUnHighLight(){
             var dotLabel2_unselected = d3.selectAll(".dot-label2." + company_id);
             var button_unselected = d3.select("#filters_company").selectAll("a." + company_id);
 
-            //強調解除
             dot_unselected.classed("highlight", false);
             path_unselected.classed("highlight", false);
             path2_unselected.classed("highlight", false);
@@ -1578,7 +1080,6 @@ function setUnHighLight(){
             dotLabel2_unselected.classed("highlight", false);
             button_unselected.classed("selected", false);
 
-            //非強調
             dot_unselected.classed("un-highlight", true);
             path_unselected.classed("un-highlight", true);
             path2_unselected.classed("un-highlight", true);
@@ -1593,7 +1094,6 @@ function setUnHighLight(){
     }
 }
 
-//強調表示
 function setHighLight(){
     for(var i=0; i<nCompanies; i++){
         if(companies_highlight[i]){
@@ -1609,7 +1109,6 @@ function setHighLight(){
             var dotLabel2_selected = d3.selectAll(".dot-label2." + company_id);
             var button_selected = d3.select("#filters_company").selectAll("a." + company_id);
 
-            //非強調解除
             dot_selected.classed("un-highlight", false);
             path_selected.classed("un-highlight", false);
             path2_selected.classed("un-highlight", false);
@@ -1620,7 +1119,7 @@ function setHighLight(){
             dotLabel_bg_selected.classed("un-highlight", false);
             dotLabel2_selected.classed("un-highlight", false);
             //button_selected.classed("un-highlight", false);
-            //強調
+
             dot_selected.classed("highlight", true);
             path_selected.classed("highlight", true);
             path2_selected.classed("highlight", true);
@@ -1634,14 +1133,15 @@ function setHighLight(){
     }
 }
 
-//ポップアップラベル非表示関数
+
+/////////////////
+// Popup Func. //
+/////////////////
 function removePopovers () {
     $('.popover').each(function() {
         $(this).remove();
     }); 
 }
-
-//ポップアップラベル表示関数
 function showPopover (d) {
     
     var name = (langKey=="Japan") ? d.name_jp : d.name_us;
@@ -1655,7 +1155,7 @@ function showPopover (d) {
     var assets = formatT1(d.assets);
     var capital = formatT1(d.capital);
     
-    $(this).popover({
+    var popParam = {
         placement: 'auto top',
         container: 'body',
         trigger: 'manual',
@@ -1683,9 +1183,11 @@ function showPopover (d) {
             "<br/>REVENUE[B$]: <val>" + revenue + "</val>" + 
             "<br/>OPT. PROFIT[B$]: <val>" + profit + "</val>" + 
             "<br/>ASSETS[B$]: <val>" + assets + "</val>" + 
-            "<br/>MARKET CAP.[M$]: <val>" + capital
+            "<br/>MARKET CAP.[B$]: <val>" + capital
             ; 
-        }
-    });
-    $(this).popover('show')
+            }
+        }    
+    $(this).popover(popParam);   //set
+    $(this).data('bs.popover').options.content = popParam.content;   //update
+    $(this).popover('show');    //display
 }

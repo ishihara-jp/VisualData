@@ -78,41 +78,44 @@
     </div>
     <div>
         <span class="note">
-        <br/>出典：  会社四季報(東洋経済新報社), 
-                    日経会社情報(日本経済新聞社), 
-                    米国証券取引所, 
-                    Yahoo!Finance, 
-                    GuruFocus.com, 
-                    Xignite.com, 
-                    Ycharts.com, 
-                    Wikinvest.com, 
-                    4-traders.com, 
-                    各社決算短信・有価証券報告書, 
-                    etc.
-        <br/>参考：　<a href="http://romsson.github.io/dragit/example/nations.html">Draggable scatterplot with motion trails</a>
-                    , <a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20121219/445522/">富士通、復活への正念場（日経コンピュータ2012年8月30日号）</a>
+        <br/>出典: 
+            会社四季報(東洋経済新報社), 
+            日経会社情報(日本経済新聞社), 
+            各社決算短信・有価証券報告書, 
+            米国証券取引所, 
+            Yahoo!Finance, 
+            GuruFocus.com, 
+            Xignite.com, 
+            Ycharts.com, 
+            Wikinvest.com, 
+            4-traders.com, 
+            etc.
+        <br/>参考: 
+            <a href="http://romsson.github.io/dragit/example/nations.html">
+                Draggable scatterplot with motion trails
+            </a>
+            , 
+            <a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20121219/445522/">
+                富士通、復活への正念場（日経コンピュータ2012年8月30日号）
+            </a>
         </span>
     </div>    
     
     <div id="chart"></div>
     <div id="TimeLine"></div>
     
-    <!--
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
--->
     <script type="text/javascript" src="javascripts/jquery.js" charset="utf-8"></script>
     <script type="text/javascript" src="javascripts/d3.v3.js" charset="utf-8"></script>
     <script type="text/javascript" src="javascripts/queue.v1.min.js"></script>
     <script type="text/javascript" src="javascripts/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/Senario.js" charset="utf-8"></script>
     <script type="text/javascript" src="javascripts/HistoricalBubbleChart.js" charset="utf-8"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         //Language
-        //setLangKey("Japan");
-        setLangKey("English");
+        setLangKey("Japan");
         
         //playMode
-        //setPlayMode("senario");
         setPlayMode("default");
         
         //click on companie's category button

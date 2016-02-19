@@ -2,7 +2,7 @@
 <html>
 <meta charset="utf-8">
 <head>
-    <title>世界の電機メーカーの総資産の変遷</title>
+    <title>The 35 year's History of Electronics Companies' Assets</title>
     <link href="stylesheets/bootstrap.css" rel="stylesheet" charset="utf-8">
     <link href="stylesheets/GeographicalBubbleChart.css" rel="stylesheet" charset="utf-8">
     <script type="text/javascript" src="javascripts/GoogleAnalytics.js" charset="utf-8"></script>
@@ -11,23 +11,24 @@
     <center>
         <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-primary active" id="3DMap">
-                <input type="radio" name="options"> 3D地図
+                <input type="radio" name="options"> 3D Map
             </label>
             <label class="btn btn-primary" id="2DMap">
-                <input type="radio" name="options"> 2D地図
-            </label>            
-            <label class="btn btn-primary" id="area_jp">
-                <input type="radio" name="options"> エリア
-            <label class="btn btn-primary" id="category_jp">
-                <input type="radio" name="options"> タイプ
+                <input type="radio" name="options"> 2D Map
+            </label>
+            <label class="btn btn-primary" id="area_us">
+                <input type="radio" name="options"> Region
+            </label>
+            <label class="btn btn-primary" id="category_us">
+                <input type="radio" name="options"> Type
             </label>
         </div>
-
+        
         <div id="map"></div>
         <div id="info"></div>
         
     </center>
-        
+
     <!--
     <div>
         <span class="note">
@@ -49,7 +50,7 @@
     <script type="text/javascript" src="javascripts/GeographicalBubbleChart.js" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
-        setLangKey("Japan"); 
+        setLangKey("English");
     });
     </script>
 </body>

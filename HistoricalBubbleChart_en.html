@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The 35 year's History of Electronics Companies' Financial Statements</title>
+    <link href="stylesheets/bootstrap.css" rel="stylesheet" charset="utf-8">
+    <link href="stylesheets/HistoricalBubbleChart.css" rel="stylesheet" charset="utf-8">
+    <script type="text/javascript" src="javascripts/GoogleAnalytics.js" charset="utf-8"></script>
+</head>
+<body>
+    <h1>The 35 year's History of Electronics Companies' Financial Statements</h1>
+    <div id="filters">
+        <div id="filters_company_category">
+            <a id="ALL" class="reset">RESET</a>
+            <a id="Heavy electronics">Heavy</a>
+            <a id="Consumer electronics">Comsumer</a>
+            <a id="Computer hard technology">ICT(hard)</a>
+            <a id="Computer soft technology">ICT(soft)</a>
+            <a id="Audio-visual electronics">AV</a>
+            <a id="Semiconductor electronics">Semicon</a>
+            <a id="Photonics">Photonics</a>
+            <a id="Telecommunications equipment">Telecom</a>
+            <a id="Precision manufacturing">Precision</a>
+            <a id="Electronics manufacturing">EMS/Fab</a>
+        </div>
+        <div id="filters_company">
+            <div>
+            <a id="JAPAN" class="group">JAPAN</a>
+            <a id="HITACHI" class="HITACHI">Hitachi</a>
+            <a id="TOSHIBA" class="TOSHIBA">Toshiba</a>
+            <a id="MITSUBISHI" class="MITSUBISHI">Mitsubishi</a>
+            <a id="PANASONIC" class="PANASONIC">Panasonic</a>
+            <a id="SHARP" class="SHARP">Sharp</a>
+            <a id="SONY" class="SONY">Sony</a>
+            <a id="PIONEER" class="PIONEER">Pioneer</a>
+            <a id="FUJITSU" class="FUJITSU">Fujitsu</a>
+            <a id="NEC" class="NEC">NEC</a>
+            <a id="FUJIFILM" class="FUJIFILM">FujiFilm</a>
+            <a id="CANON" class="CANON">Canon</a>
+            <a id="RICOH" class="RICOH">Ricoh</a>
+            <a id="CASIO" class="CASIO">Casio</a>
+            <a id="EPSON" class="EPSON">Epson</a>
+            <a id="KYOCERA" class="KYOCERA">Kyocera</a>
+            <a id="SANYO" class="SANYO">Sanyo</a>
+            </div>
+            <div>
+            <a id="USA" class="group">USA</a>
+            <a id="GE" class="GE">GE</a>
+            <a id="IBM" class="IBM">IBM</a>
+            <a id="MICROSOFT" class="MICROSOFT">Microsoft</a>
+            <a id="INTEL" class="INTEL">Intel</a>
+            <a id="APPLE" class="APPLE">Apple</a>
+            <a id="DELL" class="DELL">Dell</a>
+            <a id="CISCO" class="CISCO">Cisco</a>
+            <a id="HP" class="HP">HP</a>
+            <a id="ORACLE" class="ORACLE">Oracle</a>
+            <a id="AMAZON" class="AMAZON">Amazon</a>
+            <a id="GOOGLE" class="GOOGLE">Google</a>
+            </div>
+            <div>
+            <a id="EU" class="group">EU</a>
+            <a id="SIEMENS" class="SIEMENS">Siemens</a>
+            <a id="ERICSSON" class="ERICSSON">Ericsson</a>
+            <a id="PHILIPS" class="PHILIPS">Philips</a>
+            <a id="NOKIA" class="NOKIA">Nokia</a>
+            </div>
+            <div>
+            <a id="ASIA" class="group">ASIA</a>
+            <a id="SAMSUNG" class="SAMSUNG">Samsung</a>
+            <a id="LG" class="LG">LG</a>
+            <a id="LENOVO" class="LENOVO">Lenovo</a>
+            <a id="HAIER" class="HAIER">Haier</a>
+            <a id="FOXCONN" class="FOXCONN">Foxconn</a>
+            <a id="TSMC" class="TSMC">TSMC</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <span class="note">
+        <br/>Source: Japan Company Handbook (Toyokeizai), 
+                    Nkkei Kaisya Jyoho (Nikkei), 
+                    U.S. Securities and Exchange Commission, 
+                    Consolidated Financial Results,
+                    Annual Securities report, 
+                    Yahoo!Finance, 
+                    GuruFocus.com, 
+                    Xignite.com, 
+                    Ycharts.com, 
+                    Wikinvest.com, 
+                    4-traders.com, 
+                    etc.
+        <br/>Reference: <a href="http://romsson.github.io/dragit/example/nations.html">Draggable scatterplot with motion trails</a>
+                    , <a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20121219/445522/">Nikkei Computer (30th Aug. 2012)</a>
+        </span>
+    </div>    
+    
+    <div id="chart"></div>
+    <div id="TimeLine"></div>
+    
+    <script type="text/javascript" src="javascripts/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/d3.v3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/queue.v1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/Senario.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/HistoricalBubbleChart.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        //Language
+        setLangKey("English");
+        
+        //playMode
+        setPlayMode("default");
+        
+        //click on companie's category button
+        $('#filters_company_category a').click(function() {
+            var c_categoryId = $(this).attr("id");
+            switch(c_categoryId){
+                case "ALL":
+                    filterReset();
+                    setDisplayAll();
+                    break;
+                default:
+                    filterByCompanyCategory(c_categoryId);
+                    break;
+            }
+        });
+        //click on company button
+        $('#filters_company a').click(function() {
+            var companyId = $(this).attr("id");
+            switch(companyId){
+                case "JAPAN":
+                case "USA":
+                case "EU":
+                case "ASIA":
+                    filterByArea(companyId);
+                    break;
+                default:
+                    filterByCompany(companyId);
+                    break;
+            }
+        });
+    });
+    </script> 
+</body>
+</html>

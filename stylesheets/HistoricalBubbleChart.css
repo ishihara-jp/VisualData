@@ -3,14 +3,12 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, figure, form, fi
 	margin: 0;
 	padding: 0;
 }
-
 body {
     position: relative;
     padding:1em;
     font-family:'Meiryo UI', Helvetica, Arial, sans-serif;
     font-size: 10px;
 }
-
 span.note{
     font-size: 0.8em;
     fill: #333;
@@ -22,7 +20,6 @@ span.note{
     font-weight: bold;
     fill: #be1932;
 }
-/* 補助線 */
 .x.axis line,
 .y.axis line
 {
@@ -58,8 +55,6 @@ span.note{
   pointer-events: all;
   cursor: ew-resize;
 }
-
-/* 凡例 */
 .hanrei
 {
     stroke: #C7C7C7;
@@ -70,9 +65,8 @@ text.hanrei
     font-size: 0.8em;
     font-weight: bold;
     fill: #C7C7C7;
-    stroke: none; /* ふちどりの色 */
+    stroke: none;
 }
-/* 軸ラベル */
 text.y.label,
 text.x.label,
 text.c.label,
@@ -81,8 +75,6 @@ text.t.label
     font-size: 1.5em;    
 	font-weight: bold;
 }
-
-/* ドット */
 .dot,
 .dot.highlight
 {
@@ -97,7 +89,6 @@ text.t.label
     stroke: #000;
     stroke-width: 1px;
 }
-
 .dot-label
 {
     font-size: 1.5em;
@@ -117,13 +108,12 @@ text.t.label
 .dot-label.highlight.selected{
     fill: #be1932;
 }
-
 .dot-label_bg{
     font-size: 1.5em;
 	font-weight: bold;
     fill: #fff;
-    stroke: #fff; /* ふちどりの色 */
-    stroke-width: 0.2em;  /* ふちどりのふとさ */
+    stroke: #fff;
+    stroke-width: 0.2em;
 }
 .dot-label_bg.un-highlight{
     fill: none;
@@ -134,8 +124,6 @@ text.t.label
 {
     font-weight: bold;
 }
-
-/* 軌跡 */
 .path,
 .path.un-highlight
 {
@@ -149,7 +137,6 @@ text.t.label
     stroke-width: 1;
     opacity: 0.8;
 }
-/* タイムライン軌跡 */
 .path2, 
 .path2.un-highlight
 {
@@ -168,7 +155,6 @@ text.t.label
 {
     stroke: #be1932;   
 }
-/* タイムライン領域 */
 .area2,
 .area2.un-highlight
 {
@@ -177,7 +163,6 @@ text.t.label
 .area2.highlight{
     opacity: 0.5;
 }
-/*シーク位置*/
 .seek, 
 .seek.un-highlight
 {
@@ -213,7 +198,7 @@ text.t.label
 }
 
 #filters {
-    display: block; /*縦並び*/
+    display: block;
 }
 #filters_company_category, 
 #filters_company {
@@ -237,7 +222,6 @@ text.t.label
     background: #e2e2e2;
     cursor: pointer;
 }
-
 #filters_company a.group {
     color: #C7C7C7;
 	display: inline-block;
@@ -250,7 +234,6 @@ text.t.label
     border : 1px solid #C7C7C7 ;
     cursor: pointer;
 }
-
 #filters_company_category a.reset {
     color: #fff;
 	display: inline-block;
@@ -263,7 +246,6 @@ text.t.label
     border : 1px solid #4285f4 ;
     cursor: pointer;    
 }
-
 #filters_company_category a.highlight, 
 #filters_company a.highlight,
 #filters_company_category a.highlight.selected, 
@@ -275,19 +257,16 @@ text.t.label
     background: #be1932;
     color: #fff;
 }
-
 #filters_company a.selected {
 	font-weight: bold;
     border : 1px solid #be1932;
     color: #be1932
 }
-
 .popover-title{
     font-size: 1.5em;
     font-weight: bold;
     color:#005BFF;
 }
-
 val{
     font-size: 1.2em;
     font-weight: bold;

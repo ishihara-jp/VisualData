@@ -2,11 +2,12 @@
 //referece : 
 // http://www.delimited.io/blog/2013/12/19/force-bubble-charts-in-d3
 ////////
-var SRC_URL1 = "http://localhost/data/world-110m.json";
-var SRC_URL2 = "http://localhost/data/world-110m-country-names.tsv";
-var SRC_URL3 = "http://localhost/data/FinancialData.json";
-var SRC_URL4 = "http://localhost/data/CompanyData.json";
-var SRC_URL5 = "http://localhost/data/CurrencyRate.json";
+var localPrefix = "http://localhost/";
+var SRC_URL1 = localPrefix + "data/world-110m.json";
+var SRC_URL2 = localPrefix + "data/world-110m-country-names.tsv";
+var SRC_URL3 = localPrefix + "data/FinancialData.json";
+var SRC_URL4 = localPrefix + "data/CompanyData.json";
+var SRC_URL5 = localPrefix + "data/CurrencyRate.json";
 var langKey;
 var currency;
 
@@ -42,8 +43,9 @@ flgEnd = false;     //終了フラグ
 var INIT_ROTATION_TIME = 500;  //回転角を戻すアニメーション時間
 var EXPAND_MAP_TIME = 1000;     //地図展開アニメーション時間
 
-//書式設定
-var formatT = d3.format(".1f");
+//書式
+var formatT0 = d3.format(".0f");
+var formatT1 = d3.format(".1f");
 var formatT2 = d3.format(".2f");
 
 var projectionGlobe = d3.geo.orthographic()
@@ -574,8 +576,8 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
             var currAsset = getAssetF(d.id, currIndexF, currIndex);            
             if(currAsset > 0)
                 return (langKey=="Japan") ?
-                    formatT(currAsset/1e6) + "兆円" : 
-                    formatT(currAsset/1e3) + "B$";
+                    formatT1(currAsset/1e6) + "兆円" : 
+                    formatT1(currAsset/1e3) + "B$";
             else
                 return "";  //0の時は何も表示しない
             });            
@@ -810,6 +812,20 @@ function removePopovers () {
 
 //ポップアップラベル表示関数
 function showPopover (d) {
+    var cRate = (langKey=="Japan") ? currency_rate("USD/YEN", j) : 1.0; //通貨レート
+    var cDigit = (langKey=="Japan") ? 1e6 : 1e3;    //桁
+    
+    var name = (langKey=="Japan") ? d.name_jp : d.name_us;
+    var market = d.market;
+    var symbol = d.symbol;
+    var category = (langKey=="Japan") ? d.category_jp : d.category_us;
+    var country = (langKey=="Japan") ? d.country_jp : d.country_us;
+    var employee = d.employee;
+    var revenue = formatT1(d.revenue[currIndex][1] / cRate / cDigit);
+    var profit = formatT1(d.profit[currIndex][1] / cRate / cDigit);
+    var assets = formatT1(d.assets[currIndex][1] / cRate / cDigit);
+    var capital = formatT1(d.capital[currIndex][1] / cRate / cDigit);
+    
     $(this).popover({
         placement: 'auto top',
         container: 'body',
@@ -818,27 +834,27 @@ function showPopover (d) {
         html : true,
         content: function() { 
             return  (langKey=="Japan") ?
-            "会社名: <val>" + d.name_jp + "</val>" + 
-            "<br/>株式市場: <val>" + d.market + "</val>" + 
-            "<br/>銘柄コード: <val>" + d.symbol + "</val>" + 
-            "<br/>タイプ: <val>" + d.category_jp + "系</val>" + 
-            "<br/>本社所在国: <val>" + d.country_jp + "</val>" + 
-            "<br/>従業員数: <val>" + d.employee + "</val>" + 
-            "<br/>売上高[B$]: <val>" + formatT(d.revenue[currIndex][1]/1e3) + "</val>" + 
-            "<br/>営業利益[B$]: <val>" + formatT(d.profit[currIndex][1]/1e3) + "</val>" + 
-            "<br/>総資産[B$]: <val>" + formatT(d.assets[currIndex][1]/1e3) + "</val>" + 
-            "<br/>時価総額[B$]: <val>" + formatT(d.capital[currIndex][1]/1e3)
+            "会社名: <val>" + name + "</val>" + 
+            "<br/>株式市場: <val>" + market + "</val>" + 
+            "<br/>銘柄コード: <val>" + symbol + "</val>" + 
+            "<br/>タイプ: <val>" + category + "系</val>" + 
+            "<br/>本社所在国: <val>" + country + "</val>" + 
+            "<br/>従業員数: <val>" + employee + "</val>" + 
+            "<br/>売上高[兆円]: <val>" + revenue + "</val>" + 
+            "<br/>営業利益[兆円]: <val>" + profit + "</val>" + 
+            "<br/>総資産[兆円]: <val>" + assets + "</val>" + 
+            "<br/>時価総額[兆円]: <val>" + capital
             :
-            "NAME: <val>" + d.name_us + "</val>" + 
-            "<br/>MARKET: <val>" + d.market + "</val>" + 
-            "<br/>SYMBOL: <val>" + d.symbol + "</val>" + 
-            "<br/>TYPE: <val>" + d.category_us + "</val>" + 
-            "<br/>HQ Country: <val>" + d.country_us + "</val>" + 
-            "<br/>EMPLOYEE: <val>" + d.employee + "</val>" + 
-            "<br/>REVENUE[B$]: <val>" + formatT(d.revenue[currIndex][1]/1e3) + "</val>" + 
-            "<br/>OPT. PROFIT[B$]: <val>" + formatT(d.profit[currIndex][1]/1e3) + "</val>" + 
-            "<br/>ASSETS[B$]: <val>" + formatT(d.assets[currIndex][1]/1e3) + "</val>" + 
-            "<br/>MARKET CAP.[M$]: <val>" + d.capital[currIndex][1]
+            "NAME: <val>" + name + "</val>" + 
+            "<br/>MARKET: <val>" + market + "</val>" + 
+            "<br/>SYMBOL: <val>" + symbol + "</val>" + 
+            "<br/>TYPE: <val>" + category + "</val>" + 
+            "<br/>HQ Country: <val>" + country + "</val>" + 
+            "<br/>EMPLOYEE: <val>" + employee + "</val>" + 
+            "<br/>REVENUE[B$]: <val>" + revenue + "</val>" + 
+            "<br/>OPT. PROFIT[B$]: <val>" + profit + "</val>" + 
+            "<br/>ASSETS[B$]: <val>" + assets + "</val>" + 
+            "<br/>MARKET CAP.[B$]: <val>" + capital
             ; 
         }
     });

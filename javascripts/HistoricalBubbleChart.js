@@ -1,6 +1,9 @@
 //グローバル変数
-var DATA_SRC1 = "data/CurrencyRate.json";
-var DATA_SRC2 = "data/FinancialData.json";
+//var localPrefix = "http://localhost/";
+var localPrefix = "";
+
+var DATA_SRC1 = localPrefix + "data/CurrencyRate.json";
+var DATA_SRC2 = localPrefix + "data/FinancialData.json";
 var companyData;
 var currencyData;
 var langKey;
@@ -180,7 +183,7 @@ function ready(error, data1, data2) {
     }
     //other : company name
     function companyName(d) {
-        return (langKey == "Japan") ? d.name_jp : d.name_us;
+        return (langKey == "Japan") ? d.name_jp : d.id;
     }
     //other : yIndex
     function yearIndex(_year) {
@@ -585,6 +588,10 @@ function ready(error, data1, data2) {
                 d3.select(".dot." + d.id).classed("selected", true);
                 d3.select(".dot-label." + d.id).classed("selected", true);
                 d3.select(".dot-label2." + d.id).classed("selected", true);
+                
+                //ポップアップ表示
+                showPopover.call(this, d);
+                console.log(d.capital);
             })
             .on("mouseout", function(d) {
 
@@ -601,6 +608,8 @@ function ready(error, data1, data2) {
                 d3.select(".dot." + d.id).classed("selected", false);
                 d3.select(".dot-label." + d.id).classed("selected", false);
                 d3.select(".dot-label2." + d.id).classed("selected", false);
+                //ポップアップ非表示
+                removePopovers();
             })            
             .on("click", function(d, i){
                 //アニメーション一時停止
@@ -721,7 +730,7 @@ function ready(error, data1, data2) {
             .call(positionLabels)
             .sort(order);
         dotLabels
-            .data(interpolateData(_yearF), key)
+            .data(interpolateData(_yearF))
             .attr("opacity", function(d) {return d.opacity * 2;})
             .call(positionLabels)
             .sort(order);
@@ -761,7 +770,6 @@ function ready(error, data1, data2) {
 
         //年ラベル
         ylabel.text(Math.floor(_yearF));  //小数点切り捨て 
-
     }
     // 与えられた年代に該当する各データ要素を返す
     function interpolateData(_yearF) {
@@ -779,6 +787,7 @@ function ready(error, data1, data2) {
                 country_jp: d.country_jp,
                 employee: d.employee,
                 revenue: interpolateValues(d.revenue, _yearF, "revenue"),
+                profit: interpolateValues(d.profit, _yearF, "profit"),
                 profitRate: interpolateValues(d.profitRate, _yearF, "profitRate"),
                 assets: interpolateValues(d.assets, _yearF, "assets"),
                 capital: interpolateValues(d.capital, _yearF, "capital"),
@@ -806,6 +815,7 @@ function ready(error, data1, data2) {
         switch(flg){
             case "revenue":
             case "assets":
+            case "profit":
                 if(lastValue == 0 && nextValue != 0)
                     //初めてデータが現れる時は補間せず初期値で
                     return nextValue;
@@ -1351,275 +1361,331 @@ var companies_highlight = [];    // ハイライト対象の企業一覧
 var VS_NUM = 2;            //比較数
 var flgHighLight = false;           //強調表示中のフラグ（全表示、デフォルトはfalseへ）
 
-    //フィルタキーの初期化
-    function initFilterKey(){
-        filterKeyArea = [];
-        filterKeyCompany = [];
-        filterKeyCategory = [];
-    }
-    //可視化フラグの初期化
-    function initFlag(){
-        for(var i=0; i<nCompanies; i++)
-            companies_highlight[i] = false; //インデックスiがsheares[i]とリンク        
-    }
-    //全表示に戻す時
-    function filterReset(){
-        initFlag();
-        initFilterKey();
-        flgHighLight = false; //強調表示フラグの初期化
-    }
-    
-    //カテゴリによるフィルタ
-    function filterByCompanyCategory(keyCategory){
-        //強調表示フラグON
-        flgHighLight = true;
-        
-        //フィルタキー存在確認
-        var flgAlready = false;
-        for(var i=0; i<filterKeyCategory.length; i++)
-            if(filterKeyCategory[i] == keyCategory)
-                flgAlready = true;
-        //フィルタキー追加（既出の時は何もしない）
-        if(!flgAlready){
-            if(filterKeyCategory.length == VS_NUM)
-                filterKeyCategory.shift();  //先頭押出し
-            filterKeyCategory.push(keyCategory);    //追加
-            
-            for(var i=0; i<nCompanies; i++){
-                companies_highlight[i] = false; //一旦リセット
-                for(var j=0; j<filterKeyCategory.length; j++)
-                    if(companyData[i].category_us == filterKeyCategory[j])
-                        companies_highlight[i] = true;                       
-            }
+//フィルタキーの初期化
+function initFilterKey(){
+    filterKeyArea = [];
+    filterKeyCompany = [];
+    filterKeyCategory = [];
+}
+//可視化フラグの初期化
+function initFlag(){
+    for(var i=0; i<nCompanies; i++)
+        companies_highlight[i] = false; //インデックスiがsheares[i]とリンク        
+}
+//全表示に戻す時
+function filterReset(){
+    initFlag();
+    initFilterKey();
+    flgHighLight = false; //強調表示フラグの初期化
+}
+
+//カテゴリによるフィルタ
+function filterByCompanyCategory(keyCategory){
+    //強調表示フラグON
+    flgHighLight = true;
+
+    //フィルタキー存在確認
+    var flgAlready = false;
+    for(var i=0; i<filterKeyCategory.length; i++)
+        if(filterKeyCategory[i] == keyCategory)
+            flgAlready = true;
+    //フィルタキー追加（既出の時は何もしない）
+    if(!flgAlready){
+        if(filterKeyCategory.length == VS_NUM)
+            filterKeyCategory.shift();  //先頭押出し
+        filterKeyCategory.push(keyCategory);    //追加
+
+        for(var i=0; i<nCompanies; i++){
+            companies_highlight[i] = false; //一旦リセット
+            for(var j=0; j<filterKeyCategory.length; j++)
+                if(companyData[i].category_us == filterKeyCategory[j])
+                    companies_highlight[i] = true;                       
         }
-        
-        //ボタンの強調表示(直接指定のもののみ)
-        d3.selectAll("a").classed("highlight", false);  //一旦リセット
-        for(var i=0; i<filterKeyCategory.length; i++){
-            //空白入りのIDを指定するために置換
-            var id_name = filterKeyCategory[i];
-            id_name = id_name.replace(/ /g,'\\ ');
-            d3.select("#filters_company_category")
-                .select("a#" + id_name)
-                .classed("highlight", true);
-        }
-        
-        //強調表示
-        setHighLight();
-        //非強調表示
-        setUnHighLight();
     }
-    
-    //企業IDによるフィルタ
-    function filterByCompany(keyCompany){
-        //強調表示フラグON
-        flgHighLight = true;
-        
-        //フィルタキー存在確認
-        var flgAlready = false;
-        for(var i=0; i<filterKeyCompany.length; i++)
-            if(filterKeyCompany[i] == keyCompany)
-                flgAlready = true;
-        //フィルタキー追加（既出の時は何もしない）
-        if(!flgAlready){
-            if(filterKeyCompany.length == VS_NUM)
-                filterKeyCompany.shift();   //先頭押出し
-            filterKeyCompany.push(keyCompany);  //追加
-        
-            for(var i=0; i<nCompanies; i++){
-                companies_highlight[i] = false; //一旦リセット
-                for(var j=0; j<filterKeyCompany.length; j++)
-                    if(companyData[i].id == filterKeyCompany[j])
+
+    //ボタンの強調表示(直接指定のもののみ)
+    d3.selectAll("a").classed("highlight", false);  //一旦リセット
+    for(var i=0; i<filterKeyCategory.length; i++){
+        //空白入りのIDを指定するために置換
+        var id_name = filterKeyCategory[i];
+        id_name = id_name.replace(/ /g,'\\ ');
+        d3.select("#filters_company_category")
+            .select("a#" + id_name)
+            .classed("highlight", true);
+    }
+
+    //強調表示
+    setHighLight();
+    //非強調表示
+    setUnHighLight();
+}
+
+//企業IDによるフィルタ
+function filterByCompany(keyCompany){
+    //強調表示フラグON
+    flgHighLight = true;
+
+    //フィルタキー存在確認
+    var flgAlready = false;
+    for(var i=0; i<filterKeyCompany.length; i++)
+        if(filterKeyCompany[i] == keyCompany)
+            flgAlready = true;
+    //フィルタキー追加（既出の時は何もしない）
+    if(!flgAlready){
+        if(filterKeyCompany.length == VS_NUM)
+            filterKeyCompany.shift();   //先頭押出し
+        filterKeyCompany.push(keyCompany);  //追加
+
+        for(var i=0; i<nCompanies; i++){
+            companies_highlight[i] = false; //一旦リセット
+            for(var j=0; j<filterKeyCompany.length; j++)
+                if(companyData[i].id == filterKeyCompany[j])
+                    companies_highlight[i] = true;
+        }
+    }
+
+    //ボタンの強調表示(直接指定のもののみ)
+    d3.selectAll("a").classed("highlight", false);  //一旦リセット
+    for(var i=0; i<filterKeyCompany.length; i++){
+        d3.select("#filters_company")
+            .select("a." + filterKeyCompany[i])
+            .classed("highlight", true);
+    }
+
+
+    //強調表示
+    setHighLight();
+    //非強調表示
+    setUnHighLight();
+}
+//エリアによるフィルタ
+function filterByArea(keyArea){
+    //強調表示フラグON
+    flgHighLight = true;
+
+    //フィルタキー存在確認
+    var flgAlready = false;
+    for(var i=0; i<filterKeyArea.length; i++)
+        if(filterKeyArea[i] == keyArea)
+            flgAlready = true;
+
+
+    //フィルタキー追加（既出の時は何もしない）
+    if(!flgAlready){
+        if(filterKeyArea.length == VS_NUM)
+            filterKeyArea.shift();   //先頭押出し
+        filterKeyArea.push(keyArea);  //追加
+
+
+        //当該地域に属する企業のフラグをON
+        for(var i=0; i<nCompanies; i++){
+            companies_highlight[i] = false; //一旦リセット
+            for(var j=0; j<filterKeyArea.length; j++){
+                var coutryList = getCompanyList(filterKeyArea[j]);//国名リスト取得
+                for(var k=0; k<coutryList.length; k++)
+                    if(companyData[i].country_us == coutryList[k])
                         companies_highlight[i] = true;
             }
         }
-        
-        //ボタンの強調表示(直接指定のもののみ)
-        d3.selectAll("a").classed("highlight", false);  //一旦リセット
-        for(var i=0; i<filterKeyCompany.length; i++){
-            d3.select("#filters_company")
-                .select("a." + filterKeyCompany[i])
-                .classed("highlight", true);
-        }
-
-        
-        //強調表示
-        setHighLight();
-        //非強調表示
-        setUnHighLight();
-    }
-    //エリアによるフィルタ
-    function filterByArea(keyArea){
-        //強調表示フラグON
-        flgHighLight = true;
-
-        //フィルタキー存在確認
-        var flgAlready = false;
-        for(var i=0; i<filterKeyArea.length; i++)
-            if(filterKeyArea[i] == keyArea)
-                flgAlready = true;
-        
-
-        //フィルタキー追加（既出の時は何もしない）
-        if(!flgAlready){
-            if(filterKeyArea.length == VS_NUM)
-                filterKeyArea.shift();   //先頭押出し
-            filterKeyArea.push(keyArea);  //追加
-        
-            
-            //当該地域に属する企業のフラグをON
-            for(var i=0; i<nCompanies; i++){
-                companies_highlight[i] = false; //一旦リセット
-                for(var j=0; j<filterKeyArea.length; j++){
-                    var coutryList = getCompanyList(filterKeyArea[j]);//国名リスト取得
-                    for(var k=0; k<coutryList.length; k++)
-                        if(companyData[i].country_us == coutryList[k])
-                            companies_highlight[i] = true;
-                }
-            }
-        }
-        
-        //ボタンの強調表示(直接指定のもののみ)
-        d3.selectAll("a").classed("highlight", false);  //一旦リセット
-        for(var i=0; i<filterKeyArea.length; i++){
-            d3.select("#filters_company")
-                .select("a#" + filterKeyArea[i])
-                .classed("highlight", true);
-        }
-        
-        //強調表示
-        setHighLight();
-        //非強調表示
-        setUnHighLight();
     }
 
-    //指定地域に適合した国名フィルターを作成
-    function getCompanyList(keyArea){
-        var arr;
-        switch(keyArea){
-            case "JAPAN":
-                arr = ["Japan"];
-                break;
-            case "USA":
-                arr = ["USA"];
-                break;
-            case "EU":
-                arr = ["Germany", "Swedish", "Netherlands", "Finland", "Denmark", "French"];
-                break;
-            case "ASIA":
-                arr = ["China", "Tiwan", "Korea"];
-                break;
-            default:
-                arr = [];
-                break;
-        }
-        return arr;
-    }
-    //全表示（通常表示）
-    function setDisplayAll(){
-        //非強調解除
-        d3.selectAll(".dot").classed("un-highlight", false);
-        d3.selectAll(".path").classed("un-highlight", false);
-        d3.selectAll(".path2").classed("un-highlight", false);
-        d3.selectAll(".area2").classed("un-highlight", false);
-        d3.selectAll(".seek").classed("un-highlight", false);
-        d3.selectAll(".seek-label").classed("un-highlight", false);
-        d3.selectAll(".dot-label").classed("un-highlight", false);
-        d3.selectAll(".dot-label_bg").classed("un-highlight", false);
-        d3.selectAll(".dot-label2").classed("un-highlight", false);
-        //強調解除
-        d3.selectAll(".dot").classed("highlight", false);
-        d3.selectAll(".path").classed("highlight", false);
-        d3.selectAll(".path2").classed("highlight", false);
-        d3.selectAll(".area2").classed("highlight", false);
-        d3.selectAll(".seek").classed("highlight", false);        
-        d3.selectAll(".seek-label").classed("highlight", false);        
-        d3.selectAll(".dot-label").classed("highlight", false);
-        d3.selectAll(".dot-label2").classed("highlight", false);
-        
-        d3.selectAll("a").classed("selected", false);
-        d3.selectAll("a").classed("highlight", false);
+    //ボタンの強調表示(直接指定のもののみ)
+    d3.selectAll("a").classed("highlight", false);  //一旦リセット
+    for(var i=0; i<filterKeyArea.length; i++){
+        d3.select("#filters_company")
+            .select("a#" + filterKeyArea[i])
+            .classed("highlight", true);
     }
 
-    //非強調表示
-    function setUnHighLight(){
-        for(var i=0; i<nCompanies; i++){
-            if(!companies_highlight[i]){
-                var company_id = companyData[i].id;
-                var dot_unselected = d3.selectAll(".dot." + company_id);
-                var path_unselected = d3.selectAll(".path." + company_id);
-                var path2_unselected = d3.selectAll(".path2." + company_id);
-                var area2_unselected = d3.selectAll(".area2." + company_id);
-                var seek_unselected = d3.selectAll(".seek." + company_id);
-                var seekLabel_unselected = d3.selectAll(".seek-label." + company_id);
-                var dotLabel_unselected = d3.selectAll(".dot-label." + company_id);
-                var dotLabel_bg_unselected = d3.selectAll(".dot-label_bg." + company_id);
-                var dotLabel2_unselected = d3.selectAll(".dot-label2." + company_id);
-                var button_unselected = d3.select("#filters_company").selectAll("a." + company_id);
-
-                //強調解除
-                dot_unselected.classed("highlight", false);
-                path_unselected.classed("highlight", false);
-                path2_unselected.classed("highlight", false);
-                area2_unselected.classed("highlight", false);
-                seek_unselected.classed("highlight", false);
-                seekLabel_unselected.classed("highlight", false);
-                dotLabel_unselected.classed("highlight", false);
-                dotLabel2_unselected.classed("highlight", false);
-                button_unselected.classed("selected", false);
-                
-                //非強調
-                dot_unselected.classed("un-highlight", true);
-                path_unselected.classed("un-highlight", true);
-                path2_unselected.classed("un-highlight", true);
-                area2_unselected.classed("un-highlight", true);
-                seek_unselected.classed("un-highlight", true);
-                seekLabel_unselected.classed("un-highlight", true);
-                dotLabel_unselected.classed("un-highlight", true);
-                dotLabel_bg_unselected.classed("un-highlight", true);
-                dotLabel2_unselected.classed("un-highlight", true);
-                //button_unselected.classed("un-highlight", true);
-            }
-        }
-    }
-    
     //強調表示
-    function setHighLight(){
-        for(var i=0; i<nCompanies; i++){
-            if(companies_highlight[i]){
-                var company_id = companyData[i].id;
-                var dot_selected = d3.selectAll(".dot." + company_id);
-                var path_selected = d3.selectAll(".path." + company_id);
-                var path2_selected = d3.selectAll(".path2." + company_id);
-                var area2_selected = d3.selectAll(".area2." + company_id);
-                var seek_selected = d3.selectAll(".seek." + company_id);
-                var seekLabel_selected = d3.selectAll(".seek-label." + company_id);
-                var dotLabel_selected = d3.selectAll(".dot-label." + company_id);
-                var dotLabel_bg_selected = d3.selectAll(".dot-label_bg." + company_id);
-                var dotLabel2_selected = d3.selectAll(".dot-label2." + company_id);
-                var button_selected = d3.select("#filters_company").selectAll("a." + company_id);
-                
-                //非強調解除
-                dot_selected.classed("un-highlight", false);
-                path_selected.classed("un-highlight", false);
-                path2_selected.classed("un-highlight", false);
-                area2_selected.classed("un-highlight", false);
-                seek_selected.classed("un-highlight", false);
-                seekLabel_selected.classed("un-highlight", false);
-                dotLabel_selected.classed("un-highlight", false);
-                dotLabel_bg_selected.classed("un-highlight", false);
-                dotLabel2_selected.classed("un-highlight", false);
-                //button_selected.classed("un-highlight", false);
-                //強調
-                dot_selected.classed("highlight", true);
-                path_selected.classed("highlight", true);
-                path2_selected.classed("highlight", true);
-                area2_selected.classed("highlight", true);
-                seek_selected.classed("highlight", true);
-                seekLabel_selected.classed("highlight", true);
-                dotLabel_selected.classed("highlight", true);
-                dotLabel2_selected.classed("highlight", true);
-                button_selected.classed("selected", true);
-            }
+    setHighLight();
+    //非強調表示
+    setUnHighLight();
+}
+
+//指定地域に適合した国名フィルターを作成
+function getCompanyList(keyArea){
+    var arr;
+    switch(keyArea){
+        case "JAPAN":
+            arr = ["Japan"];
+            break;
+        case "USA":
+            arr = ["USA"];
+            break;
+        case "EU":
+            arr = ["Germany", "Swedish", "Netherlands", "Finland", "Denmark", "French"];
+            break;
+        case "ASIA":
+            arr = ["China", "Tiwan", "Korea"];
+            break;
+        default:
+            arr = [];
+            break;
+    }
+    return arr;
+}
+//全表示（通常表示）
+function setDisplayAll(){
+    //非強調解除
+    d3.selectAll(".dot").classed("un-highlight", false);
+    d3.selectAll(".path").classed("un-highlight", false);
+    d3.selectAll(".path2").classed("un-highlight", false);
+    d3.selectAll(".area2").classed("un-highlight", false);
+    d3.selectAll(".seek").classed("un-highlight", false);
+    d3.selectAll(".seek-label").classed("un-highlight", false);
+    d3.selectAll(".dot-label").classed("un-highlight", false);
+    d3.selectAll(".dot-label_bg").classed("un-highlight", false);
+    d3.selectAll(".dot-label2").classed("un-highlight", false);
+    //強調解除
+    d3.selectAll(".dot").classed("highlight", false);
+    d3.selectAll(".path").classed("highlight", false);
+    d3.selectAll(".path2").classed("highlight", false);
+    d3.selectAll(".area2").classed("highlight", false);
+    d3.selectAll(".seek").classed("highlight", false);        
+    d3.selectAll(".seek-label").classed("highlight", false);        
+    d3.selectAll(".dot-label").classed("highlight", false);
+    d3.selectAll(".dot-label2").classed("highlight", false);
+
+    d3.selectAll("a").classed("selected", false);
+    d3.selectAll("a").classed("highlight", false);
+}
+
+//非強調表示
+function setUnHighLight(){
+    for(var i=0; i<nCompanies; i++){
+        if(!companies_highlight[i]){
+            var company_id = companyData[i].id;
+            var dot_unselected = d3.selectAll(".dot." + company_id);
+            var path_unselected = d3.selectAll(".path." + company_id);
+            var path2_unselected = d3.selectAll(".path2." + company_id);
+            var area2_unselected = d3.selectAll(".area2." + company_id);
+            var seek_unselected = d3.selectAll(".seek." + company_id);
+            var seekLabel_unselected = d3.selectAll(".seek-label." + company_id);
+            var dotLabel_unselected = d3.selectAll(".dot-label." + company_id);
+            var dotLabel_bg_unselected = d3.selectAll(".dot-label_bg." + company_id);
+            var dotLabel2_unselected = d3.selectAll(".dot-label2." + company_id);
+            var button_unselected = d3.select("#filters_company").selectAll("a." + company_id);
+
+            //強調解除
+            dot_unselected.classed("highlight", false);
+            path_unselected.classed("highlight", false);
+            path2_unselected.classed("highlight", false);
+            area2_unselected.classed("highlight", false);
+            seek_unselected.classed("highlight", false);
+            seekLabel_unselected.classed("highlight", false);
+            dotLabel_unselected.classed("highlight", false);
+            dotLabel2_unselected.classed("highlight", false);
+            button_unselected.classed("selected", false);
+
+            //非強調
+            dot_unselected.classed("un-highlight", true);
+            path_unselected.classed("un-highlight", true);
+            path2_unselected.classed("un-highlight", true);
+            area2_unselected.classed("un-highlight", true);
+            seek_unselected.classed("un-highlight", true);
+            seekLabel_unselected.classed("un-highlight", true);
+            dotLabel_unselected.classed("un-highlight", true);
+            dotLabel_bg_unselected.classed("un-highlight", true);
+            dotLabel2_unselected.classed("un-highlight", true);
+            //button_unselected.classed("un-highlight", true);
         }
     }
+}
+
+//強調表示
+function setHighLight(){
+    for(var i=0; i<nCompanies; i++){
+        if(companies_highlight[i]){
+            var company_id = companyData[i].id;
+            var dot_selected = d3.selectAll(".dot." + company_id);
+            var path_selected = d3.selectAll(".path." + company_id);
+            var path2_selected = d3.selectAll(".path2." + company_id);
+            var area2_selected = d3.selectAll(".area2." + company_id);
+            var seek_selected = d3.selectAll(".seek." + company_id);
+            var seekLabel_selected = d3.selectAll(".seek-label." + company_id);
+            var dotLabel_selected = d3.selectAll(".dot-label." + company_id);
+            var dotLabel_bg_selected = d3.selectAll(".dot-label_bg." + company_id);
+            var dotLabel2_selected = d3.selectAll(".dot-label2." + company_id);
+            var button_selected = d3.select("#filters_company").selectAll("a." + company_id);
+
+            //非強調解除
+            dot_selected.classed("un-highlight", false);
+            path_selected.classed("un-highlight", false);
+            path2_selected.classed("un-highlight", false);
+            area2_selected.classed("un-highlight", false);
+            seek_selected.classed("un-highlight", false);
+            seekLabel_selected.classed("un-highlight", false);
+            dotLabel_selected.classed("un-highlight", false);
+            dotLabel_bg_selected.classed("un-highlight", false);
+            dotLabel2_selected.classed("un-highlight", false);
+            //button_selected.classed("un-highlight", false);
+            //強調
+            dot_selected.classed("highlight", true);
+            path_selected.classed("highlight", true);
+            path2_selected.classed("highlight", true);
+            area2_selected.classed("highlight", true);
+            seek_selected.classed("highlight", true);
+            seekLabel_selected.classed("highlight", true);
+            dotLabel_selected.classed("highlight", true);
+            dotLabel2_selected.classed("highlight", true);
+            button_selected.classed("selected", true);
+        }
+    }
+}
+
+//ポップアップラベル非表示関数
+function removePopovers () {
+    $('.popover').each(function() {
+        $(this).remove();
+    }); 
+}
+
+//ポップアップラベル表示関数
+function showPopover (d) {
+    
+    var name = (langKey=="Japan") ? d.name_jp : d.name_us;
+    var market = d.market;
+    var symbol = d.symbol;
+    var category = (langKey=="Japan") ? d.category_jp : d.category_us;
+    var country = (langKey=="Japan") ? d.country_jp : d.country_us;
+    var employee = d.employee;
+    var revenue = formatT1(d.revenue);
+    var profit = formatT1(d.profit);
+    var assets = formatT1(d.assets);
+    var capital = formatT1(d.capital);
+    
+    $(this).popover({
+        placement: 'auto top',
+        container: 'body',
+        trigger: 'manual',
+        //title: d.memo,
+        html : true,
+        content: function() {   
+            return  (langKey=="Japan") ?
+            "会社名: <val>" + name + "</val>" + 
+            "<br/>株式市場: <val>" + market + "</val>" + 
+            "<br/>銘柄コード: <val>" + symbol + "</val>" + 
+            "<br/>タイプ: <val>" + category + "系</val>" + 
+            "<br/>本社所在国: <val>" + country + "</val>" + 
+            "<br/>従業員数: <val>" + employee + "</val>" + 
+            "<br/>売上高[兆円]: <val>" + revenue + "</val>" + 
+            "<br/>営業利益[兆円]: <val>" + profit + "</val>" + 
+            "<br/>総資産[兆円]: <val>" + assets + "</val>" + 
+            "<br/>時価総額[兆円]: <val>" + capital
+            :
+            "NAME: <val>" + name + "</val>" + 
+            "<br/>MARKET: <val>" + market + "</val>" + 
+            "<br/>SYMBOL: <val>" + symbol + "</val>" + 
+            "<br/>TYPE: <val>" + category + "</val>" + 
+            "<br/>HQ Country: <val>" + country + "</val>" + 
+            "<br/>EMPLOYEE: <val>" + employee + "</val>" + 
+            "<br/>REVENUE[B$]: <val>" + revenue + "</val>" + 
+            "<br/>OPT. PROFIT[B$]: <val>" + profit + "</val>" + 
+            "<br/>ASSETS[B$]: <val>" + assets + "</val>" + 
+            "<br/>MARKET CAP.[M$]: <val>" + capital
+            ; 
+        }
+    });
+    $(this).popover('show')
+}

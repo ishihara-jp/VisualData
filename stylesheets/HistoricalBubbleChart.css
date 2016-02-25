@@ -44,7 +44,7 @@ span.note{
 }
 .year.label {
     font-size: 30em;
-    font-family:  "Helvetica Neue";
+    font-family: 'Open Sans', sans-serif;
     fill: #ddd;
 }
 .year.label.active {

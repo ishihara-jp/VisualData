@@ -828,6 +828,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         info_svg.selectAll(".labelCluster")
             .data(centers).enter().append("text")
             .attr("class", "labelCluster")
+            .attr("dy", "1em")
             .text(function (d) { return d.name })
             .attr("text-anchor", "middle")
             .style("font-size", function (d) {return (langKey == "Japan") ? "2em" : "1.5em";})

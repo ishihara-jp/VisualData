@@ -28,8 +28,9 @@ svg {
     opacity: 0.5;    
 }
 .yearLabel{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 5em;
+/*    font-family: 'Open Sans', sans-serif;*/
+    font-weight: 100;
+    font-size: 8em;
     fill: #66C2FF;
 }
 
@@ -74,6 +75,6 @@ svg {
 
 val{
     font-size: 1.2em;
-    font-weight: bold;
+    font-weight: 100;
     color:#005BFF;
 }

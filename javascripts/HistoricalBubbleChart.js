@@ -72,13 +72,13 @@ function ready(error, data1, data2) {
                     //YEN
                     cRate = currency_rate("USD/YEN", j);
                     cDigit = 1e6;
-                    dLabel = "[兆円]";
+                    dLabel = " (兆円)";
                     break;
                 default:
                     //USD
                     cRate = 1.0;
                     cDigit = 1e3;
-                    dLabel = "[B$]";
+                    dLabel = " (B$)";
                     break;
             }
             companyData[i].revenue[j][1] = (_revenue / cRate) / cDigit;
@@ -378,7 +378,7 @@ function ready(error, data1, data2) {
         .attr("y", 6)
         .attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
-        .text(function(d){return ((langKey == "Japan") ? "営業利益率" : "Profit Rate") + "[%]";});
+        .text(function(d){return ((langKey == "Japan") ? "営業利益率" : "Profit Rate") + " (%)";});
     timeline.append("text")
         .attr("class", "c label")
         .attr("text-anchor", "end")
@@ -387,7 +387,7 @@ function ready(error, data1, data2) {
         .attr("transform", "rotate(-90)")
         .text(function(d){return ((langKey == "Japan") ? "時価総額" : "Market Capital") + dLabel;});
     var ylabel = svg.append("text")
-        .attr("class", "year label")
+        .attr("class", "yearLabel")
         .attr("text-anchor", "end")
         .attr("y", height - 24)
         .attr("x", width)

@@ -6,7 +6,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, figure, form, fi
 body {
     position: relative;
     padding:1em;
-    font-family:'Meiryo UI', Helvetica, Arial, sans-serif;
+    font-family:Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "ヒラギノ角ゴ Pro W3" , 'Hiragino Kaku Gothic W3 JIS2004', "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
     font-size: 10px;
 }
 span.note{

@@ -1,6 +1,6 @@
 body{
     background: #000;
-    font-family:'Meiryo UI', Helvetica, Arial, sans-serif;
+    font-family:Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "ヒラギノ角ゴ Pro W3" , 'Hiragino Kaku Gothic W3 JIS2004', "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
     font-size: 10px;
     margin: 0px, 0px, 0px, 0px;
 }
@@ -28,6 +28,7 @@ svg {
     opacity: 0.5;    
 }
 .yearLabel{
+    /*font-family: 'Open Sans', sans-serif;*/
     font-size: 5em;
     fill: #66C2FF;
 }

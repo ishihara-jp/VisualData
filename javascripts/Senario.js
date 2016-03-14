@@ -1,11 +1,9 @@
 //シナリオモード
-function senarioDemo(){
+function senarioDemo(_senario){
 
     var SecPerYear = ANIMATION_TIME/35 + 350*2;
     var HighlightTime = SecPerYear * 0.3;
-    
-    var _senario = svg.select("senario");
-    
+        
     //1982
     setTimeout(function(){
         filterByCompany("NEC");

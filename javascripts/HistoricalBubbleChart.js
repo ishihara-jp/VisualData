@@ -395,7 +395,7 @@ function ready(error, data1, data2) {
     var senario = svg
                 .append("g")
                 .attr("class", "senario")
-                .attr("transform", "translate(" + (margin.left + 120) + "," + height + ")")
+                //.attr("transform", "translate(" + (margin.left + 120) + "," + height + ")")
                 .append("text")
                 .attr("dy", "-0.5em");
 
@@ -494,7 +494,7 @@ function ready(error, data1, data2) {
         case "senario":
             ANIMATION_TIME = 12*35*1000;
             startAnimation();
-            senarioDemo(senario, [1400,height], [(margin.left + 120),height]);      // Not Interactive mode
+            senarioDemo([1400,height], [(margin.left + 120),height], [-1400, height]);      // Not Interactive mode
             break;
         case "default":
         default:

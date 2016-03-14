@@ -97,7 +97,7 @@ text.t.label
 .dot-label.un-highlight,
 .dot-label.un-highlight.selected
 {
-    fill: none/*#C7C7C7*/;
+    fill: /*none*/#C7C7C7;
 }
 .dot-label.highlight
 {

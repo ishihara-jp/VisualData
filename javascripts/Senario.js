@@ -7,8 +7,12 @@ function senarioDemo(_senario){
     //1982
     setTimeout(function(){
         filterByCompany("NEC");
-        _senario.text("NEC：PC-9800シリーズ発売");
-
+        _senario
+            .attr("transform", "translate(" + [1400, height] + ")")
+            .text("NEC：PC-9800シリーズ発売")
+            .ease("elastic")
+            .attr("transform", "translate(" + (margin.left + 120) + "," + height + ")");
+        
         setTimeout(function(){
             _senario.text("");
             filterReset();

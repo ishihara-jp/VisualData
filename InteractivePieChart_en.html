@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="stylesheets/InteractivePieChart.css">
+    <title>Global Market Shares of Principal Electric Products</title>
+</head>
+<body>
+    <h1>Global Market Shares of Principal Electric Products</h1>
+
+    <div id="filters">
+        <div id="filters_product_category">
+            <a class="group">Product's category</a>
+            <a id="0" class="A select">All</a>
+            <a id="1" class="B select">Electronic components</a>
+            <a id="2" class="C select">Semiconductor/Material</a>
+            <a id="3" class="D select">Home appliances</a>
+            <a id="4" class="E select">Electric power</a>
+            <a id="5" class="F select">Medical</a>
+            <a id="6" class="G select">Smart device</a>
+            <a id="7" class="H select">Computer technology</a>
+            <a id="8" class="I select">Digital appliances</a>
+            <a id="9" class="J select">Industrial machine</a>
+            <a id="10" class="K select">Manufacturing</a>
+        </div>
+        <div id="filters_company_category">
+            <a class="group">Companie's type</a>
+            <a id="Heavy electronics">Heavy</a>
+            <a id="Consumer electronics">Consumer</a>
+            <a id="Computer hard technology">ICT(hard)</a>
+            <a id="Computer soft technology">ICT(soft)</a>
+            <a id="Audio-visual electronics">AV</a>
+            <a id="Semiconductor electronics">Semicon</a>
+            <a id="Photonics">Photonics</a>
+            <a id="Telecommunications equipment">Telecom</a>
+            <a id="Precision manufacturing">Precision</a>
+            <a id="Electronics manufacturing">EMS/Fab</a>
+        </div>
+        <!--
+        <div id="filters_country">
+            <a class="label">Country</a>
+            <a id="JAPAN" class="JAPAN">Japan</a>    
+            <a id="USA" class="USA">USA</a>    
+            <a id="EU" class="EU">EU</a>    
+            <a id="ASIA" class="ASIA">Asia</a>
+            <a id="OTHER" class="OTHER">Other</a>
+        </div>
+        -->
+        <div id="filters_company">
+            <div>
+            <a id="JAPAN" class="group">JAPAN</a>
+            <a id="HITACHI" class="HITACHI">HITACHI</a>
+            <a id="TOSHIBA" class="TOSHIBA">TOSHIBA</a>
+            <a id="MITSUBISHI" class="MITSUBISHI">MITSUBISHI</a>
+            <a id="PANASONIC" class="PANASONIC">PANASONIC</a>
+            <a id="SHARP" class="SHARP">SHARP</a>
+            <a id="SONY" class="SONY">SONY</a>
+            <a id="PIONEER" class="PIONEER">PIONEER</a>
+            <a id="FUJITSU" class="FUJITSU">FUJITSU</a>
+            <a id="NEC" class="NEC">NEC</a>
+            <a id="FUJIFILM" class="FUJIFILM">FUJIFILM</a>
+            <a id="CANON" class="CANON">CANON</a>
+            <a id="RICOH" class="RICOH">RICOH</a>
+            <a id="CASIO" class="CASIO">CASIO</a>
+            <a id="EPSON" class="EPSON">EPSON</a>
+            <a id="KYOCERA" class="KYOCERA">KYOCERA</a>
+            <a id="SANYO" class="SANYO">SANYO</a>
+            </div>
+            <div>
+            <a id="USA" class="group">USA</a>
+            <a id="GE" class="GE">GE</a>
+            <a id="IBM" class="IBM">IBM</a>
+            <a id="MICROSOFT" class="MICROSOFT">Microsoft</a>
+            <a id="INTEL" class="INTEL">Intel</a>
+            <a id="APPLE" class="APPLE">Apple</a>
+            <a id="DELL" class="DELL">DELL</a>
+            <a id="CISCO" class="CISCO">CISCO</a>
+            <a id="HP" class="HP">HP</a>
+            <a id="ORACLE" class="ORACLE">ORACLE</a>
+            <a id="AMAZON" class="AMAZON">AMAZON</a>
+            <a id="GOOGLE" class="GOOGLE">GOOGLE</a>
+            </div>
+            <div>
+            <a id="EU" class="group">EU</a>
+            <a id="SIEMENS" class="SIEMENS">SIEMENS</a>
+            <a id="ERICSSON" class="ERICSSON">ERICSSON</a>
+            <a id="PHILIPS" class="PHILIPS">PHILIPS</a>
+            <a id="NOKIA" class="NOKIA">NOKIA</a>
+            </div>
+            <div>
+            <a id="ASIA" class="group">ASIA</a>
+            <a id="SAMSUNG" class="SAMSUNG">SAMSUNG</a>
+            <a id="LG" class="LG">LG</a>
+            <a id="LENOVO" class="LENOVO">LENOVO</a>
+            <a id="HAIER" class="HAIER">HAIER</a>
+            <a id="FOXCONN" class="FOXCONN">FOXCONN</a>
+            <a id="TSMC" class="TSMC">TSMC</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <span class="note">
+            Reference: "NIKKEI GYOKAI CHIZU 2015" (NIKKEI Inc.), <a href="http://www.verticalresearchpartners.com/research-note.cfm/gas-turbines-better-mousetraps-waiting-on-better-demand">http://www.verticalresearchpartners.com/</a>, <a href="https://doc.research-and-analytics.csfb.com/docView?language=ENG&source=emfromsendlink&format=PDF&document_id=994715241&extdocid=994715241_1_eng_pdf&serialid=hDabUewpvOqQcRiLxK7rxIQJZZ8TPLDrYHs47S97OOI%3d">https://doc.research-and-analytics.csfb.com/</a>, etc.
+        </span>
+    </div>    
+    <div class="svg">
+        <svg id="charts"></svg>
+    </div>
+    
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/queue.v1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/InteractivePieChart.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/GoogleAnalytics.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        
+        setLangKey("English");
+        
+        //click on puduct's category button
+        $('#filters_product_category a').click(function() {
+            var p_categoryId = $(this).attr("id");
+            var divElement = d3.select("#filters_product_category");
+            if(p_categoryId == 0){
+                //すべて
+                divElement.selectAll("a").classed("select", true);
+            }else{
+                divElement.selectAll("a").classed("select", false);
+                $(this).toggleClass("select");
+            }
+            filterByProductCategory(p_categoryId);
+        });
+        //click on companie's category button
+        $('#filters_company_category a').click(function() {
+            var c_categoryId = $(this).attr("id");
+            $(this).toggleClass("select");
+            filterByCompanyCategory(c_categoryId);
+
+        });
+        //click on country button
+        $('#filters_country a').click(function() {
+            var areaId = $(this).attr("id");
+            $(this).toggleClass("select");
+            filterByArea(areaId);
+        });
+        //click on company button
+        $('#filters_company a').click(function() {
+            var companyId = $(this).attr("id");
+            $(this).toggleClass("select");
+            switch(companyId){
+                case "JAPAN":
+                case "USA":
+                case "EU":
+                case "ASIA":
+                    filterByArea(companyId);
+                    break;
+                default:
+                    filterByCompany(companyId);
+                    break;
+            }
+        });
+    });
+    </script>    
+</body>
+</html>

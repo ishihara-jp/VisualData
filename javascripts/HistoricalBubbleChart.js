@@ -493,6 +493,7 @@ function ready(error, data1, data2) {
     switch(playMode){
         case "senario":
             ANIMATION_TIME = 12*35*1000;
+            startAnimation();
             senarioDemo();      // Not Interactive mode
             break;
         case "default":

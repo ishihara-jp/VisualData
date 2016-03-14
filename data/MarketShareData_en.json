@@ -1,0 +1,321 @@
+[
+{"chart_no":1,"category_no":1,"category":"Electronic components","total_title":"LC Panel","total_aspect":"Shipment","total_volume":108.3,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":23.1,"company_name":"LG","company_id":"LG","company_country":"Korea"},
+{"rank":2,"share":14.8,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":3,"share":14.5,"company_name":"Innolux","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":4,"share":14.4,"company_name":"AUO","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":5,"share":9.3,"company_name":"Foxconn(Sharp)","company_id":"SHARP","company_country":"Japan"},
+{"rank":6,"share":23.9,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":2,"category_no":1,"category":"Electronic components","total_title":"Lithium-ion battery","total_aspect":"Shipping","total_volume":4.4,"total_volume_unit":"B Cell","chart_item":[
+{"rank":1,"share":25.1,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":2,"share":20.4,"company_name":"Panasonic","company_id":"PANASONIC","company_country":"Japan"},
+{"rank":3,"share":15.6,"company_name":"LG","company_id":"LG","company_country":"Korea"},
+{"rank":4,"share":7.2,"company_name":"Sony","company_id":"SONY","company_country":"Japan"},
+{"rank":5,"share":6.2,"company_name":"BYD","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":25.5,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":3,"category_no":1,"category":"Electronic components","total_title":"LED","total_aspect":"Sales","total_volume":58.4,"total_volume_unit":"B Unit","chart_item":[
+{"rank":1,"share":30.2,"company_name":"Nichia","company_id":"OTHER","company_country":"Japan"},
+{"rank":2,"share":11.9,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":3,"share":10.6,"company_name":"AOT","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":4,"share":8.2,"company_name":"LG","company_id":"LG","company_country":"Korea"},
+{"rank":5,"share":6.5,"company_name":"Epistar","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":6,"share":32.6,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":4,"category_no":1,"category":"Electronic components","total_title":"HDD","total_aspect":"Shipping","total_volume":0.5,"total_volume_unit":"B Unit","chart_item":[
+{"rank":1,"share":44.5,"company_name":"WD","company_id":"OTHER","company_country":"USA"},
+{"rank":2,"share":40.2,"company_name":"Seagate","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":15.3,"company_name":"Toshiba","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":4,"share":0,"company_name":"Other","company_id":"OTHER","company_country":"Other"},
+{"rank":5,"share":0,"company_name":"Other","company_id":"OTHER","company_country":"Other"},
+{"rank":6,"share":0,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":5,"category_no":2,"category":"Semiconductor/Material","total_title":"Ceramic package","total_aspect":"Sales","total_volume":1.11,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":56.8,"company_name":"Kyocera","company_id":"KYOCERA","company_country":"Japan"},
+{"rank":2,"share":27,"company_name":"NGK Spark Plug","company_id":"OTHER","company_country":"Japan"},
+{"rank":3,"share":8.1,"company_name":"Shinko","company_id":"OTHER","company_country":"Japan"},
+{"rank":4,"share":2.7,"company_name":"NGK","company_id":"OTHER","company_country":"Japan"},
+{"rank":5,"share":0.9,"company_name":"Narumi","company_id":"OTHER","company_country":"Japan"},
+{"rank":6,"share":4.5,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":6,"category_no":2,"category":"Semiconductor/Material","total_title":"Flash memory","total_aspect":"Shipment","total_volume":25.0,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":34.7,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":2,"share":32.2,"company_name":"Toshiba","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":3,"share":13.8,"company_name":"Micron","company_id":"OTHER","company_country":"USA"},
+{"rank":4,"share":12.6,"company_name":"SK hynix","company_id":"OTHER","company_country":"Korea"},
+{"rank":5,"share":6.5,"company_name":"Intel","company_id":"INTEL","company_country":"USA"},
+{"rank":6,"share":0.2,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":7,"category_no":2,"category":"Semiconductor/Material","total_title":"Image sensor","total_aspect":"Shipment","total_volume":8.0,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":33,"company_name":"Sony","company_id":"SONY","company_country":"Japan"},
+{"rank":2,"share":16.1,"company_name":"OmniVision","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":14.2,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":4,"share":9.9,"company_name":"Canon","company_id":"CANON","company_country":"Japan"},
+{"rank":5,"share":6.8,"company_name":"On Semiconductor","company_id":"OTHER","company_country":"USA"},
+{"rank":6,"share":20,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":8,"category_no":2,"category":"Semiconductor/Material","total_title":"Processing unit","total_aspect":"Sales","total_volume":95.9,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":55,"company_name":"Intel","company_id":"INTEL","company_country":"USA"},
+{"rank":2,"share":8.7,"company_name":"Broadcom","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":8.4,"company_name":"STMicroelectronics","company_id":"OTHER","company_country":"Swedish"},
+{"rank":4,"share":5.5,"company_name":"AMD","company_id":"OTHER","company_country":"USA"},
+{"rank":5,"share":5,"company_name":"NXP","company_id":"OTHER","company_country":"Netherlands"},
+{"rank":6,"share":17.4,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":9,"category_no":3,"category":"Home appliances","total_title":"Washing machine","total_aspect":"Sales","total_volume":53.2,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":16.1,"company_name":"Haier","company_id":"HAIER","company_country":"China"},
+{"rank":2,"share":11.6,"company_name":"Whirlpool","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":7.8,"company_name":"LG","company_id":"LG","company_country":"Korea"},
+{"rank":4,"share":7.4,"company_name":"Electrolux","company_id":"OTHER","company_country":"Swedish"},
+{"rank":5,"share":6.6,"company_name":"Midea","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":50.5,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":10,"category_no":3,"category":"Home appliances","total_title":"Refrigerator","total_aspect":"Sales","total_volume":84.6,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":19.8,"company_name":"Haier","company_id":"HAIER","company_country":"China"},
+{"rank":2,"share":8.7,"company_name":"Whirlpool","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":7.3,"company_name":"Electrolux","company_id":"OTHER","company_country":"Swedish"},
+{"rank":4,"share":6.4,"company_name":"LG","company_id":"LG","company_country":"Korea"},
+{"rank":5,"share":5.2,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":6,"share":52.6,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":11,"category_no":3,"category":"Home appliances","total_title":"Air conditioner","total_aspect":"Sales","total_volume":1.3,"total_volume_unit":"B Unit","chart_item":[
+{"rank":1,"share":15.9,"company_name":"GREE","company_id":"OTHER","company_country":"China"},
+{"rank":2,"share":10.8,"company_name":"Haier","company_id":"HAIER","company_country":"China"},
+{"rank":3,"share":10.4,"company_name":"Midea","company_id":"OTHER","company_country":"China"},
+{"rank":4,"share":5.8,"company_name":"LG","company_id":"LG","company_country":"Korea"},
+{"rank":5,"share":4.5,"company_name":"Hisense","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":52.6,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":12,"category_no":4,"category":"Electric power","total_title":"Gas turbine","total_aspect":"Sales","total_volume":21.8,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":49,"company_name":"GE","company_id":"GE","company_country":"USA"},
+{"rank":2,"share":23,"company_name":"Siemens","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":3,"share":17,"company_name":"MHPS","company_id":"OTHER","company_country":"Japan"},
+{"rank":4,"share":2,"company_name":"Alstom","company_id":"OTHER","company_country":"French"},
+{"rank":5,"share":0,"company_name":"Other","company_id":"OTHER","company_country":"Other"},
+{"rank":6,"share":9,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":13,"category_no":4,"category":"Electric power","total_title":"Nuclear reactor","total_aspect":"Total","total_volume":43.4,"total_volume_unit":"Reactor","chart_item":[
+{"rank":1,"share":27.6,"company_name":"WH/Toshiba","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":2,"share":26.5,"company_name":"Areva/MHI","company_id":"OTHER","company_country":"Japan"},
+{"rank":3,"share":14.7,"company_name":"GE/Hitachi","company_id":"GE","company_country":"USA"},
+{"rank":4,"share":12,"company_name":"Rosatom","company_id":"OTHER","company_country":"Russia"},
+{"rank":5,"share":7.8,"company_name":"AECL","company_id":"OTHER","company_country":"Canada"},
+{"rank":6,"share":11.4,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":14,"category_no":4,"category":"Electric power","total_title":"Wind turbine","total_aspect":"Capacity","total_volume":37.47,"total_volume_unit":"M KW","chart_item":[
+{"rank":1,"share":13.1,"company_name":"Vestas","company_id":"OTHER","company_country":"Denmark"},
+{"rank":2,"share":11,"company_name":"Goldwind","company_id":"OTHER","company_country":"China"},
+{"rank":3,"share":9.8,"company_name":"Enercon","company_id":"OTHER","company_country":"Germany"},
+{"rank":4,"share":7.4,"company_name":"Siemens","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":5,"share":6.6,"company_name":"GE","company_id":"GE","company_country":"USA"},
+{"rank":6,"share":52.1,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":15,"category_no":4,"category":"Electric power","total_title":"Solar cell","total_aspect":"Capacity","total_volume":25.53,"total_volume_unit":"M KW","chart_item":[
+{"rank":1,"share":8.3,"company_name":"Yingli","company_id":"OTHER","company_country":"China"},
+{"rank":2,"share":6.7,"company_name":"Trina solar","company_id":"OTHER","company_country":"China"},
+{"rank":3,"share":4.9,"company_name":"Canadian solar","company_id":"OTHER","company_country":"Canada"},
+{"rank":4,"share":4.8,"company_name":"Foxconn(Sharp)","company_id":"SHARP","company_country":"Japan"},
+{"rank":5,"share":4.5,"company_name":"Jinko solar","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":70.8,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":16,"category_no":5,"category":"Medical","total_title":"Ultrasonograph","total_aspect":"Sales","total_volume":47,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":22.4,"company_name":"GE","company_id":"GE","company_country":"USA"},
+{"rank":2,"share":18.9,"company_name":"Philips","company_id":"PHILIPS","company_country":"Netherlands"},
+{"rank":3,"share":14.2,"company_name":"Toshiba","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":4,"share":13.6,"company_name":"Siemens","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":5,"share":4.1,"company_name":"Hitachi","company_id":"HITACHI","company_country":"Japan"},
+{"rank":6,"share":26.8,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":17,"category_no":5,"category":"Medical","total_title":"CT/MRI","total_aspect":"Sales","total_volume":97,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":24.1,"company_name":"Siemens","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":2,"share":21.8,"company_name":"GE","company_id":"GE","company_country":"USA"},
+{"rank":3,"share":13.1,"company_name":"Philips","company_id":"PHILIPS","company_country":"Netherlands"},
+{"rank":4,"share":13,"company_name":"Toshiba","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":5,"share":5.3,"company_name":"Hitachi","company_id":"HITACHI","company_country":"Japan"},
+{"rank":6,"share":22.7,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":18,"category_no":6,"category":"Smart device","total_title":"PC","total_aspect":"Shipping","total_volume":3,"total_volume_unit":"B Unit","chart_item":[
+{"rank":1,"share":17.1,"company_name":"Lenovo","company_id":"LENOVO","company_country":"China"},
+{"rank":2,"share":16.6,"company_name":"HP","company_id":"HP","company_country":"USA"},
+{"rank":3,"share":12,"company_name":"Dell","company_id":"DELL","company_country":"USA"},
+{"rank":4,"share":7.8,"company_name":"Acer","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":5,"share":6.1,"company_name":"ASUS","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":6,"share":40.4,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":19,"category_no":6,"category":"Smart device","total_title":"Tablet","total_aspect":"Shipping","total_volume":2,"total_volume_unit":"B Unit","chart_item":[
+{"rank":1,"share":33.9,"company_name":"Apple","company_id":"APPLE","company_country":"USA"},
+{"rank":2,"share":18.2,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":3,"share":5.6,"company_name":"ASUS","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":4,"share":4.5,"company_name":"Amazon","company_id":"AMAZON","company_country":"USA"},
+{"rank":5,"share":3.6,"company_name":"Lenovo","company_id":"LENOVO","company_country":"China"},
+{"rank":6,"share":34.2,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":20,"category_no":6,"category":"Smart device","total_title":"Smartphone","total_aspect":"Shipping","total_volume":10,"total_volume_unit":"B Unit","chart_item":[
+{"rank":1,"share":31.3,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":2,"share":15.2,"company_name":"Apple","company_id":"APPLE","company_country":"USA"},
+{"rank":3,"share":4.8,"company_name":"Huawei","company_id":"OTHER","company_country":"China"},
+{"rank":4,"share":4.7,"company_name":"LG","company_id":"LG","company_country":"Korea"},
+{"rank":5,"share":4.5,"company_name":"Lenovo","company_id":"LENOVO","company_country":"China"},
+{"rank":6,"share":39.5,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":21,"category_no":6,"category":"Smart device","total_title":"Smartphone OS","total_aspect":"Shipping","total_volume":10,"total_volume_unit":"B Unit","chart_item":[
+{"rank":1,"share":78.4,"company_name":"Google","company_id":"GOOGLE","company_country":"USA"},
+{"rank":2,"share":15.6,"company_name":"Apple","company_id":"APPLE","company_country":"USA"},
+{"rank":3,"share":3.2,"company_name":"Microsoft","company_id":"MICROSOFT","company_country":"USA"},
+{"rank":4,"share":1.9,"company_name":"BlackBerry","company_id":"OTHER","company_country":"Canada"},
+{"rank":5,"share":0.9,"company_name":"Other","company_id":"OTHER","company_country":"Other"},
+{"rank":6,"share":0,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":22,"category_no":7,"category":"Computer technology","total_title":"Cloud service","total_aspect":"Sales","total_volume":566,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":30,"company_name":"Amazon","company_id":"AMAZON","company_country":"USA"},
+{"rank":2,"share":10,"company_name":"Microsoft","company_id":"MICROSOFT","company_country":"USA"},
+{"rank":3,"share":7,"company_name":"IBM","company_id":"IBM","company_country":"USA"},
+{"rank":4,"share":5,"company_name":"Google","company_id":"GOOGLE","company_country":"USA"},
+{"rank":5,"share":4,"company_name":"Salesforce","company_id":"OTHER","company_country":"USA"},
+{"rank":6,"share":44,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":23,"category_no":7,"category":"Computer technology","total_title":"Software","total_aspect":"Sales","total_volume":4286,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":15.9,"company_name":"Microsoft","company_id":"MICROSOFT","company_country":"USA"},
+{"rank":2,"share":7,"company_name":"Oracle","company_id":"ORACLE","company_country":"USA"},
+{"rank":3,"share":6.8,"company_name":"IBM","company_id":"IBM","company_country":"USA"},
+{"rank":4,"share":4.6,"company_name":"SAP","company_id":"OTHER","company_country":"Germany"},
+{"rank":5,"share":1.5,"company_name":"Symantec","company_id":"OTHER","company_country":"USA"},
+{"rank":6,"share":64.2,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":24,"category_no":7,"category":"Computer technology","total_title":"IT service","total_aspect":"Sales","total_volume":9548,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":5.7,"company_name":"IBM","company_id":"IBM","company_country":"USA"},
+{"rank":2,"share":3.2,"company_name":"HP","company_id":"HP","company_country":"USA"},
+{"rank":3,"share":3,"company_name":"Accenture","company_id":"OTHER","company_country":"USA"},
+{"rank":4,"share":2.3,"company_name":"Deloitte","company_id":"OTHER","company_country":"USA"},
+{"rank":5,"share":2.1,"company_name":"Fujitsu","company_id":"FUJITSU","company_country":"Japan"},
+{"rank":6,"share":83.7,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":25,"category_no":7,"category":"Computer technology","total_title":"Communication service","total_aspect":"Sales","total_volume":1.7,"total_volume_unit":"T $","chart_item":[
+{"rank":1,"share":18.6,"company_name":"Ericsson","company_id":"ERICSSON","company_country":"Swedish"},
+{"rank":2,"share":14.9,"company_name":"Huawei","company_id":"OTHER","company_country":"China"},
+{"rank":3,"share":9.6,"company_name":"Alcatel-Lucent","company_id":"OTHER","company_country":"French"},
+{"rank":4,"share":8.7,"company_name":"Nokia","company_id":"NOKIA","company_country":"Finland"},
+{"rank":5,"share":5.9,"company_name":"Cisco","company_id":"CISCO","company_country":"USA"},
+{"rank":6,"share":42.3,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":26,"category_no":7,"category":"Computer technology","total_title":"Server","total_aspect":"Shipment","total_volume":539,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":27.3,"company_name":"HP","company_id":"HP","company_country":"USA"},
+{"rank":2,"share":18.6,"company_name":"IBM","company_id":"IBM","company_country":"USA"},
+{"rank":3,"share":16.7,"company_name":"Dell","company_id":"DELL","company_country":"USA"},
+{"rank":4,"share":5.6,"company_name":"Cisco","company_id":"CISCO","company_country":"USA"},
+{"rank":5,"share":4.9,"company_name":"Oracle","company_id":"ORACLE","company_country":"USA"},
+{"rank":6,"share":26.9,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":27,"category_no":7,"category":"Computer technology","total_title":"Router","total_aspect":"Shipment","total_volume":30,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":66.6,"company_name":"Cisco","company_id":"CISCO","company_country":"USA"},
+{"rank":2,"share":12.5,"company_name":"Huawei","company_id":"OTHER","company_country":"China"},
+{"rank":3,"share":6.8,"company_name":"Juniper","company_id":"OTHER","company_country":"USA"},
+{"rank":4,"share":6.5,"company_name":"HP","company_id":"HP","company_country":"USA"},
+{"rank":5,"share":2.9,"company_name":"Brocade","company_id":"OTHER","company_country":"USA"},
+{"rank":6,"share":4.7,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":28,"category_no":7,"category":"Computer technology","total_title":"Storage","total_aspect":"Shipment","total_volume":239,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":32,"company_name":"EMC(Dell)","company_id":"DELL","company_country":"USA"},
+{"rank":2,"share":10.8,"company_name":"IBM","company_id":"IBM","company_country":"USA"},
+{"rank":3,"share":9.9,"company_name":"NetApp","company_id":"OTHER","company_country":"USA"},
+{"rank":4,"share":9.9,"company_name":"HP","company_id":"HP","company_country":"USA"},
+{"rank":5,"share":8.4,"company_name":"Hitachi","company_id":"HITACHI","company_country":"Japan"},
+{"rank":6,"share":29,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":29,"category_no":8,"category":"Digital appliance","total_title":"Digital camera","total_aspect":"Shipping","total_volume":81.00,"total_volume_unit":"M Unit","chart_item":[
+{"rank":1,"share":25.6,"company_name":"Canon","company_id":"OTHER","company_country":"Japan"},
+{"rank":2,"share":22.7,"company_name":"Nikon","company_id":"OTHER","company_country":"Japan"},
+{"rank":3,"share":15.2,"company_name":"Sony","company_id":"SONY","company_country":"Japan"},
+{"rank":4,"share":9.6,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":5,"share":7.4,"company_name":"FujiFilm","company_id":"FUJIFILM","company_country":"Japan"},
+{"rank":6,"share":19.5,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":30,"category_no":8,"category":"Digital appliance","total_title":"Video camera","total_aspect":"Shipping","total_volume":6.53,"total_volume_unit":"M Unit","chart_item":[
+{"rank":1,"share":49.5,"company_name":"Sony","company_id":"SONY","company_country":"Japan"},
+{"rank":2,"share":18.5,"company_name":"Panasonic","company_id":"PANASONIC","company_country":"Japan"},
+{"rank":3,"share":14.5,"company_name":"JVC KENWOOD","company_id":"OTHER","company_country":"Japan"},
+{"rank":4,"share":10,"company_name":"Canon","company_id":"CANON","company_country":"Japan"},
+{"rank":5,"share":5,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":6,"share":2.5,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":31,"category_no":8,"category":"Digital appliance","total_title":"Bubble jet printer","total_aspect":"Shipping","total_volume":66.52,"total_volume_unit":"M Unit","chart_item":[
+{"rank":1,"share":46.3,"company_name":"HP","company_id":"HP","company_country":"USA"},
+{"rank":2,"share":26.9,"company_name":"Canon","company_id":"CANON","company_country":"Japan"},
+{"rank":3,"share":20.4,"company_name":"EPSON","company_id":"EPSON","company_country":"Japan"},
+{"rank":4,"share":5.9,"company_name":"Brother","company_id":"OTHER","company_country":"Japan"},
+{"rank":5,"share":0.2,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":6,"share":0.3,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":32,"category_no":8,"category":"Digital appliance","total_title":"Copying machine","total_aspect":"Shipping","total_volume":19.08,"total_volume_unit":"M Unit","chart_item":[
+{"rank":1,"share":27.1,"company_name":"HP","company_id":"HP","company_country":"USA"},
+{"rank":2,"share":15.7,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":3,"share":12,"company_name":"Canon","company_id":"CANON","company_country":"Japan"},
+{"rank":4,"share":8.7,"company_name":"Brother","company_id":"OTHER","company_country":"Japan"},
+{"rank":5,"share":7.6,"company_name":"Xerox(FujiFilm)","company_id":"FUJIFILM","company_country":"Japan"},
+{"rank":6,"share":28.9,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":33,"category_no":8,"category":"Digital appliance","total_title":"Flat TV","total_aspect":"Sales","total_volume":98.9,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":26.8,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":2,"share":15.3,"company_name":"LG","company_id":"LG","company_country":"Korea"},
+{"rank":3,"share":7.5,"company_name":"Sony","company_id":"SONY","company_country":"Japan"},
+{"rank":4,"share":5.6,"company_name":"TCL","company_id":"OTHER","company_country":"China"},
+{"rank":5,"share":5.2,"company_name":"Hisense","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":39.6,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":34,"category_no":8,"category":"Digital appliance","total_title":"Game machine","total_aspect":"Sales","total_volume":47.42,"total_volume_unit":"M Unit","chart_item":[
+{"rank":1,"share":40.1,"company_name":"Sony","company_id":"SONY","company_country":"Japan"},
+{"rank":2,"share":36.9,"company_name":"Nintendo","company_id":"OTHER","company_country":"Japan"},
+{"rank":3,"share":23,"company_name":"Microsoft","company_id":"MICROSOFT","company_country":"USA"},
+{"rank":4,"share":0,"company_name":"Other","company_id":"OTHER","company_country":"Other"},
+{"rank":5,"share":0,"company_name":"Other","company_id":"OTHER","company_country":"Other"},
+{"rank":6,"share":0,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":35,"category_no":8,"category":"Digital appliance","total_title":"Automotive AV","total_aspect":"Sales","total_volume":3.46,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":12.1,"company_name":"Panasonic","company_id":"PANASONIC","company_country":"Japan"},
+{"rank":2,"share":9.8,"company_name":"Pioneer","company_id":"PIONEER","company_country":"Japan"},
+{"rank":3,"share":9.4,"company_name":"Harman","company_id":"OTHER","company_country":"USA"},
+{"rank":4,"share":7.9,"company_name":"Continental","company_id":"OTHER","company_country":"Germany"},
+{"rank":5,"share":7.6,"company_name":"Alpine(Alps)","company_id":"OTHER","company_country":"Japan"},
+{"rank":6,"share":53.2,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":36,"category_no":9,"category":"Industrial machine","total_title":"PLC","total_aspect":"Sales","total_volume":0.36,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":31,"company_name":"Siemens","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":2,"share":22,"company_name":"Rockwell","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":14,"company_name":"Mitsubishi","company_id":"MITSUBISHI","company_country":"Japan"},
+{"rank":4,"share":9,"company_name":"Schneider","company_id":"OTHER","company_country":"French"},
+{"rank":5,"share":7,"company_name":"Omron","company_id":"OTHER","company_country":"Japan"},
+{"rank":6,"share":17,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":37,"category_no":9,"category":"Industrial machine","total_title":"Elevator","total_aspect":"Market","total_volume":5.30,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":27,"company_name":"Otis","company_id":"OTHER","company_country":"USA"},
+{"rank":2,"share":18,"company_name":"Schindler","company_id":"OTHER","company_country":"Swedish"},
+{"rank":3,"share":13,"company_name":"ThyssenKrupp","company_id":"OTHER","company_country":"Germany"},
+{"rank":4,"share":11,"company_name":"Kone","company_id":"OTHER","company_country":"Finland"},
+{"rank":5,"share":8,"company_name":"Mitsubishi","company_id":"MITSUBISHI","company_country":"Japan"},
+{"rank":6,"share":23,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":38,"category_no":9,"category":"Industrial machine","total_title":"Railway vehicle","total_aspect":"Market","total_volume":5.46,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":23,"company_name":"Bombardier","company_id":"OTHER","company_country":"Canada"},
+{"rank":2,"share":17,"company_name":"Alstom","company_id":"OTHER","company_country":"French"},
+{"rank":3,"share":14,"company_name":"Siemens","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":4,"share":13,"company_name":"Kawasaki","company_id":"OTHER","company_country":"Japan"},
+{"rank":5,"share":9,"company_name":"GE","company_id":"GE","company_country":"USA"},
+{"rank":6,"share":24,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":39,"category_no":10,"category":"Manufacturing","total_title":"EMS","total_aspect":"Market","total_volume":4.60,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":31.9,"company_name":"Foxconn(Hon hai)","company_id":"FOXCONN","company_country":"Tiwan"},
+{"rank":2,"share":7,"company_name":"Pegatron","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":3,"share":5.7,"company_name":"Flextronics","company_id":"OTHER","company_country":"Singapore"},
+{"rank":4,"share":4.5,"company_name":"Wistron","company_id":"OTHER","company_country":"China"},
+{"rank":5,"share":3.7,"company_name":"Jabil Circuit","company_id":"OTHER","company_country":"USA"},
+{"rank":6,"share":47.2,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":40,"category_no":10,"category":"Manufacturing","total_title":"Foundry","total_aspect":"Sales","total_volume":4.28,"total_volume_unit":"B $","chart_item":[
+{"rank":1,"share":46.3,"company_name":"TSMC","company_id":"TSMC","company_country":"Tiwan"},
+{"rank":2,"share":9.9,"company_name":"GLOBALFOUNDRIES","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":9.2,"company_name":"UMC","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":4,"share":9.2,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":5,"share":4.6,"company_name":"SMIC","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":20.8,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
+]

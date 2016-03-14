@@ -1,0 +1,262 @@
+/*
+memo
+. : class指定　（※)
+# : id指定
+tag : タグ指定
+※e.g
+.dot.current なら <div class="dot current">ここ
+.popup td.col1 なら　<div class="popup"><table><tr><td class="col1">ここ
+*/
+
+/* Normalize */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, figure, form, fieldset, input, p, blockquote, th, td, legend, br {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    position: relative;
+    padding:1em;
+    font-family:'Meiryo UI', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+
+div{
+    float:none; /* 左右への回り込みなし */
+}
+div.svg{
+    width : 100%;
+    height: 100%;
+}
+
+span.note{
+    font-size: 0.8em;
+    fill: #333;
+    margin-left: 50px;
+}
+
+svg {
+    width:100%;
+    height: 100%;
+}
+
+path {
+/*fill:#333;*/
+    cursor: pointer;
+}
+
+.highlight {
+    fill: #be1932;
+}
+
+.un-highlight {
+    fill: #C7C7C7;
+}
+
+polyline {
+	stroke: #999;
+	stroke-width: 0.1em;
+	fill: none;
+}
+text {
+    font-size: 0.8em;
+	font-weight: bold;
+}
+text.label_bg {
+    fill: #fff;
+    stroke: #fff; /* ふちどりの色 */
+    stroke-width: 0.5em;  /* ふちどりのふとさ */    
+}
+text.label_bg.highlight{
+    /*opacity: 0; */
+}
+text.label_bg.un-highlight{
+
+}
+
+text.label {
+    fill: #333;
+}
+
+text.label.highlight {
+    fill: #be1932;
+    /*opacity: 0; */
+}
+
+text.label.un-highlight {
+    fill: #C7C7C7;
+
+}
+text.c_label {
+    font-size: 2.5em;
+    fill: #333;
+	font-weight: bold;
+    text-anchor: middle;
+}
+text.c_label.highlight {
+    fill: #be1932;
+}
+
+text.c_label.un-highlight {
+    opacity: 0; /* 不可視 */
+}
+text.c_label.linked.highlight {
+    opacity: 0; /* 不可視 */
+}
+
+text.c_label2 {
+    font-size: 0.2em;
+    fill: #333;
+    text-anchor: middle;
+}
+text.c_label2.highlight {
+    opacity: 1;
+    fill: #be1932;
+}
+
+text.c_label2.un-highlight {
+    opacity: 0; /* 不可視 */
+}
+text.rate {
+    font-size: 1.0em;
+    fill: #999;
+	font-weight: bold;
+}
+text.title {
+    font-size: 1.8em;
+    fill: #000;    
+	font-weight: bold;
+}
+
+text.title.highlight {
+    fill: #be1932;
+}
+
+text.title.un-highlight {
+    fill: #C7C7C7;
+}
+
+text.sample_label {
+    font-size: 1.0em;
+}
+
+#filters {
+    display: block; /* 縦並び */
+}
+#filters_product_category,
+#filters_company_category, 
+#filters_company {
+    margin:0.1em 0em;
+    vertical-align: middle;
+    text-align: left;
+    
+    border-collapse:separate;
+	border-spacing:2px 2px;
+}
+#filters_company_category a {
+	display: inline-block;
+    text-align: center;
+    width: 120px;
+    padding: 3px 5px;
+        
+    color: #000;
+    font-size: 10px;
+    border : 1px solid #fff;
+    background: #e2e2e2;
+    cursor: pointer;    
+}
+
+#filters_country a, 
+#filters_company a {
+	display: inline-block;
+    text-align: center;
+    width: 80px;
+    padding: 3px 5px;
+        
+    color: #000;
+    font-size: 10px;
+    border : 1px solid #fff;
+    background: #e2e2e2;
+    cursor: pointer;
+}
+
+#filters_company_category a.highlight, 
+#filters_company a.highlight {
+	font-weight: bold;
+    border : 1px solid #fff;
+    background: #be1932;
+    color: #fff;
+}
+
+#filters_company a.linked.highlight {
+	font-weight: bold;
+    border : 1px solid #be1932;
+    background: #e2e2e2;
+    color: #be1932
+}
+
+#filters_product_category a.group,
+#filters_company_category a.group, 
+#filters_company a.group {
+    color: #C7C7C7;
+	display: inline-block;
+    text-align: center;
+    width: 140px;
+    padding: 3px 5px;
+    margin: 0 0.1em;
+
+    border : 1px solid #C7C7C7 ;
+    background: #fff;
+    cursor: default;
+}
+
+/*
+#filters_category a:last-child, #filters_country a:last-child, #filters_company a:last-child {
+    margin-right: 0;
+}
+*/
+#filters_product_category a
+{
+	display: inline-block;
+    text-align: center;
+    width: 120px;
+    padding: 3px 5px;
+    
+    font-size: 10px;
+    cursor: pointer;
+}
+#filters_product_category a.A{ background: #e2e2e2; border : 1px solid #292929; color: #292929}
+#filters_product_category a.B{ background: #D5DDE7; border : 1px solid #4C688B; color: #4C688B}
+#filters_product_category a.C{ background: #D1E1E5; border : 1px solid #447784; color: #447784}
+#filters_product_category a.D{ background: #D4E8E1; border : 1px solid #478E75; color: #478E75}
+#filters_product_category a.E{ background: #E3F4DE; border : 1px solid #6CB359; color: #6CB359}
+#filters_product_category a.F{ background: #FEFFE9; border : 1px solid #D1D36A; color: #D1D36A}
+#filters_product_category a.G{ background: #FFDDC1; border : 1px solid #DF9557; color: #DF9557}
+#filters_product_category a.H{ background: #FEC1C3; border : 1px solid #DD565A; color: #DD565A}
+#filters_product_category a.I{ background: #F5BBDD; border : 1px solid #B14584; color: #B14584}
+#filters_product_category a.J{ background: #DEB9EE; border : 1px solid #7A3E94; color: #7A3E94}
+#filters_product_category a.K{ background: #C9BDEF; border : 1px solid #5B4699; color: #5B4699}
+
+#filters_product_category a.select{ color: #fff; }
+#filters_product_category a.group.select{ color: #C7C7C7; }
+
+#filters_product_category a.A.select{ background: #292929;}
+#filters_product_category a.B.select{ background: #2B4970;}
+#filters_product_category a.C.select{ background: #255C69;}
+#filters_product_category a.D.select{ background: #267257;}
+#filters_product_category a.E.select{ background: #448F30;}
+#filters_product_category a.F.select{ background: #A6A938;}
+#filters_product_category a.G.select{ background: #AA6C39;}
+#filters_product_category a.H.select{ background: #A8383B;}
+#filters_product_category a.I.select{ background: #872D62;}
+#filters_product_category a.J.select{ background: #5B2971;}
+#filters_product_category a.K.select{ background: #413075;}
+
+#filters_company_category a.select, 
+#filters_country a.select, 
+#filters_company a.select { 
+	font-weight: bold;
+    border : 1px solid #fff ;
+    background: #be1932;
+    color: #fff; 
+}

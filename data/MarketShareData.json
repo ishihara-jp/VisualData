@@ -1,0 +1,321 @@
+[
+{"chart_no":1,"category_no":1,"category":"電子部品","category_us":"Electronic components","total_title":"液晶パネル","total_aspect":"出荷額","total_volume":1083,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":23.1,"company_name":"ＬＧ","company_id":"LG","company_country":"Korea"},
+{"rank":2,"share":14.8,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":3,"share":14.5,"company_name":"群創光電","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":4,"share":14.4,"company_name":"友達光電","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":5,"share":9.3,"company_name":"シャープ","company_id":"SHARP","company_country":"Japan"},
+{"rank":6,"share":23.9,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":2,"category_no":1,"category":"電子部品","category_us":"Electronic components","total_title":"リチウムイオン電池","total_aspect":"出荷量","total_volume":44,"total_volume_unit":"億セル","chart_item":[
+{"rank":1,"share":25.1,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":2,"share":20.4,"company_name":"パナソニック","company_id":"PANASONIC","company_country":"Japan"},
+{"rank":3,"share":15.6,"company_name":"ＬＧ","company_id":"LG","company_country":"Korea"},
+{"rank":4,"share":7.2,"company_name":"ソニー","company_id":"SONY","company_country":"Japan"},
+{"rank":5,"share":6.2,"company_name":"ＢＹＤ","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":25.5,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":3,"category_no":1,"category":"電子部品","category_us":"Electronic components","total_title":"LED","total_aspect":"販売額","total_volume":584,"total_volume_unit":"億個","chart_item":[
+{"rank":1,"share":30.2,"company_name":"日亜化学工業","company_id":"OTHER","company_country":"Japan"},
+{"rank":2,"share":11.9,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":3,"share":10.6,"company_name":"先進開発光電","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":4,"share":8.2,"company_name":"ＬＧ","company_id":"LG","company_country":"Korea"},
+{"rank":5,"share":6.5,"company_name":"晶元光電","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":6,"share":32.6,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":4,"category_no":1,"category":"電子部品","category_us":"Electronic components","total_title":"HDD","total_aspect":"出荷台数","total_volume":5,"total_volume_unit":"億台","chart_item":[
+{"rank":1,"share":44.5,"company_name":"ウエスタン・デジタル","company_id":"OTHER","company_country":"USA"},
+{"rank":2,"share":40.2,"company_name":"シーゲート","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":15.3,"company_name":"東芝","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":4,"share":0,"company_name":"その他","company_id":"OTHER","company_country":"Other"},
+{"rank":5,"share":0,"company_name":"その他","company_id":"OTHER","company_country":"Other"},
+{"rank":6,"share":0,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":5,"category_no":2,"category":"半導体・素材","category_us":"Semiconductor/Material","total_title":"セラミックパッケージ","total_aspect":"売上高","total_volume":11.1,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":56.8,"company_name":"京セラ","company_id":"KYOCERA","company_country":"Japan"},
+{"rank":2,"share":27,"company_name":"日本特殊陶業","company_id":"OTHER","company_country":"Japan"},
+{"rank":3,"share":8.1,"company_name":"新光電気工業","company_id":"OTHER","company_country":"Japan"},
+{"rank":4,"share":2.7,"company_name":"日本ガイシ","company_id":"OTHER","company_country":"Japan"},
+{"rank":5,"share":0.9,"company_name":"鳴海製陶","company_id":"OTHER","company_country":"Japan"},
+{"rank":6,"share":4.5,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":6,"category_no":2,"category":"半導体・素材","category_us":"Semiconductor/Material","total_title":"フラッシュメモリー","total_aspect":"出荷額","total_volume":250,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":34.7,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":2,"share":32.2,"company_name":"東芝","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":3,"share":13.8,"company_name":"マイクロン","company_id":"OTHER","company_country":"USA"},
+{"rank":4,"share":12.6,"company_name":"ＳＫハイニックス","company_id":"OTHER","company_country":"Korea"},
+{"rank":5,"share":6.5,"company_name":"インテル","company_id":"INTEL","company_country":"USA"},
+{"rank":6,"share":0.2,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":7,"category_no":2,"category":"半導体・素材","category_us":"Semiconductor/Material","total_title":"イメージセンサー","total_aspect":"出荷額","total_volume":80,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":33,"company_name":"ソニー","company_id":"SONY","company_country":"Japan"},
+{"rank":2,"share":16.1,"company_name":"オムニビジョン","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":14.2,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":4,"share":9.9,"company_name":"キヤノン","company_id":"CANON","company_country":"Japan"},
+{"rank":5,"share":6.8,"company_name":"アプティナ","company_id":"OTHER","company_country":"USA"},
+{"rank":6,"share":20,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":8,"category_no":2,"category":"半導体・素材","category_us":"Semiconductor/Material","total_title":"プロセッサー","total_aspect":"売上高","total_volume":959,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":55,"company_name":"インテル","company_id":"INTEL","company_country":"USA"},
+{"rank":2,"share":8.7,"company_name":"ブロードコム","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":8.4,"company_name":"ＳＴマイクロエレクトロニクス","company_id":"OTHER","company_country":"Swedish"},
+{"rank":4,"share":5.5,"company_name":"ＡＭＤ","company_id":"OTHER","company_country":"USA"},
+{"rank":5,"share":5,"company_name":"ＮＸＰ","company_id":"OTHER","company_country":"Netherlands"},
+{"rank":6,"share":17.4,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":9,"category_no":3,"category":"白物家電","category_us":"Home appliances","total_title":"洗濯機","total_aspect":"販売額","total_volume":532,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":16.1,"company_name":"ハイアール","company_id":"HAIER","company_country":"China"},
+{"rank":2,"share":11.6,"company_name":"ワールプール","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":7.8,"company_name":"ＬＧ","company_id":"LG","company_country":"Korea"},
+{"rank":4,"share":7.4,"company_name":"エレクトロラックス","company_id":"OTHER","company_country":"Swedish"},
+{"rank":5,"share":6.6,"company_name":"美的集団","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":50.5,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":10,"category_no":3,"category":"白物家電","category_us":"Home appliances","total_title":"冷蔵庫","total_aspect":"販売額","total_volume":846,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":19.8,"company_name":"ハイアール","company_id":"HAIER","company_country":"China"},
+{"rank":2,"share":8.7,"company_name":"ワールプール","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":7.3,"company_name":"エレクトロラックス","company_id":"OTHER","company_country":"Swedish"},
+{"rank":4,"share":6.4,"company_name":"ＬＧ","company_id":"LG","company_country":"Korea"},
+{"rank":5,"share":5.2,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":6,"share":52.6,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":11,"category_no":3,"category":"白物家電","category_us":"Home appliances","total_title":"ルームエアコン","total_aspect":"販売台数","total_volume":1.3,"total_volume_unit":"億台","chart_item":[
+{"rank":1,"share":15.9,"company_name":"珠海格力電器","company_id":"OTHER","company_country":"China"},
+{"rank":2,"share":10.8,"company_name":"ハイアール","company_id":"HAIER","company_country":"China"},
+{"rank":3,"share":10.4,"company_name":"美的集団","company_id":"OTHER","company_country":"China"},
+{"rank":4,"share":5.8,"company_name":"ＬＧ","company_id":"LG","company_country":"Korea"},
+{"rank":5,"share":4.5,"company_name":"ハイセンス","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":52.6,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":12,"category_no":4,"category":"エネルギー","category_us":"Electric power","total_title":"ガスタービン","total_aspect":"販売額","total_volume":218,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":49,"company_name":"ＧＥ","company_id":"GE","company_country":"USA"},
+{"rank":2,"share":23,"company_name":"シーメンス","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":3,"share":17,"company_name":"三菱日立パワーシステムズ","company_id":"OTHER","company_country":"Japan"},
+{"rank":4,"share":2,"company_name":"アルストム","company_id":"OTHER","company_country":"French"},
+{"rank":5,"share":0,"company_name":"その他","company_id":"OTHER","company_country":"Other"},
+{"rank":6,"share":9,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":13,"category_no":4,"category":"エネルギー","category_us":"Electric power","total_title":"原子力発電所","total_aspect":"稼働原子炉","total_volume":434,"total_volume_unit":"機","chart_item":[
+{"rank":1,"share":27.6,"company_name":"ＷＨ/東芝連合","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":2,"share":26.5,"company_name":"アレバ/三菱重工連合","company_id":"OTHER","company_country":"Japan"},
+{"rank":3,"share":14.7,"company_name":"ＧＥ/日立連合","company_id":"GE","company_country":"USA"},
+{"rank":4,"share":12,"company_name":"ロスアトム","company_id":"OTHER","company_country":"Russia"},
+{"rank":5,"share":7.8,"company_name":"カナダ原子力","company_id":"OTHER","company_country":"Canada"},
+{"rank":6,"share":11.4,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":14,"category_no":4,"category":"エネルギー","category_us":"Electric power","total_title":"風力発電機","total_aspect":"稼働能力","total_volume":3747,"total_volume_unit":"万KW","chart_item":[
+{"rank":1,"share":13.1,"company_name":"ヴェスタス","company_id":"OTHER","company_country":"Denmark"},
+{"rank":2,"share":11,"company_name":"ゴールドウィンド","company_id":"OTHER","company_country":"China"},
+{"rank":3,"share":9.8,"company_name":"エネルコン","company_id":"OTHER","company_country":"Germany"},
+{"rank":4,"share":7.4,"company_name":"シーメンス","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":5,"share":6.6,"company_name":"ＧＥ","company_id":"GE","company_country":"USA"},
+{"rank":6,"share":52.1,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":15,"category_no":4,"category":"エネルギー","category_us":"Electric power","total_title":"太陽電池","total_aspect":"出荷量","total_volume":2553,"total_volume_unit":"万KW","chart_item":[
+{"rank":1,"share":8.3,"company_name":"インリーグリーンエナジー","company_id":"OTHER","company_country":"China"},
+{"rank":2,"share":6.7,"company_name":"トリナソーラー","company_id":"OTHER","company_country":"China"},
+{"rank":3,"share":4.9,"company_name":"カナディアンソーラー","company_id":"OTHER","company_country":"Canada"},
+{"rank":4,"share":4.8,"company_name":"シャープ","company_id":"SHARP","company_country":"Japan"},
+{"rank":5,"share":4.5,"company_name":"ジンコソーラー","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":70.8,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":16,"category_no":5,"category":"医療","category_us":"Medical","total_title":"超音波診断装置","total_aspect":"売上高","total_volume":47,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":22.4,"company_name":"ＧＥ","company_id":"GE","company_country":"USA"},
+{"rank":2,"share":18.9,"company_name":"フィリップス","company_id":"PHILIPS","company_country":"Netherlands"},
+{"rank":3,"share":14.2,"company_name":"東芝","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":4,"share":13.6,"company_name":"シーメンス","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":5,"share":4.1,"company_name":"日立","company_id":"HITACHI","company_country":"Japan"},
+{"rank":6,"share":26.8,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":17,"category_no":5,"category":"医療","category_us":"Medical","total_title":"ＣＴ・ＭＲＩ","total_aspect":"売上高","total_volume":97,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":24.1,"company_name":"シーメンス","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":2,"share":21.8,"company_name":"ＧＥ","company_id":"GE","company_country":"USA"},
+{"rank":3,"share":13.1,"company_name":"フィリップス","company_id":"PHILIPS","company_country":"Netherlands"},
+{"rank":4,"share":13,"company_name":"東芝","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":5,"share":5.3,"company_name":"日立","company_id":"HITACHI","company_country":"Japan"},
+{"rank":6,"share":22.7,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":18,"category_no":6,"category":"モバイル・パソコン","category_us":"Smart device","total_title":"パソコン","total_aspect":"出荷台数","total_volume":3,"total_volume_unit":"億台","chart_item":[
+{"rank":1,"share":17.1,"company_name":"レノボ","company_id":"LENOVO","company_country":"China"},
+{"rank":2,"share":16.6,"company_name":"ＨＰ","company_id":"HP","company_country":"USA"},
+{"rank":3,"share":12,"company_name":"デル","company_id":"DELL","company_country":"USA"},
+{"rank":4,"share":7.8,"company_name":"エイサー","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":5,"share":6.1,"company_name":"エイスース","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":6,"share":40.4,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":19,"category_no":6,"category":"モバイル・パソコン","category_us":"Smart device","total_title":"タブレット","total_aspect":"出荷台数","total_volume":2,"total_volume_unit":"億台","chart_item":[
+{"rank":1,"share":33.9,"company_name":"アップル","company_id":"APPLE","company_country":"USA"},
+{"rank":2,"share":18.2,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":3,"share":5.6,"company_name":"エイスース","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":4,"share":4.5,"company_name":"アマゾン","company_id":"AMAZON","company_country":"USA"},
+{"rank":5,"share":3.6,"company_name":"レノボ","company_id":"LENOVO","company_country":"China"},
+{"rank":6,"share":34.2,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":20,"category_no":6,"category":"モバイル・パソコン","category_us":"Smart device","total_title":"携帯電話","total_aspect":"出荷台数","total_volume":10,"total_volume_unit":"億台","chart_item":[
+{"rank":1,"share":31.3,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":2,"share":15.2,"company_name":"アップル","company_id":"APPLE","company_country":"USA"},
+{"rank":3,"share":4.8,"company_name":"ファーウェイ","company_id":"OTHER","company_country":"China"},
+{"rank":4,"share":4.7,"company_name":"ＬＧ","company_id":"LG","company_country":"Korea"},
+{"rank":5,"share":4.5,"company_name":"レノボ","company_id":"LENOVO","company_country":"China"},
+{"rank":6,"share":39.5,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":21,"category_no":6,"category":"モバイル・パソコン","category_us":"Smart device","total_title":"スマホ用ＯＳ","total_aspect":"出荷台数","total_volume":10,"total_volume_unit":"億台","chart_item":[
+{"rank":1,"share":78.4,"company_name":"グーグル","company_id":"GOOGLE","company_country":"USA"},
+{"rank":2,"share":15.6,"company_name":"アップル","company_id":"APPLE","company_country":"USA"},
+{"rank":3,"share":3.2,"company_name":"マイクロソフト","company_id":"MICROSOFT","company_country":"USA"},
+{"rank":4,"share":1.9,"company_name":"ブラックベリー","company_id":"OTHER","company_country":"Canada"},
+{"rank":5,"share":0.9,"company_name":"その他","company_id":"OTHER","company_country":"Other"},
+{"rank":6,"share":0,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":22,"category_no":7,"category":"情報システム","category_us":"Computer technology","total_title":"クラウドサービス","total_aspect":"売上高","total_volume":566,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":30,"company_name":"アマゾン","company_id":"AMAZON","company_country":"USA"},
+{"rank":2,"share":10,"company_name":"マイクロソフト","company_id":"MICROSOFT","company_country":"USA"},
+{"rank":3,"share":7,"company_name":"ＩＢＭ","company_id":"IBM","company_country":"USA"},
+{"rank":4,"share":5,"company_name":"グーグル","company_id":"GOOGLE","company_country":"USA"},
+{"rank":5,"share":4,"company_name":"セールスフォース","company_id":"OTHER","company_country":"USA"},
+{"rank":6,"share":44,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":23,"category_no":7,"category":"情報システム","category_us":"Computer technology","total_title":"ソフトウェア","total_aspect":"売上高","total_volume":4286,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":15.9,"company_name":"マイクロソフト","company_id":"MICROSOFT","company_country":"USA"},
+{"rank":2,"share":7,"company_name":"オラクル","company_id":"ORACLE","company_country":"USA"},
+{"rank":3,"share":6.8,"company_name":"ＩＢＭ","company_id":"IBM","company_country":"USA"},
+{"rank":4,"share":4.6,"company_name":"ＳＡＰ","company_id":"OTHER","company_country":"Germany"},
+{"rank":5,"share":1.5,"company_name":"シマンテック","company_id":"OTHER","company_country":"USA"},
+{"rank":6,"share":64.2,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":24,"category_no":7,"category":"情報システム","category_us":"Computer technology","total_title":"ＩＴサービス","total_aspect":"売上高","total_volume":9548,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":5.7,"company_name":"ＩＢＭ","company_id":"IBM","company_country":"USA"},
+{"rank":2,"share":3.2,"company_name":"ＨＰ","company_id":"HP","company_country":"USA"},
+{"rank":3,"share":3,"company_name":"アクセンチュア","company_id":"OTHER","company_country":"USA"},
+{"rank":4,"share":2.3,"company_name":"デロイト","company_id":"OTHER","company_country":"USA"},
+{"rank":5,"share":2.1,"company_name":"富士通","company_id":"FUJITSU","company_country":"Japan"},
+{"rank":6,"share":83.7,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":25,"category_no":7,"category":"情報システム","category_us":"Computer technology","total_title":"通信サービス","total_aspect":"売上高","total_volume":1.7,"total_volume_unit":"兆ドル","chart_item":[
+{"rank":1,"share":18.6,"company_name":"エリクソン","company_id":"ERICSSON","company_country":"Swedish"},
+{"rank":2,"share":14.9,"company_name":"ファーウェイ","company_id":"OTHER","company_country":"China"},
+{"rank":3,"share":9.6,"company_name":"アルカテル","company_id":"OTHER","company_country":"French"},
+{"rank":4,"share":8.7,"company_name":"ノキア","company_id":"NOKIA","company_country":"Finland"},
+{"rank":5,"share":5.9,"company_name":"シスコ","company_id":"CISCO","company_country":"USA"},
+{"rank":6,"share":42.3,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":26,"category_no":7,"category":"情報システム","category_us":"Computer technology","total_title":"サーバー","total_aspect":"出荷額","total_volume":539,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":27.3,"company_name":"ＨＰ","company_id":"HP","company_country":"USA"},
+{"rank":2,"share":18.6,"company_name":"ＩＢＭ","company_id":"IBM","company_country":"USA"},
+{"rank":3,"share":16.7,"company_name":"デル","company_id":"DELL","company_country":"USA"},
+{"rank":4,"share":5.6,"company_name":"シスコ","company_id":"CISCO","company_country":"USA"},
+{"rank":5,"share":4.9,"company_name":"オラクル","company_id":"ORACLE","company_country":"USA"},
+{"rank":6,"share":26.9,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":27,"category_no":7,"category":"情報システム","category_us":"Computer technology","total_title":"ルーター","total_aspect":"出荷額","total_volume":30,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":66.6,"company_name":"シスコ","company_id":"CISCO","company_country":"USA"},
+{"rank":2,"share":12.5,"company_name":"ファーウェイ","company_id":"OTHER","company_country":"China"},
+{"rank":3,"share":6.8,"company_name":"ジュニバー","company_id":"OTHER","company_country":"USA"},
+{"rank":4,"share":6.5,"company_name":"ＨＰ","company_id":"HP","company_country":"USA"},
+{"rank":5,"share":2.9,"company_name":"ブロケード","company_id":"OTHER","company_country":"USA"},
+{"rank":6,"share":4.7,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":28,"category_no":7,"category":"情報システム","category_us":"Computer technology","total_title":"ストレージ","total_aspect":"出荷額","total_volume":239,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":32,"company_name":"EMC(デル)","company_id":"DELL","company_country":"USA"},
+{"rank":2,"share":10.8,"company_name":"ＩＢＭ","company_id":"IBM","company_country":"USA"},
+{"rank":3,"share":9.9,"company_name":"ネットアップ","company_id":"OTHER","company_country":"USA"},
+{"rank":4,"share":9.9,"company_name":"ＨＰ","company_id":"HP","company_country":"USA"},
+{"rank":5,"share":8.4,"company_name":"日立製作所","company_id":"HITACHI","company_country":"Japan"},
+{"rank":6,"share":29,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":29,"category_no":8,"category":"デジタル家電","category_us":"Digital appliance","total_title":"デジタルカメラ","total_aspect":"出荷台数","total_volume":8100,"total_volume_unit":"万台","chart_item":[
+{"rank":1,"share":25.6,"company_name":"キヤノン","company_id":"OTHER","company_country":"Japan"},
+{"rank":2,"share":22.7,"company_name":"ニコン","company_id":"OTHER","company_country":"Japan"},
+{"rank":3,"share":15.2,"company_name":"ソニー","company_id":"SONY","company_country":"Japan"},
+{"rank":4,"share":9.6,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":5,"share":7.4,"company_name":"富士フィルム","company_id":"FUJIFILM","company_country":"Japan"},
+{"rank":6,"share":19.5,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":30,"category_no":8,"category":"デジタル家電","category_us":"Digital appliance","total_title":"ビデオカメラ","total_aspect":"出荷台数","total_volume":653,"total_volume_unit":"万台","chart_item":[
+{"rank":1,"share":49.5,"company_name":"ソニー","company_id":"SONY","company_country":"Japan"},
+{"rank":2,"share":18.5,"company_name":"パナソニック","company_id":"PANASONIC","company_country":"Japan"},
+{"rank":3,"share":14.5,"company_name":"ＪＶＣケンウッド","company_id":"OTHER","company_country":"Japan"},
+{"rank":4,"share":10,"company_name":"キヤノン","company_id":"CANON","company_country":"Japan"},
+{"rank":5,"share":5,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":6,"share":2.5,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":31,"category_no":8,"category":"デジタル家電","category_us":"Digital appliance","total_title":"インクジェットプリンター","total_aspect":"出荷台数","total_volume":6652,"total_volume_unit":"万台","chart_item":[
+{"rank":1,"share":46.3,"company_name":"ＨＰ","company_id":"HP","company_country":"USA"},
+{"rank":2,"share":26.9,"company_name":"キヤノン","company_id":"CANON","company_country":"Japan"},
+{"rank":3,"share":20.4,"company_name":"セイコーエプソン","company_id":"EPSON","company_country":"Japan"},
+{"rank":4,"share":5.9,"company_name":"ブラザー工業","company_id":"OTHER","company_country":"Japan"},
+{"rank":5,"share":0.2,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":6,"share":0.3,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":32,"category_no":8,"category":"デジタル家電","category_us":"Digital appliance","total_title":"複合機・複写機","total_aspect":"出荷台数","total_volume":1908,"total_volume_unit":"万台","chart_item":[
+{"rank":1,"share":27.1,"company_name":"ＨＰ","company_id":"HP","company_country":"USA"},
+{"rank":2,"share":15.7,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":3,"share":12,"company_name":"キヤノン","company_id":"CANON","company_country":"Japan"},
+{"rank":4,"share":8.7,"company_name":"ブラザー工業","company_id":"OTHER","company_country":"Japan"},
+{"rank":5,"share":7.6,"company_name":"ゼロックス","company_id":"FUJIFILM","company_country":"Japan"},
+{"rank":6,"share":28.9,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":33,"category_no":8,"category":"デジタル家電","category_us":"Digital appliance","total_title":"薄型テレビ","total_aspect":"販売額","total_volume":989,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":26.8,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":2,"share":15.3,"company_name":"ＬＧ","company_id":"LG","company_country":"Korea"},
+{"rank":3,"share":7.5,"company_name":"ソニー","company_id":"SONY","company_country":"Japan"},
+{"rank":4,"share":5.6,"company_name":"ＴＣＬ","company_id":"OTHER","company_country":"China"},
+{"rank":5,"share":5.2,"company_name":"ハイセンス","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":39.6,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":34,"category_no":8,"category":"デジタル家電","category_us":"Digital appliance","total_title":"ゲーム機器","total_aspect":"販売台数","total_volume":4742,"total_volume_unit":"万台","chart_item":[
+{"rank":1,"share":40.1,"company_name":"ソニー","company_id":"SONY","company_country":"Japan"},
+{"rank":2,"share":36.9,"company_name":"任天堂","company_id":"OTHER","company_country":"Japan"},
+{"rank":3,"share":23,"company_name":"マイクロソフト","company_id":"MICROSOFT","company_country":"USA"},
+{"rank":4,"share":0,"company_name":"その他","company_id":"OTHER","company_country":"Other"},
+{"rank":5,"share":0,"company_name":"その他","company_id":"OTHER","company_country":"Other"},
+{"rank":6,"share":0,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":35,"category_no":8,"category":"デジタル家電","category_us":"Digital appliance","total_title":"カーナビ・AV機器","total_aspect":"売上高","total_volume":346,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":12.1,"company_name":"パナソニック","company_id":"PANASONIC","company_country":"Japan"},
+{"rank":2,"share":9.8,"company_name":"パイオニア","company_id":"PIONEER","company_country":"Japan"},
+{"rank":3,"share":9.4,"company_name":"ハーマン","company_id":"OTHER","company_country":"USA"},
+{"rank":4,"share":7.9,"company_name":"コンチネンタル","company_id":"OTHER","company_country":"Germany"},
+{"rank":5,"share":7.6,"company_name":"アルパイン（アルプス電気）","company_id":"OTHER","company_country":"Japan"},
+{"rank":6,"share":53.2,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":36,"category_no":9,"category":"産業機械","category_us":"Industrial machine","total_title":"PLC（シーケンサ）","total_aspect":"売上高","total_volume":36,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":31,"company_name":"シーメンス","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":2,"share":22,"company_name":"ロックウェル","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":14,"company_name":"三菱電機","company_id":"MITSUBISHI","company_country":"Japan"},
+{"rank":4,"share":9,"company_name":"シュナイダー","company_id":"OTHER","company_country":"French"},
+{"rank":5,"share":7,"company_name":"オムロン","company_id":"OTHER","company_country":"Japan"},
+{"rank":6,"share":17,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":37,"category_no":9,"category":"産業機械","category_us":"Industrial machine","total_title":"エレベーター","total_aspect":"市場規模","total_volume":530,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":27,"company_name":"オーチス","company_id":"OTHER","company_country":"USA"},
+{"rank":2,"share":18,"company_name":"シンドラー","company_id":"OTHER","company_country":"Swedish"},
+{"rank":3,"share":13,"company_name":"ティッセンクルップ","company_id":"OTHER","company_country":"Germany"},
+{"rank":4,"share":11,"company_name":"コネ","company_id":"OTHER","company_country":"Finland"},
+{"rank":5,"share":8,"company_name":"三菱電機","company_id":"MITSUBISHI","company_country":"Japan"},
+{"rank":6,"share":23,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":38,"category_no":9,"category":"産業機械","category_us":"Industrial machine","total_title":"鉄道車輌","total_aspect":"市場規模","total_volume":546,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":23,"company_name":"ボンバルディア","company_id":"OTHER","company_country":"Canada"},
+{"rank":2,"share":17,"company_name":"アルストム","company_id":"OTHER","company_country":"French"},
+{"rank":3,"share":14,"company_name":"シーメンス","company_id":"SIEMENS","company_country":"Germany"},
+{"rank":4,"share":13,"company_name":"川崎重工","company_id":"OTHER","company_country":"Japan"},
+{"rank":5,"share":9,"company_name":"ＧＥ","company_id":"GE","company_country":"USA"},
+{"rank":6,"share":24,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":39,"category_no":10,"category":"受託製造","category_us":"Manufacturing","total_title":"ＥＭＳ","total_aspect":"市場規模","total_volume":460,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":31.9,"company_name":"フォックスコン","company_id":"FOXCONN","company_country":"Tiwan"},
+{"rank":2,"share":7,"company_name":"ペガトロン","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":3,"share":5.7,"company_name":"フレクストロニクス","company_id":"OTHER","company_country":"Singapore"},
+{"rank":4,"share":4.5,"company_name":"ウィストロン","company_id":"OTHER","company_country":"China"},
+{"rank":5,"share":3.7,"company_name":"ジェイビルサーキット","company_id":"OTHER","company_country":"USA"},
+{"rank":6,"share":47.2,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+,
+{"chart_no":40,"category_no":10,"category":"受託製造","category_us":"Manufacturing","total_title":"ファウンドリ―","total_aspect":"売上高","total_volume":428,"total_volume_unit":"億ドル","chart_item":[
+{"rank":1,"share":46.3,"company_name":"ＴＳＭＣ","company_id":"TSMC","company_country":"Tiwan"},
+{"rank":2,"share":9.9,"company_name":"グローバルファウンドリーズ","company_id":"OTHER","company_country":"USA"},
+{"rank":3,"share":9.2,"company_name":"ＵＭＣ","company_id":"OTHER","company_country":"Tiwan"},
+{"rank":4,"share":9.2,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
+{"rank":5,"share":4.6,"company_name":"ＳＭＩＣ","company_id":"OTHER","company_country":"China"},
+{"rank":6,"share":20.8,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
+]

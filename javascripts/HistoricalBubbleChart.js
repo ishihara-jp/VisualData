@@ -494,7 +494,7 @@ function ready(error, data1, data2) {
         case "senario":
             ANIMATION_TIME = 12*35*1000;
             startAnimation();
-            senarioDemo(senario);      // Not Interactive mode
+            senarioDemo(senario, [1400,height], [(margin.left + 120),height]);      // Not Interactive mode
             break;
         case "default":
         default:

@@ -1,5 +1,5 @@
 //シナリオモード
-function senarioDemo(_senario){
+function senarioDemo(_senario, fromPt, toPt){
 
     var SecPerYear = ANIMATION_TIME/35 + 350*2;
     var HighlightTime = SecPerYear * 0.3;
@@ -8,10 +8,10 @@ function senarioDemo(_senario){
     setTimeout(function(){
         filterByCompany("NEC");
         _senario
-            .attr("transform", "translate(" + [1400, height] + ")")
+            .attr("transform", "translate(" + fromPt + ")")
             .text("NEC：PC-9800シリーズ発売")
             .ease("elastic")
-            .attr("transform", "translate(" + (margin.left + 120) + "," + height + ")");
+            .attr("transform", "translate(" + toPt + ")");
         
         setTimeout(function(){
             _senario.text("");

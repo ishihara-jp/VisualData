@@ -10,6 +10,7 @@ function senarioDemo(_senario, fromPt, toPt){
         _senario
             .attr("transform", "translate(" + fromPt + ")")
             .text("NEC：PC-9800シリーズ発売")
+            .transition()
             .ease("elastic", 1, 0.8)
             .attr("transform", "translate(" + toPt + ")");
         

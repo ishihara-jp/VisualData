@@ -1,7 +1,7 @@
 //シナリオモード
 function senarioDemo(startPt, dispPt, endPt){
 
-    var SecPerYear = ANIMATION_TIME/35 + 350*2;
+    var SecPerYear = ANIMATION_TIME/35 + 350*1;
     var HighlightTime = SecPerYear * 0.3;
     
     var _senario = d3.select(".senario");

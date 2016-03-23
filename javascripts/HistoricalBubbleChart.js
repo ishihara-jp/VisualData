@@ -11,7 +11,7 @@ var companyData;
 var currencyData;
 var langKey;
 var playMode = "default";
-var ANIMATION_TIME = 60*1000;
+var ANIMATION_TIME = 5*60*1000;
 var nCompanies;
 var startTime;
 var elapseTime;

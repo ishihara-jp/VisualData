@@ -1,6 +1,6 @@
 //Global var.
 var SRC_URL1 = "data/Comments.json";
-var ANIMATION_TIME = 1000;
+var ANIMATION_TIME = 5000;
 var width = 1280;
 var height = 720;
 var maxScale = 5.0; //スケール

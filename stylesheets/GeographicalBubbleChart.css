@@ -57,24 +57,15 @@ svg {
     opacity: 0.4;
 }
 .labelCluster{
-/*    font-size: 2em;*/
     fill: #fff;
 }
-
 .popover.fade.top.in,
 .popover.fade.bottom.in{
-    background-color: transparent;
     background: url("../images/AlphaWhite.png");
+    background-color: transparent;
 }
-
-.popover-title{
+.popober-title{
     font-size: 1.5em;
     font-weight: bold;
-    color:#005BFF;
-}
-
-val{
-    font-size: 1.2em;
-    font-weight: 100;
     color:#005BFF;
 }

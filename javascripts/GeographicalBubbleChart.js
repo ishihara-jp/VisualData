@@ -13,12 +13,13 @@ var SRC_URL5 = localPrefix + "data/CurrencyRate.json";
 var langKey;
 var currency;
 
+//Set Language
 function setLangKey(_langKey){
     langKey = _langKey;        
 }
 
 //niconico flg
-var SUKEx2 = false;
+var SUKEx2 = true;
 
 var mapWidth = 1200,
 mapHeight = 500,

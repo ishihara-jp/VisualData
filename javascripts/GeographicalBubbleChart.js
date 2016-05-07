@@ -18,7 +18,7 @@ function setLangKey(_langKey){
 }
 
 //niconico flg
-var SUKEx2 = true;
+var SUKEx2 = false;
 
 var mapWidth = 1200,
 mapHeight = 500,

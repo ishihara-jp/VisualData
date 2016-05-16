@@ -41,8 +41,8 @@ flgFirst = true,
 timer_ret_val = false,
 flgEnd = false;
 
-var INIT_ROTATION_TIME = 500;
-var EXPAND_MAP_TIME = 1000;
+var INIT_ROTATION_TIME = 500*2;
+var EXPAND_MAP_TIME = 1000*2;
 
 //format
 var formatT0 = d3.format(".0f");

@@ -209,15 +209,16 @@ function render(){
                     .append("text")
                     .attr("class", "c_label")
                     .text(function(d){ return volume == "null" ? "" : "0"; })
-                    .attr("dy", ".5em");
+                    //.attr("dy", ".5em")
+                    ;
         var c_label2 = w_pie.append("text")
                     .text(function(d){
                         return volume_aspect == "null" ? "" : volume_aspect + "[" + volume_unit + "]"; })
                     .attr("class", "c_label2")
-                    .attr("dy", "1em")
-                    .attr("transform", function(d){
-                        return "translate(0," + c_label.node().getBBox().height/2 + ")"; 
-                    })
+                    //.attr("dy", "1em")
+                    //.attr("transform", function(d){
+                    //    return "translate(0," + c_label.node().getBBox().height/2 + ")"; 
+                    //})
                     ;
         
         // -----グラフタイトル------
@@ -306,7 +307,9 @@ function update(){
         w_pie.style("font-size", function(d){ return base_font_size; });
         
         //キャプションの配置
-        c_label2.attr("transform", function(d){
+        c_label.attr("dy", ".5em");
+        c_label2.attr("dy", "1em")
+                .attr("transform", function(d){
                     return "translate(0," + c_label.node().getBBox().height/2 + ")";
                 });
             

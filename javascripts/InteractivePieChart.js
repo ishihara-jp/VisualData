@@ -303,6 +303,13 @@ function update(){
         //円グラフのフォントサイズ
         w_pie.style("font-size", function(d){ return base_font_size; });
         
+        //キャプションの配置
+        var c_label = d3.selectAll(".c_label");
+        d3.selectAll(".c_label2")
+            .attr("transform", function(d){
+                    return "translate(0," + c_label.node().getBBox().height/2 + ")";
+                });
+            
         //グラフタイトルの配置
         var tx = j*(c_width+2*c_marginW) + c_width/2 + c_marginW + s_margin,
             ty = k*(c_height+2*c_marginH) + c_height + c_marginH;
@@ -724,9 +731,6 @@ function setHighLight(){
                 var c_label2_selected = d3.select(".chart" + chart_no).selectAll(".c_label2");
                 c_label2_selected.classed('un-highlight', false);
                 c_label2_selected.classed('highlight', true);
-                c_label2_selected.attr("transform", function(d){
-                    return "translate(0," + c_label_selected.node().getBBox().height/2 + ")";
-                });
             }
         }
         

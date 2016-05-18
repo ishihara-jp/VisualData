@@ -208,18 +208,11 @@ function render(){
                     .enter()
                     .append("text")
                     .attr("class", "c_label")
-                    .text(function(d){ return volume == "null" ? "" : "0"; })
-                    //.attr("dy", ".5em")
-                    ;
+                    .text(function(d){ return volume == "null" ? "" : "0"; });
         var c_label2 = w_pie.append("text")
                     .text(function(d){
                         return volume_aspect == "null" ? "" : volume_aspect + "[" + volume_unit + "]"; })
-                    .attr("class", "c_label2")
-                    //.attr("dy", "1em")
-                    //.attr("transform", function(d){
-                    //    return "translate(0," + c_label.node().getBBox().height/2 + ")"; 
-                    //})
-                    ;
+                    .attr("class", "c_label2");
         
         // -----グラフタイトル------
         //キャプショングループ作成
@@ -235,7 +228,6 @@ function render(){
             .attr("opacity", "0");
         
         //凡例作成
-        
         caption.append("path")
             .attr("class", "sample_color")
             .attr("stroke", function(d){ return c_pallet[category_no-1][0]; })

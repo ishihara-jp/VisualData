@@ -209,14 +209,14 @@ function render(){
                     .append("text")
                     .attr("class", "c_label")
                     .text(function(d){ return volume == "null" ? "" : "0"; })
-                    //.attr("dy", ".35em");
+                    .attr("dy", "1.25em");
         var c_label2 = w_pie.append("text")
                     .text(function(d){
                         return volume_aspect == "null" ? "" : volume_aspect + "[" + volume_unit + "]"; })
                     .attr("class", "c_label2")
-                    //.attr("dy", "10em")
+                    .attr("dy", ".5em")
                     .attr("transform", function(d){
-                        return "translate(0," + c_label.node().getBBox().height + ")"; 
+                        return "translate(0," + c_label.node().getBBox().height/2 + ")"; 
                     })
                     ;
         

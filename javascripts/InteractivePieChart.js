@@ -214,7 +214,7 @@ function render(){
                     .text(function(d){
                         return volume_aspect == "null" ? "" : volume_aspect + "[" + volume_unit + "]"; })
                     .attr("class", "c_label2")
-                    .attr("dy", ".5em")
+                    .attr("dy", "1em")
                     .attr("transform", function(d){
                         return "translate(0," + c_label.node().getBBox().height/2 + ")"; 
                     })
@@ -724,6 +724,9 @@ function setHighLight(){
                 var c_label2_selected = d3.select(".chart" + chart_no).selectAll(".c_label2");
                 c_label2_selected.classed('un-highlight', false);
                 c_label2_selected.classed('highlight', true);
+                c_label2_selected.attr("transform", function(d){
+                    return "translate(0," + c_label_selected.node().getBBox().height/2 + ")";
+                });
             }
         }
         

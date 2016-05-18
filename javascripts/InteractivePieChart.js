@@ -279,6 +279,8 @@ function update(){
         var w_pie = chart.select(".pie");
         var category = chart.select("rect");
         var caption = chart.select(".caption");
+        var c_label = chart.select(".c_label");
+        var c_label2 = chart.select(".c_label2");
         var sample_line = caption.select(".sample_color");
         var base_font_size = c_width/15;    //ベースとする相対フォントサイズ
         // -----パイ------
@@ -304,9 +306,7 @@ function update(){
         w_pie.style("font-size", function(d){ return base_font_size; });
         
         //キャプションの配置
-        var c_label = d3.selectAll(".c_label");
-        d3.selectAll(".c_label2")
-            .attr("transform", function(d){
+        c_label2.attr("transform", function(d){
                     return "translate(0," + c_label.node().getBBox().height/2 + ")";
                 });
             

@@ -214,10 +214,10 @@ function render(){
                     .text(function(d){
                         return volume_aspect == "null" ? "" : volume_aspect + "[" + volume_unit + "]"; })
                     .attr("class", "c_label2")
-                    .attr("dy", "10em")
-                    //.attr("transform", function(d){
-                    //    return "translate(0," + c_label.getBBox().height + ")"; 
-                    //})
+                    //.attr("dy", "10em")
+                    .attr("transform", function(d){
+                        return "translate(0," + c_label.node().getBBox().height + ")"; 
+                    })
                     ;
         
         // -----グラフタイトル------

@@ -29,7 +29,7 @@ clipMode = false,
 clusterMode = false,
 popMode = false,
 popParam,
-speed = 1e-2 / 3.0,   //Rotation Speed
+speed = 1e-2,   //Rotation Speed
 lon360_now = 0,
 lon_now = 0,
 start360 = Date.now(),
@@ -43,7 +43,7 @@ timer_ret_val = false,
 flgEnd = false;
 
 var INIT_ROTATION_TIME = 500;
-var EXPAND_MAP_TIME = 1000 * 10;
+var EXPAND_MAP_TIME = 1000;
 
 //format
 var formatT0 = d3.format(".0f");

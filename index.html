@@ -1,130 +1,86 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Visualdata by ishihara-jp</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>Visualdata by ishihara-jp</title>
+<link rel="stylesheet" href="stylesheets/styles.css">
+<link rel="stylesheet" href="stylesheets/github-light.css">
+<meta name="viewport" content="width=device-width">
+<!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-  <body>
-      <div class="wrapper">
-      <header>
-        <h1>Visualdata</h1>
-          <p> このサイトでは<strong>「電機メーカー35年の栄枯盛衰を可視化してみた」</strong>(<a href="http://www.nicovideo.jp/watch/sm25287955"><u>前編</u></a>・<a href="http://www.nicovideo.jp/watch/sm28037335"><u>後編</u></a>)で用いた可視化ページをご覧頂けます。</p>
-        <p class="view">
-          <a href="index_en.html">English page is here.</a>  
-        </p>
-                  
-          <p> ソースコードとデータはGitHubで公開中です。ご自由にお使い下さい。</p>
-        <p class="view">
-            <a href="https://github.com/ishihara-jp/VisualData/tree/gh-pages">
-                View the Project on GitHub <small>ishihara-jp/VisualData</small>
-            </a>
-        </p>
-
-
-        <ul>
-          <li><a href="https://github.com/ishihara-jp/VisualData/zipball/gh-pages">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/ishihara-jp/VisualData/tarball/gh-pages">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/ishihara-jp/VisualData/tree/gh-pages">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-            <a id="HistoricalBubbleChart" class="anchor" href="#HistoricalBubbleChart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://ishihara-jp.github.io/VisualData/HistoricalBubbleChart.html">ヒストリカル・バブルチャート　Historical Bubble Chart</a></h3>
-			<p>
-            <subsection_L>
-            1981年度～2015年度の<b>業績（売上高、営業利益率）</b>と<b>時価総額</b>の変遷を可視化しました。
-            各年度ごとに起こった主なイベントと、それに関係する企業にフォーカスを当てて表示する&quot;シナリオモード&quot;は <a href="HistoricalBubbleChart_senario.html"><u>こちら</u></a> です。</subsection_L>
-            
-            <subsection_R>
-                <a href="http://ishihara-jp.github.io/VisualData/HistoricalBubbleChart.html">
-                <img src="./images/HistoricalBC_VS_s.png" width="300px" border="0" align="right" />
-                </a>
-            </subsection_R>
-            </p>
-        	<div class="clear"></div>
-                    
-        <h3><a id="GeographicalBubbleChart" class="anchor" href="#GeographicalBubbleChart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://ishihara-jp.github.io/VisualData/GeographicalBubbleChart.html">ジオグラフィカル・バブルチャート　Geographical Bubble Chart</a></h3>
-            
-            <p>
-            <subsection_L>
-            ヒストリカル・バブルチャートと同様に、<b>総資産</b>を地図上（本社所在地）に可視化しました。表示上、密集して見ずらい場合は、引き出し線で近傍に表示しています。            上部のボタンで、表示方法を3D、2D、エリア別、産業タイプ別に変更できます。
-            </subsection_L>
-            
-            <subsection_R>
-            	<a href="http://ishihara-jp.github.io/VisualData/GeographicalBubbleChart.html">
-            	<img src="./images/GeometricBC_3D_s.png" width="300" border="0" align="right" /><br>
-            	<img src="./images/GeometricBC_Area_s.png" width="300" border="0" align="right" /><br>
-              	</a>
-            </subsection_R>
-            </p>
-	        <div class="clear"></div>
-        
-        
-			<h3><a id="InteractivePieChart" class="anchor" href="#InteractivePieChart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://ishihara-jp.github.io/VisualData/InteractivePieChart.html">インタラクティブ・パイチャート　Interactive Pie Chart</a></h3>
-            
-            <p>
-            <subsection_L>
-            2015年現在の電機産業における主要品目の世界シェアをパイチャートで可視化します。
-            </subsection_L>
-            
-            <subsection_R>
-                <a href="http://ishihara-jp.github.io/VisualData/InteractivePieChart.html">
-                <img src="./images/InteractivePC_s.png" width="300" height="168" border="0" align="right" />                </a>            </subsection_R>
-            </p>
-	        <div class="clear"></div>
-
-        
-        <h3><a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="#">
-        備考　Memo
-        </a></h3>
-        <ul>
-          <li>可視化には <a href="http://d3js.org/">D3.js</a>, <a href="http://getbootstrap.com/javascript/">Bootstrap</a>, <a href="https://jquery.com/">jQuery</a>等のJavaScript ライブラリを利用しています。</li>
-          <li>当時の為替レートを用いて日本円に換算しています。 </li>
-          <li>
-          2015年度の業績は調査当時（2015年1月）未発表だったため、各社発表の予想値（ない場合には前年度の値）を採用しています。 </li>
-          <li>
-            時価総額は、年間平均調整後終値×現在の発行済み株式数としています。</li>
-          <li>制作物はご自由にお使い下さい。ただし、データに関しては必ず出典元のライセンスをご確認下さい。</li>
-        </ul>
-
-        <h3><a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="#">
-        免責　Disclaimer</a></h3>
-        <ul>
-          <li>データの最新性、正確性を保証するものではありません。 </li>
-          <li>データの出典・引用元を可能な限り掲載していますが、権利者からの利用許諾を必ずしも保証するものではありません。</li>
-          <li>紹介した内容に基づき実行した事で被った損害や不利益等に対して、作者は一切責任を負いません。</li>
-        </ul>
-        
-        <h3>
-        <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="#">連絡先　Contact</a></h3>
-            
-            <p>ご要望・お問い合わせ等は <b>ishihara.jp＠gmail.com</b> までご連絡下さい。</p>
-            <p><a href="http://ishihara-jp.github.io/VisualData/WordsBullet.html">x</a></p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/ishihara-jp">ishihara-jp</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
+<body>
+<div class="wrapper">
+  <header>
+    <h1>Visualdata</h1>
+    <p> このサイトでは<strong>「電機メーカー35年の栄枯盛衰を可視化してみた」</strong>(<a href="http://www.nicovideo.jp/watch/sm25287955"><u>前編</u></a>・<a href="http://www.nicovideo.jp/watch/sm28037335"><u>後編</u></a>)で用いた可視化ページをご覧頂けます。</p>
+    <p class="view"> <a href="index_en.html">English page is here.</a> </p>
+    <p> ソースコードとデータはGitHubで公開中です。ご自由にお使い下さい。</p>
+    <p class="view"> <a href="https://github.com/ishihara-jp/VisualData/tree/gh-pages"> View the Project on GitHub <small>ishihara-jp/VisualData</small> </a> </p>
+    <ul>
+      <li><a href="https://github.com/ishihara-jp/VisualData/zipball/gh-pages">Download <strong>ZIP File</strong></a></li>
+      <li><a href="https://github.com/ishihara-jp/VisualData/tarball/gh-pages">Download <strong>TAR Ball</strong></a></li>
+      <li><a href="https://github.com/ishihara-jp/VisualData/tree/gh-pages">View On <strong>GitHub</strong></a></li>
+    </ul>
+  </header>
+  <section>
+    <h3> <a id="HistoricalBubbleChart" class="anchor" href="#HistoricalBubbleChart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://ishihara-jp.github.io/VisualData/HistoricalBubbleChart.html">ヒストリカル・バブルチャート　Historical Bubble Chart</a></h3>
+    <p>
+      <subsection_L> 1981年度～2015年度の<b>業績（売上高、営業利益率）</b>と<b>時価総額</b>の変遷を可視化しました。
+        各年度ごとに起こった主なイベントと、それに関係する企業にフォーカスを当てて表示する&quot;シナリオモード&quot;は <a href="HistoricalBubbleChart_senario.html"><u>こちら</u></a> です。 </subsection_L>
+      <subsection_R> <a href="http://ishihara-jp.github.io/VisualData/HistoricalBubbleChart.html"> <img src="./images/HistoricalBC_VS_s.png" width="300px" border="0" align="right" /> </a> </subsection_R>
+    </p>
+    <div class="clear"></div>
+    <h3><a id="GeographicalBubbleChart" class="anchor" href="#GeographicalBubbleChart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://ishihara-jp.github.io/VisualData/GeographicalBubbleChart.html">ジオグラフィカル・バブルチャート　Geographical Bubble Chart</a></h3>
+    <p>
+      <subsection_L> ヒストリカル・バブルチャートと同様に、<b>総資産</b>を地図上（本社所在地）に可視化しました。表示上、密集して見ずらい場合は、引き出し線で近傍に表示しています。            上部のボタンで、表示方法を3D、2D、エリア別、産業タイプ別に変更できます。 </subsection_L>
+      <subsection_R> <a href="http://ishihara-jp.github.io/VisualData/GeographicalBubbleChart.html"> <img src="./images/GeometricBC_3D_s.png" width="300" border="0" align="right" /><br>
+        <img src="./images/GeometricBC_Area_s.png" width="300" border="0" align="right" />
+        </a> </subsection_R>
+    </p>
+    <div class="clear"></div>
+    <h3><a id="InteractivePieChart" class="anchor" href="#InteractivePieChart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://ishihara-jp.github.io/VisualData/InteractivePieChart.html">インタラクティブ・パイチャート　Interactive Pie Chart</a></h3>
+    <p>
+      <subsection_L> 2015年現在の電機産業における主要品目の世界シェアをパイチャートで可視化します。 </subsection_L>
+      <subsection_R> <a href="http://ishihara-jp.github.io/VisualData/InteractivePieChart.html"> <img src="./images/InteractivePC_s.png" width="300" height="168" border="0" align="right" /> </a> </subsection_R>
+    </p>
+    <div class="clear"></div>
+    <h3> <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"> <span aria-hidden="true" class="octicon octicon-link"></span> </a> <a href="#"> 備考　Memo </a> </h3>
+    <ul>
+      <li>可視化には <a href="http://d3js.org/">D3.js</a>, <a href="http://getbootstrap.com/javascript/">Bootstrap</a>, <a href="https://jquery.com/">jQuery</a>等のJavaScript ライブラリを利用しています。</li>
+      <li>当時の為替レートを用いて日本円に換算しています。 </li>
+      <li> 2015年度の業績は調査当時（2015年1月）未発表だったため、各社発表の予想値（ない場合には前年度の値）を採用しています。 </li>
+      <li> 時価総額は、年間平均調整後終値×現在の発行済み株式数としています。</li>
+      <li>制作物はご自由にお使い下さい。ただし、データに関しては必ず出典元のライセンスをご確認下さい。</li>
+    </ul>
+    <h3> <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"> <span aria-hidden="true" class="octicon octicon-link"></span> </a> <a href="#"> 免責　Disclaimer </a> </h3>
+    <ul>
+      <li>データの最新性、正確性を保証するものではありません。 </li>
+      <li>データの出典・引用元を可能な限り掲載していますが、権利者からの利用許諾を必ずしも保証するものではありません。</li>
+      <li>紹介した内容に基づき実行した事で被った損害や不利益等に対して、作者は一切責任を負いません。</li>
+    </ul>
+    <h3> <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"> <span aria-hidden="true" class="octicon octicon-link"></span> </a> <a href="#"> 連絡先　Contact </a> </h3>
+    <p>ご要望・お問い合わせ等は <b>ishihara.jp★gmail.com</b> までご連絡下さい。<br>
+    （★部分を＠に読み替えてください）</p>
+    <!-- <p><a href="http://ishihara-jp.github.io/VisualData/WordsBullet.html">x</a></p> -->
+  </section>
+  <footer>
+    <p>This project is maintained by <a href="https://github.com/ishihara-jp">ishihara-jp</a></p>
+    <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+  </footer>
+</div>
+<script src="javascripts/scale.fix.js"></script>
+<script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
-          <script type="text/javascript">
+<script type="text/javascript">
             try {
               var pageTracker = _gat._getTracker("UA-66289129-2");
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
-  </body>
+</body>
 </html>

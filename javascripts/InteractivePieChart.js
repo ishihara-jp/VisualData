@@ -209,7 +209,7 @@ function render(){
                     .append("text")
                     .attr("class", "c_label")
                     .text(function(d){ return volume == "null" ? "" : "0"; })
-                    .attr("dy", ".35em");
+                    //.attr("dy", ".35em");
         var c_label2 = w_pie.append("text")
                     .text(function(d){
                         return volume_aspect == "null" ? "" : volume_aspect + "[" + volume_unit + "]"; })

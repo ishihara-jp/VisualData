@@ -498,16 +498,17 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         //year label
         yLabel.text(currYear);    
         //debug
-        debug.text(//"Angle[deg]: " + formatT2(_lon360_now) + 
-                   "  Elapse time[ms]: " + (Date.now() - start360)// + 
-                   //"　　Start time: " + start360 +
-                   //"　　Deley time[ms]: " + timeDelay + 
-                   //"　　currIndex: " + currIndex + 
-                   //"　　currIndexF: " + formatT2(currIndexF) + 
-                   //"　　currYear: " + currYear + 
-                   //"　　currYearF: " + formatT2(currYearF)
+        /*
+        debug.text("Angle[deg]: " + formatT2(_lon360_now) + 
+                   "  Elapse time[ms]: " + (Date.now() - start360) + 
+                   "　　Start time: " + start360 +
+                   "　　Deley time[ms]: " + timeDelay + 
+                   "　　currIndex: " + currIndex + 
+                   "　　currIndexF: " + formatT2(currIndexF) + 
+                   "　　currYear: " + currYear + 
+                   "　　currYearF: " + formatT2(currYearF)
                     );
-        
+        */
         //Bubbles
         if(GlobeMode){
             // 3D

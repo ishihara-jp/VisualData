@@ -29,7 +29,7 @@ clipMode = false,
 clusterMode = false,
 popMode = false,
 popParam,
-speed = 1e-2,
+speed = 1e-2,   //Rotation Speed
 lon360_now = 0,
 lon_now = 0,
 start360 = Date.now(),

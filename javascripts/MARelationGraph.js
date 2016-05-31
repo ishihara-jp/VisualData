@@ -355,44 +355,6 @@ function ready(error, companyData, relationData) {
         }        
     }
 
-    function removeLinksByTopic(topicId){
-        var linksArr = graphData.links;    
-        for(var i=0; i<linksArr.length; i++){
-            if(topicId == "All"){
-                graph.removeAllLinks();
-            }else if(linksArr[i].topic == topicId){
-                graph.removeLink(
-                    linksArr[i].source, 
-                    linksArr[i].target);
-            }
-        }
-    }
-
-    function addLinksByTopic(topicId){
-        var linksArr = graphData.links;    
-        for(var i=0; i<linksArr.length; i++){
-            if(topicId == "All"){
-                graph.addLink(
-                    linksArr[i].source, 
-                    linksArr[i].target, 
-                    linksArr[i].arrow, 
-                    linksArr[i].topic, 
-                    linksArr[i].description, 
-                    '50');
-                keepNodesOnTop();
-            }else if(linksArr[i].topic == topicId){
-                graph.addLink(
-                    linksArr[i].source, 
-                    linksArr[i].target, 
-                    linksArr[i].arrow, 
-                    linksArr[i].topic, 
-                    linksArr[i].description, 
-                    '50');
-                keepNodesOnTop();
-            }
-        }
-    }
-
     function addLinksBySelect(nodeId){
         var linksArr = graphData.links;
         for(var i=0; i<linksArr.length; i++){
@@ -523,3 +485,46 @@ function ready(error, companyData, relationData) {
     }
 
 };
+
+//////////////////
+// Filter Func. //
+//////////////////
+
+function removeLinksByTopic(topicId){
+    var linksArr = graphData.links;    
+    for(var i=0; i<linksArr.length; i++){
+        if(topicId == "All"){
+            graph.removeAllLinks();
+        }else if(linksArr[i].topic == topicId){
+            graph.removeLink(
+                linksArr[i].source, 
+                linksArr[i].target);
+        }
+    }
+}
+
+function addLinksByTopic(topicId){
+    var linksArr = graphData.links;    
+    for(var i=0; i<linksArr.length; i++){
+        if(topicId == "All"){
+            graph.addLink(
+                linksArr[i].source, 
+                linksArr[i].target, 
+                linksArr[i].arrow, 
+                linksArr[i].topic, 
+                linksArr[i].description, 
+                '50');
+            keepNodesOnTop();
+        }else if(linksArr[i].topic == topicId){
+            graph.addLink(
+                linksArr[i].source, 
+                linksArr[i].target, 
+                linksArr[i].arrow, 
+                linksArr[i].topic, 
+                linksArr[i].description, 
+                '50');
+            keepNodesOnTop();
+        }
+    }
+}
+

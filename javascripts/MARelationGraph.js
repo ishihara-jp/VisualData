@@ -70,7 +70,7 @@ queue()
 .defer(d3.json, SRC_URL2)
 .await(ready);
 
-function ready(error, world, companyData, relationData) {
+function ready(error, companyData, relationData) {
     ///////////////////
     // Initial func. //
     ///////////////////

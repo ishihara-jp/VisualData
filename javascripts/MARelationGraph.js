@@ -89,7 +89,7 @@ function ready(error, companyData, relationData) {
             update();   //反映
         };
         //リンク追加
-        this.addLink = function( source, target, arrow, topic, description, value) {
+        this.addLink = function( source, target, arrow, topic, description_jp, value) {
             //配列linksへ要素1つ追加
             links.push(
                 {
@@ -97,7 +97,7 @@ function ready(error, companyData, relationData) {
                 "target": findNode(target), 
                 "arrow": arrow, 
                 "topic": topic, 
-                "description": description, 
+                "description_jp": description_jp, 
                 "value": value 
                 }
             );
@@ -198,7 +198,7 @@ function ready(error, companyData, relationData) {
                 .attr("xlink:href", function(d) { return "#" + d.source.id + "_" + d.target.id; })
                 //.style("fill", "#000")
                 //.style("font-family", "Arial")
-                .text(function(d) { return d.description; });
+                .text(function(d) { return d.description_jp; });
         //リンクラベル削除処理
         linkLabel.exit().remove();
 
@@ -365,7 +365,7 @@ function ready(error, companyData, relationData) {
                     linksArr[i].target, 
                     linksArr[i].arrow, 
                     linksArr[i].topic, 
-                    linksArr[i].description, 
+                    linksArr[i].description_jp, 
                     '50');
                 keepNodesOnTop();
             }
@@ -470,7 +470,7 @@ function ready(error, companyData, relationData) {
         var retValue = "";
         for(var i=0; i<companies.length; i++){
             if(companies[i].id == id){
-                retValue = companies[i].name_jp;
+                retValue = (langKey=="Japan") ? companies[i].name_jp :  companies[i].name_us;
             }
         }
         return retValue;
@@ -504,7 +504,7 @@ function addLinksByTopic(topicId){
                 linksArr[i].target, 
                 linksArr[i].arrow, 
                 linksArr[i].topic, 
-                linksArr[i].description, 
+                linksArr[i].description_jp, 
                 '50');
             keepNodesOnTop();
         }else if(linksArr[i].topic == topicId){
@@ -513,7 +513,7 @@ function addLinksByTopic(topicId){
                 linksArr[i].target, 
                 linksArr[i].arrow, 
                 linksArr[i].topic, 
-                linksArr[i].description, 
+                linksArr[i].description_jp, 
                 '50');
             keepNodesOnTop();
         }

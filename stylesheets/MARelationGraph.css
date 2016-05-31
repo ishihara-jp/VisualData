@@ -6,7 +6,11 @@
  .dot.current なら <div class="dot current">ここ
  .popup td.col1 なら　<div class="popup"><table><tr><td class="col1">ここ
 */
-
+/* Normalize */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, figure, form, fieldset, input, p, blockquote, th, td, legend, br {
+	margin: 0;
+	padding: 0;
+}
 body {
     position: relative;
     padding:1em;
@@ -14,11 +18,17 @@ body {
     font-size: 10px;
     color: #118FE6;
     
+	/*グラデーション背景設定*/
     background-color: #0F1230;
     background: -moz-linear-gradient(top, #0F1230, #000); /* mozilla */
     background: -webkit-gradient(linear, center top, center bottom, from(#0F1230), to(#000)); /* Webkit */
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#0F1230', endColorstr='#000'); /* IE5.5以上 */
+}
 
+h1 {
+	font-size: 3.6em;
+	font-weight: 500;
+    line-height: 1.1;
 }
 
 #filters a {

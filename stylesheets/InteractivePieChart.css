@@ -13,14 +13,17 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, figure, form, fi
 	margin: 0;
 	padding: 0;
 }
-
 body {
     position: relative;
     padding:1em;
-    font-family:'Meiryo UI', Helvetica, Arial, sans-serif;
-    font-size: 10px;
+    font-family:Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "ヒラギノ角ゴ Pro W3" , 'Hiragino Kaku Gothic W3 JIS2004', "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+	font-size: 10px;
 }
-
+h1 {
+	font-size: 3.6em;
+	font-weight: 500;
+    line-height: 1.1;
+}
 div{
     float:none; /* 左右への回り込みなし */
 }

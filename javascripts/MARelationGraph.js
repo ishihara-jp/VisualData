@@ -383,6 +383,7 @@ function ready(error, companyData, relationData) {
             }
         }
     }
+    
     function demoSenario(){
             //初期シナリオ
             graph.addNode('Sophia');
@@ -463,15 +464,6 @@ function ready(error, companyData, relationData) {
             }
     }
 
-    //ノードを最前面へ
-    //ノード追加後にリンクを追加する仕様なので、
-    // 常にノードの前面にリンクが来てしまうため
-    function keepNodesOnTop() {
-        $(".nodeCircle").each(function( index ) {
-            var gnode = this.parentNode;
-            gnode.parentNode.appendChild(gnode);
-        });
-    }
 
     //企業名変換
     function companyName(id){
@@ -528,3 +520,12 @@ function addLinksByTopic(topicId){
     }
 }
 
+//ノードを最前面へ
+//ノード追加後にリンクを追加する仕様なので、
+// 常にノードの前面にリンクが来てしまうため
+function keepNodesOnTop() {
+    $(".nodeCircle").each(function( index ) {
+        var gnode = this.parentNode;
+        gnode.parentNode.appendChild(gnode);
+    });
+}

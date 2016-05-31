@@ -4,7 +4,7 @@
 {"rank":2,"share":14.8,"company_name":"サムスン","company_id":"SAMSUNG","company_country":"Korea"},
 {"rank":3,"share":14.5,"company_name":"群創光電","company_id":"OTHER","company_country":"Tiwan"},
 {"rank":4,"share":14.4,"company_name":"友達光電","company_id":"OTHER","company_country":"Tiwan"},
-{"rank":5,"share":9.3,"company_name":"シャープ(フォックスコン)","company_id":"FOXCONN","company_country":"Japan"},
+{"rank":5,"share":9.3,"company_name":"シャープ(フォックスコン)","company_id":"FOXCONN","company_country":"Tiwan"},
 {"rank":6,"share":23.9,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
 ,
 {"chart_no":2,"category_no":1,"category":"電子部品","category_us":"Electronic components","total_title":"リチウムイオン電池","total_aspect":"出荷量","total_volume":44,"total_volume_unit":"億セル","chart_item":[
@@ -115,7 +115,7 @@
 {"rank":1,"share":8.3,"company_name":"インリーグリーンエナジー","company_id":"OTHER","company_country":"China"},
 {"rank":2,"share":6.7,"company_name":"トリナソーラー","company_id":"OTHER","company_country":"China"},
 {"rank":3,"share":4.9,"company_name":"カナディアンソーラー","company_id":"OTHER","company_country":"Canada"},
-{"rank":4,"share":4.8,"company_name":"シャープ(フォックスコン)","company_id":"FOXCONN","company_country":"Japan"},
+{"rank":4,"share":4.8,"company_name":"シャープ(フォックスコン)","company_id":"FOXCONN","company_country":"Tiwan"},
 {"rank":5,"share":4.5,"company_name":"ジンコソーラー","company_id":"OTHER","company_country":"China"},
 {"rank":6,"share":70.8,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
 ,

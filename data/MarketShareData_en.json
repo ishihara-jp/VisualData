@@ -4,7 +4,7 @@
 {"rank":2,"share":14.8,"company_name":"Samsung","company_id":"SAMSUNG","company_country":"Korea"},
 {"rank":3,"share":14.5,"company_name":"Innolux","company_id":"OTHER","company_country":"Tiwan"},
 {"rank":4,"share":14.4,"company_name":"AUO","company_id":"OTHER","company_country":"Tiwan"},
-{"rank":5,"share":9.3,"company_name":"Sharp(Foxconn)","company_id":"FOXCONN","company_country":"Japan"},
+{"rank":5,"share":9.3,"company_name":"Sharp(Foxconn)","company_id":"FOXCONN","company_country":"Tiwan"},
 {"rank":6,"share":23.9,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
 ,
 {"chart_no":2,"category_no":1,"category":"Electronic components","total_title":"Lithium-ion battery","total_aspect":"Shipping","total_volume":4.4,"total_volume_unit":"B Cell","chart_item":[
@@ -115,7 +115,7 @@
 {"rank":1,"share":8.3,"company_name":"Yingli","company_id":"OTHER","company_country":"China"},
 {"rank":2,"share":6.7,"company_name":"Trina solar","company_id":"OTHER","company_country":"China"},
 {"rank":3,"share":4.9,"company_name":"Canadian solar","company_id":"OTHER","company_country":"Canada"},
-{"rank":4,"share":4.8,"company_name":"Sharp(Foxconn)","company_id":"FOXCONN","company_country":"Japan"},
+{"rank":4,"share":4.8,"company_name":"Sharp(Foxconn)","company_id":"FOXCONN","company_country":"Tiwan"},
 {"rank":5,"share":4.5,"company_name":"Jinko solar","company_id":"OTHER","company_country":"China"},
 {"rank":6,"share":70.8,"company_name":"Other","company_id":"OTHER","company_country":"Other"}]}
 ,

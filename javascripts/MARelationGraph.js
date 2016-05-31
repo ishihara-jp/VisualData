@@ -3,9 +3,17 @@
 //http://bl.ocks.org/mfolnovic/6269308/5c017c0391a8e12db1fc573be3ef8a9bdcb5a117
 //http://bl.ocks.org/ericcoopey/6c602d7cb14b25c179a4
 
+////////////////
+//Global Var. //
+////////////////
+
+//var localPrefix = "http://localhost/";
+var localPrefix = "";
+
 //初期化(グローバル変数)
-var DATA_SRC1 = "./data/CompanyData.json";
-var DATA_SRC2 = "./data/RelationData.json";
+var SRC_URL1 = localPrefix + "data/CompanyData.json";
+var SRC_URL2 = localPrefix + "data/RelationData.json";
+var langKey;
 var companies;      //企業データ
 var graphData;      //データ配列
 var graph;          //唯一のグラフオブジェクト
@@ -15,6 +23,11 @@ var L = 150;    //リンク距離
 var w = 960, h = 700;
 var color = d3.scale.category10();
 var flgCurveLine = true;   //リンク線のスタイル
+
+//Set Language
+function setLangKey(_langKey){
+    langKey = _langKey;        
+}
 
 //キャンバスの用意
 var vis = d3.select("#charts")
@@ -45,11 +58,29 @@ var nodes = force.nodes(),
     links = force.links();
 
 //力学的レイアウトの設定
-    force.gravity(0.3)    //重力：画面重心への引力(default:0.1)
-        .friction(0.5)  //最適化係数：0なら瞬時に止まる
-        .size([w, h])
-        .distance(100)
-        .linkDistance(L);    //リンク長
+force.gravity(0.3)    //重力：画面重心への引力(default:0.1)
+    .friction(0.5)  //最適化係数：0なら瞬時に止まる
+    .size([w, h])
+    .distance(100)
+    .linkDistance(L);    //リンク長
+
+//Loading data
+queue()
+.defer(d3.json, SRC_URL1)
+.defer(d3.json, SRC_URL2)
+.await(ready);
+
+function ready(error, world, companyData, relationData) {
+    ///////////////////
+    // Initial func. //
+    ///////////////////
+    if (error) throw error;
+    
+    companies = companyData;
+    graphData = relationData;
+    
+    drawGraph();
+}
 
 function myGraph(){
     
@@ -492,16 +523,3 @@ function companyName(id){
     return retValue;
 }
 
-//エントリポイント
-d3.json(DATA_SRC1, function(data){
-    companies = data;
-});
-
-d3.json(DATA_SRC2, function(error, data) {
-  if (error) throw error;
-
-    graphData = data;
-    
-    drawGraph();
-
-});

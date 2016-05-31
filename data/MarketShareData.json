@@ -122,7 +122,7 @@
 {"chart_no":16,"category_no":5,"category":"医療","category_us":"Medical","total_title":"超音波診断装置","total_aspect":"売上高","total_volume":47,"total_volume_unit":"億ドル","chart_item":[
 {"rank":1,"share":22.4,"company_name":"ＧＥ","company_id":"GE","company_country":"USA"},
 {"rank":2,"share":18.9,"company_name":"フィリップス","company_id":"PHILIPS","company_country":"Netherlands"},
-{"rank":3,"share":14.2,"company_name":"東芝","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":3,"share":14.2,"company_name":"東芝(キヤノン)","company_id":"CANON","company_country":"Japan"},
 {"rank":4,"share":13.6,"company_name":"シーメンス","company_id":"SIEMENS","company_country":"Germany"},
 {"rank":5,"share":4.1,"company_name":"日立","company_id":"HITACHI","company_country":"Japan"},
 {"rank":6,"share":26.8,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
@@ -131,7 +131,7 @@
 {"rank":1,"share":24.1,"company_name":"シーメンス","company_id":"SIEMENS","company_country":"Germany"},
 {"rank":2,"share":21.8,"company_name":"ＧＥ","company_id":"GE","company_country":"USA"},
 {"rank":3,"share":13.1,"company_name":"フィリップス","company_id":"PHILIPS","company_country":"Netherlands"},
-{"rank":4,"share":13,"company_name":"東芝","company_id":"TOSHIBA","company_country":"Japan"},
+{"rank":4,"share":13,"company_name":"東芝(キヤノン)","company_id":"CANON","company_country":"Japan"},
 {"rank":5,"share":5.3,"company_name":"日立","company_id":"HITACHI","company_country":"Japan"},
 {"rank":6,"share":22.7,"company_name":"その他","company_id":"OTHER","company_country":"Other"}]}
 ,

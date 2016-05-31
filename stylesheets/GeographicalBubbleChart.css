@@ -7,6 +7,9 @@ body{
 }
 
 h1 {
+	/*bootstrap.cssのh1が優先されるため、強制指定*/
+    font-family:Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "ヒラギノ角ゴ Pro W3" , 'Hiragino Kaku Gothic W3 JIS2004', "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+	color: #fff;
 	font-size: 3.6em;
 	font-weight: 500;
     line-height: 1.1;

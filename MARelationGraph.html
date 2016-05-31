@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>企業間提携関係</title>
+    <link type="text/css" rel="stylesheet" href="stylesheets/MARelationGraph.css">
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <!--
+    <script type="text/javascript" src="js/GoogleAnalytics.js" charset="utf-8"></script>
+    -->
+</head>
+<body>
+
+  <h1>企業間提携関係</h1>
+    <div id="filters">
+        <a id="All">すべて</a>
+        <a id="TV">次世代テレビ</a>
+        <a id="Consumer appliances">家電</a>
+        <a id="Business equipment">事務機器</a>
+        <a id="ICT">コンピュータ</a>
+        <a id="Telecommunications">通信</a>
+        <a id="Smart device">スマートデバイス</a>
+        <a id="Electronic components">電子部品</a>
+        <a id="Semiconductor">半導体</a>
+        <a id="Automotive electronics">カーナビ・AV機器</a>
+        <a id="Energy">エネルギー</a>
+    </div>
+  
+    
+    <svg id="charts"></svg>    
+    <script type="text/javascript" src="js/MARelationGraph.js"></script>
+
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#filters a').click(function() {
+            var topicId = $(this).attr("id");
+            if($(this).attr("class") == "select")
+                removeLinksByTopic(topicId);
+            else
+                addLinksByTopic(topicId);
+            
+            $(this).toggleClass("select");
+        });        
+    });
+    </script>    
+
+    
+</body>

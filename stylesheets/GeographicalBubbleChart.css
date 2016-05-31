@@ -5,6 +5,12 @@ body{
     margin: 0px, 0px, 0px, 0px;
 	color: #66C2FF;
 }
+h1 {
+	font-size: 3.6em;
+	font-weight: 500;
+    line-height: 1.1;
+	margin-bottom:0.5em;
+}
 span.note{
     font-size: 0.8em;
     fill: #444;

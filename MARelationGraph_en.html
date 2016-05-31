@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Electronics Companies' M&amp;A Networks</title>
+    <link type="text/css" rel="stylesheet" href="stylesheets/MARelationGraph.css">
+    <script src="javascripts/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/GoogleAnalytics.js" charset="utf-8"></script>
+</head>
+<body>
+  <h1>Electronics Companies' M&amp;A Networks</h1>
+    <div id="filters">
+        <a id="All">All</a>
+        <a id="TV">TV</a>
+        <a id="Consumer appliances">Consumer appliances</a>
+        <a id="Business equipment">Business equipment</a>
+        <a id="ICT">Computer/ICT</a>
+        <a id="Telecommunications">Telecommunications</a>
+        <a id="Smart device">Smart device</a>
+        <a id="Electronic components">Electronic components</a>
+        <a id="Semiconductor">Semiconductor</a>
+        <a id="Automotive electronics">Automotive electronics</a>
+        <a id="Energy">Energy</a>
+    </div>
+      
+    <svg id="charts"></svg>    
+
+    <script type="text/javascript" src="javascripts/queue.v1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/MARelationGraph.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            setLangKey("English")
+            
+            $('#filters a').click(function() {
+                var topicId = $(this).attr("id");
+                if($(this).attr("class") == "select")
+                    removeLinksByTopic(topicId);
+                else
+                    addLinksByTopic(topicId);
+
+                $(this).toggleClass("select");
+            });        
+        });
+    </script>  
+</body>

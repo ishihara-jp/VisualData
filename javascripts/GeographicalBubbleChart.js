@@ -611,7 +611,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
             .text(function(d){
             var currChangeRate = getChangeRateF(d.id, currIndexF, currIndex);
             var sign = currChangeRate > 0 ? "+" : "-";
-            if(currAsset > 0)
+            if(currChangeRate != 0)
                 return sign + formatT0(currChangeRate*100) + "%";
             else
                 return "";  // nothing

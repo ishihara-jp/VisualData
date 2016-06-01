@@ -164,6 +164,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
                 return currencyData[i].value[_yIndex].rate;
     }
 
+    /*
     //change rate
     function change_rate(_id, _yIndex){
        for (var i=0; i< financialData.length; i++){
@@ -178,6 +179,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
            }
         }
     }
+    */
     
     // Cluster center position
     var getCenters = function(key, size) {
@@ -536,7 +538,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
                 })
             
                 .style("fill", function(d) {
-                    return colorScale(change_rate(d.id, currIndex));
+                    return colorScale(getChangeRateF(d.id, currIndexF, currIndex));
                 })
             
                 .classed("visible", function(d){ 
@@ -578,7 +580,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         cLabels.selectAll(".companyLabel")
             
             .style("fill", function(d) {
-                return colorScale(change_rate(d.id, currIndex));
+                return colorScale(getChangeRateF(d.id, currIndexF, currIndex));
             })
             
             .text(function(d){
@@ -590,7 +592,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         cLabels.selectAll(".assetLabel")        
             
             .style("fill", function(d) {
-                return colorScale(change_rate(d.id, currIndex));
+                return colorScale(getChangeRateF(d.id, currIndexF, currIndex));
             })
             
             .text(function(d){
@@ -693,30 +695,63 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
     function getAssetF(companyId, _currIndexF, _currIndex){
 
         // Currency rate
-        var lastRate, nextRate;    
+        var currRate, nextRate;    
         var _nextIndex = (_currIndex < nFY - 1) ? _currIndex + 1 : _currIndex;
 
         if(langKey == "Japan"){
             //YEN
-            lastRate = currency_rate("USD/YEN", _currIndex);
+            currRate = currency_rate("USD/YEN", _currIndex);
             nextRate = currency_rate("USD/YEN", _nextIndex);
         }else{
             //USD
-            lastRate = 1.0;
+            currRate = 1.0;
             nextRate = 1.0;                
         }
         //Get assets
         for(var i=0; i<financialData.length; i++){
             if(financialData[i].id == companyId){
-                var lastAsset = financialData[i].assets[_currIndex][1] / lastRate;
+                var currAsset = financialData[i].assets[_currIndex][1] / currRate;
                 var nextAsset = financialData[i].assets[_nextIndex][1] / nextRate;
             }
         }
         var weight = _currIndexF - _currIndex;
 
-        return nextAsset*weight + lastAsset*(1-weight);
+        return nextAsset*weight + currAsset*(1-weight);
     };
 
+    function getChangeRateF(companyId, _currIndexF, _currIndex){
+
+        // Currency rate
+        var lastRate, currRate, nextRate;
+        var _lastIndex = (_currIndex > 0) ? _currIndex - 1 : _currIndex;
+        var _nextIndex = (_currIndex < nFY - 1) ? _currIndex + 1 : _currIndex;
+        
+        if(langKey == "Japan"){
+            //YEN
+            lastRate = currency_rate("USD/YEN", _lastIndex);
+            currRate = currency_rate("USD/YEN", _currIndex);
+            nextRate = currency_rate("USD/YEN", _nextIndex);
+        }else{
+            //USD
+            lastRate = 1.0;
+            currRate = 1.0;
+            nextRate = 1.0;                
+        }
+        //Get assets
+        for(var i=0; i<financialData.length; i++){
+            if(financialData[i].id == companyId){
+                var lastAsset = financialData[i].assets[_lastIndex][1] / lastRate;
+                var currAsset = financialData[i].assets[_currIndex][1] / currRate;
+                var nextAsset = financialData[i].assets[_nextIndex][1] / nextRate;
+            }
+        }
+        var weight = _currIndexF - _currIndex;
+        
+        var currChangeRateF = (currAsset - lastAsset) / lastAsset;
+        var nextChangeRateF = (nextAsset - currAsset) / currAsset;
+        
+        return nextChangeRateF*weight + currChangeRateF*(1-weight);
+    };
     
     //////////////////
     // Layout func. //

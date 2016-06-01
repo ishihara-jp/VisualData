@@ -748,8 +748,8 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         }
         var weight = _currIndexF - _currIndex;
         
-        var currChangeRateF = (lastAsset == 0) ? 1.0 : (currAsset - lastAsset) / lastAsset;
-        var nextChangeRateF = (currAsset == 0) ? -1.0 : (nextAsset - currAsset) / currAsset;
+        var currChangeRateF = (lastAsset == 0) ? 0 : (currAsset - lastAsset) / lastAsset;
+        var nextChangeRateF = (currAsset == 0) ? 0 : (nextAsset - currAsset) / currAsset;
         
         return nextChangeRateF*weight + currChangeRateF*(1-weight);
     };

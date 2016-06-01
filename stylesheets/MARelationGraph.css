@@ -51,7 +51,7 @@ h1 {
 }
 
 .linkLabel{
-    font-size: 0.5em;
+    font-size: 0.8em;
     opacity: 0.0;     /*最初は透明*/
 }
 
@@ -68,8 +68,8 @@ h1 {
 .link {
     fill: none;
     stroke: #00FEFD;
-    stroke-width: 0.15em;
-    opacity: 1.0;
+    stroke-width: 0.1em;
+    opacity: 0.5;
 }
 .link.Flat {
     stroke: #00FEFD;
@@ -97,14 +97,14 @@ h1 {
 .node circle {
     fill: #0F1230;
     stroke: #00FEFD;
-    stroke-width: 0.1em;
+    stroke-width: 0.2em;
     opacity: 1.0;
 }
 
 .node.highlight circle{
     fill: #0F1230;
     stroke: #E551FA;
-    stroke-width: 0.2em;
+    stroke-width: 0.3em;
 }
 
 .node circle.mid-highlight{

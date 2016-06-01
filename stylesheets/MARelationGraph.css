@@ -105,7 +105,7 @@ h1 {
 }
 
 .node.highlight circle{
-    fill: #0F1230;
+    fill: #9234A0;
     stroke: #E551FA;
     stroke-width: 0.3em;
 }
@@ -135,7 +135,9 @@ h1 {
     font-size: 2.0em;
 }
 .node.highlight text.label_bg {
-    font-size: 2.0em;
+    stroke: #fff;
+    font-size: 2.0em; /* ふちどりの色 */
+    stroke-width: 0.2em; /* ふちどりのふとさ */
 }
 .node.mid-highlight text.label {
     fill: #E551FA;

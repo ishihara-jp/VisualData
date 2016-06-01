@@ -596,11 +596,12 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
             })
             
             .text(function(d){
-            var currAsset = getAssetF(d.id, currIndexF, currIndex);            
+            var currAsset = getAssetF(d.id, currIndexF, currIndex);
+            var currChangeRate = getChangeRateF(d.id, currIndexF, currIndex);
             if(currAsset > 0)
                 return (langKey=="Japan") ?
-                    formatT1(currAsset/1e6) + "兆円" : 
-                    formatT1(currAsset/1e3) + "B$";
+                    formatT1(currAsset/1e6) + "兆円" + " (" + formatT0(currChangeRate*100) + "%)": 
+                    formatT1(currAsset/1e3) + "B$" + " (" + formatT0(currChangeRate*100) + "%)";
             else
                 return "";  // nothing
             });

@@ -472,7 +472,7 @@ function ready(error, companyData, relationData) {
         var retValue = "";
         for(var i=0; i<companies.length; i++){
             if(companies[i].id == id){
-                retValue = (langKey=="Japan") ? companies[i].name_jp :  companies[i].name_us;
+                retValue = (langKey=="Japan") ? companies[i].name_jp :  companies[i].id;
             }
         }
         return retValue;

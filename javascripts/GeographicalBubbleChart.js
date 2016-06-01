@@ -534,11 +534,11 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
                     d.radius = rScale2D(currAsset);
                     return d.radius;
                 })
-            /*
+            
                 .style("fill", function(d) {
                     return colorScale(change_rate(d.id, currIndex));
                 })
-            */
+            
                 .classed("visible", function(d){ 
                         return isVisible(d.id, _lon360_now, currIndex); 
                 });
@@ -576,11 +576,11 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
 
         // Company name label
         cLabels.selectAll(".companyLabel")
-            /*
+            
             .style("fill", function(d) {
                 return colorScale(change_rate(d.id, currIndex));
             })
-            */
+            
             .text(function(d){
                 return  (langKey=="Japan") ? 
                 d.name_jp : d.id;
@@ -588,11 +588,11 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         
         // Assets label
         cLabels.selectAll(".assetLabel")        
-            /*
+            
             .style("fill", function(d) {
                 return colorScale(change_rate(d.id, currIndex));
             })
-            */
+            
             .text(function(d){
             var currAsset = getAssetF(d.id, currIndexF, currIndex);            
             if(currAsset > 0)

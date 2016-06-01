@@ -51,7 +51,7 @@ h1 {
 }
 
 .linkLabel{
-    font-size: 0.8em;
+    font-size: 1.0em;
     opacity: 0.0;     /*最初は透明*/
 }
 
@@ -76,6 +76,7 @@ h1 {
 }
 .link.Flat.highlight {
     stroke: #E551FA;
+    opacity: 1.0;
     /*stroke-width: 2.5px;*/
 }
 .link.Arrow {
@@ -83,6 +84,7 @@ h1 {
 }
 .link.Arrow.highlight {
     stroke: #E551FA;
+    opacity: 1.0;
     /*stroke-width: 2.5px;*/
 }
 
@@ -91,6 +93,7 @@ h1 {
 }
 .link.Disconnect.highlight {
     stroke: #E551FA;
+    opacity: 1.0;
     /*stroke-width: 2.5px;*/
 }
 

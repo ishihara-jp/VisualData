@@ -61,7 +61,7 @@ var nodes = force.nodes(),
 force.gravity(0.3)    //重力：画面重心への引力(default:0.1)
     .friction(0.5)  //最適化係数：0なら瞬時に止まる
     .size([w, h])
-    .distance(100)
+    .distance(200)
     .linkDistance(L);    //リンク長
 
 //Loading data

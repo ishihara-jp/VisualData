@@ -18,8 +18,8 @@ var companies;      //企業データ
 var graphData;      //データ配列
 var graph;          //唯一のグラフオブジェクト
 var R_def = 10;     //ノード半径
-var R_Zoom = 30;    //ノード半径（ズーム時）
-var L = 150;    //リンク距離
+var R_Zoom = 20;    //ノード半径（ズーム時）
+var L = 300;        //リンク距離
 var w = 960, h = 700;
 var color = d3.scale.category10();
 var flgCurveLine = true;   //リンク線のスタイル
@@ -61,7 +61,7 @@ var nodes = force.nodes(),
 force.gravity(0.3)    //重力：画面重心への引力(default:0.1)
     .friction(0.5)  //最適化係数：0なら瞬時に止まる
     .size([w, h])
-    .distance(200)
+    .distance(100)
     .linkDistance(L);    //リンク長
 
 //Loading data

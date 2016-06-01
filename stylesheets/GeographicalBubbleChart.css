@@ -59,6 +59,9 @@ svg {
     fill: #66C2FF;    
     opacity: 1;
 }
+.rateLabel{
+    opacity: 0; /* hidden */
+}
 .cLines{
     stroke: #66C2FF;
     fill: none;

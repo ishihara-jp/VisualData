@@ -213,13 +213,16 @@ function ready(error, companyData, relationData) {
                         .on("mouseover", mouseover)
                         .on("mouseout", mouseout)
                         .on("mousedown", mousedown)
+                        .attr("id", function(d){ return d.id; })
                         .call(force.drag);      //ドラッグイベント紐づけ
         //ノードグループの属性
         nodeEnter.append("svg:circle")
                 .attr("r", R_def)           //ノード半径設定
+                /*
                 .attr("id", function(d){
                     return d.id;  //id設定
                 })
+                */
                 .attr("class", "nodeCircle")
                 .attr("fill", function(d) {
                     return color(d.id);     //色設定
@@ -294,7 +297,7 @@ function ready(error, companyData, relationData) {
             .attr("r", R_Zoom);
 
         var i=0;
-        var select_nodeId = selectedNode.select(".nodeCircle").attr("id")
+        var select_nodeId = selectedNode/*.select(".nodeCircle")*/.attr("id")
         while(i<links.length){
             if((links[i].source.id == select_nodeId) || (links[i].target.id == select_nodeId)){
                 var linked_nodeId = (links[i].source.id == select_nodeId) ? links[i].target.id : links[i].source.id;
@@ -318,7 +321,7 @@ function ready(error, companyData, relationData) {
           .attr("r", R_def);
 
         var i=0;
-        var select_nodeId = selectedNode.select(".nodeCircle").attr("id")
+        var select_nodeId = selectedNode/*.select(".nodeCircle")*/.attr("id")
         while(i<links.length){
             if((links[i].source.id == select_nodeId) || (links[i].target.id == select_nodeId)){
                 var linked_nodeId = (links[i].source.id == select_nodeId) ? links[i].target.id : links[i].source.id;
@@ -334,7 +337,7 @@ function ready(error, companyData, relationData) {
 
     function mousedown() {
         var selectedNode = d3.select(this)
-        var select_nodeId = selectedNode.select(".nodeCircle").attr("id");
+        var select_nodeId = selectedNode/*.select(".nodeCircle")*/.attr("id");
 
         if(selectedNode.attr("class") == "node select highlight"){
             selectedNode.classed("select", false);

@@ -55,11 +55,13 @@
 }
 
 body {
-  background-color: #fff;
-  padding:50px;
-  font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#727272;
-  font-weight:400;
+	background-color: #fff;
+	padding:50px;
+	color:#727272;
+	font-weight:300;
+	font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {

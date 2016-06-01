@@ -127,7 +127,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
     var currYearF = startYear;
     var currIndex = 0;
     var currIndexF = 0.0;
-    var padding = 20;
+    var padding = 40;
     var maxRadius = 80;
     
     //value limit
@@ -773,7 +773,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
      function getLocation(companyId){
          for(var i=0; i<companyData.length; i++){
             if(companyData[i].id == companyId){
-                return [companyData[i].lon, companyData[i].lat];  //正式な緯度経度
+                return [companyData[i].lon, companyData[i].lat];  // lon, lat
             }
          }
      };

@@ -196,11 +196,7 @@ function ready(error, companyData, relationData) {
                 .attr("startOffset", "50%")
                 .attr("text-anchor", "middle")
                 .attr("xlink:href", function(d) { return "#" + d.source.id + "_" + d.target.id; })
-                //.style("fill", "#000")
-                //.style("font-family", "Arial")
-                .text(function(d) {
-                    return (langKey=="Japan") ? d.description_jp : d.description_us;
-                });
+                .text(function(d) { return d.description; });
         //リンクラベル削除処理
         linkLabel.exit().remove();
 

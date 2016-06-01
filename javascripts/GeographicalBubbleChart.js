@@ -233,11 +233,12 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         .attr("class", "cLabels");
     cLabels.append("text")
         .attr("class", "companyLabel")
-        .attr("dy", "-1em");
+        .attr("dy", "-1.1em");
     cLabels.append("text")
         .attr("class", "assetLabel");
     cLabels.append("text")
-        .attr("class", "rateLabel");
+        .attr("class", "rateLabel")
+        .attr("dy", "1.1em");
     var yLabel = info_svg.append("svg:text")
         .attr("class", "yearLabel")
         .attr("dy", "1em");

@@ -146,7 +146,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
     var rScale = d3.scale.sqrt().domain([0, maxAssets]).range([0, 10]);
     var rScale2D = d3.scale.sqrt().domain([0, maxAssets]).range([0, 30]);
     var colorScale = d3.scale.linear()
-                .domain([0,0.3])
+                .domain([-1.0,1.0])
                 .interpolate(d3.interpolateRgb)
                 .range(["#1cd2d2", "#E551FA"]);
 
@@ -747,8 +747,8 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         }
         var weight = _currIndexF - _currIndex;
         
-        var currChangeRateF = (currAsset - lastAsset) / lastAsset;
-        var nextChangeRateF = (nextAsset - currAsset) / currAsset;
+        var currChangeRateF = (lastAsset == 0) ? 1.0 : (currAsset - lastAsset) / lastAsset;
+        var nextChangeRateF = (currAsset == 0) ? -1.0 : (nextAsset - currAsset) / currAsset;
         
         return nextChangeRateF*weight + currChangeRateF*(1-weight);
     };

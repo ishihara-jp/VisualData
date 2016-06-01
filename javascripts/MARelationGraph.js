@@ -195,7 +195,7 @@ function ready(error, companyData, relationData) {
                 .append("svg:textPath")
                 .attr("startOffset", "50%")
                 .attr("text-anchor", "middle")
-                .attr("dy", "0.5em")
+                .attr("dy", "-1em")
                 .attr("xlink:href", function(d) { return "#" + d.source.id + "_" + d.target.id; })
                 .text(function(d) { return d.description; });
         //リンクラベル削除処理

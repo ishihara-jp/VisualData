@@ -236,6 +236,8 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         .attr("dy", "-1em");
     cLabels.append("text")
         .attr("class", "assetLabel");
+    cLabels.append("text")
+        .attr("class", "rateLabel");
     var yLabel = info_svg.append("svg:text")
         .attr("class", "yearLabel")
         .attr("dy", "1em");
@@ -578,11 +580,9 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
 
         // Company name label
         cLabels.selectAll(".companyLabel")
-            
             .style("fill", function(d) {
                 return colorScale(getChangeRateF(d.id, currIndexF, currIndex));
             })
-            
             .text(function(d){
                 return  (langKey=="Japan") ? 
                 d.name_jp : d.id;
@@ -590,18 +590,29 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
         
         // Assets label
         cLabels.selectAll(".assetLabel")        
-            
             .style("fill", function(d) {
                 return colorScale(getChangeRateF(d.id, currIndexF, currIndex));
             })
-            
             .text(function(d){
             var currAsset = getAssetF(d.id, currIndexF, currIndex);
-            var currChangeRate = getChangeRateF(d.id, currIndexF, currIndex);
             if(currAsset > 0)
                 return (langKey=="Japan") ?
-                    formatT1(currAsset/1e6) + "兆円" + " (" + formatT0(currChangeRate*100) + "%)": 
-                    formatT1(currAsset/1e3) + "B$" + " (" + formatT0(currChangeRate*100) + "%)";
+                    formatT1(currAsset/1e6) + "兆円" : 
+                    formatT1(currAsset/1e3) + "B$";
+            else
+                return "";  // nothing
+            });
+        
+        // ChangeRate label
+        cLabels.selectAll(".rateLabel")        
+            .style("fill", function(d) {
+                return colorScale(getChangeRateF(d.id, currIndexF, currIndex));
+            })
+            .text(function(d){
+            var currChangeRate = getChangeRateF(d.id, currIndexF, currIndex);
+            var sign = currChangeRate > 0 ? "+" : "-";
+            if(currAsset > 0)
+                return sign + formatT0(currChangeRate*100) + "%";
             else
                 return "";  // nothing
             });

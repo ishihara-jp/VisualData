@@ -50,9 +50,8 @@ h1 {
     border: 1px solid #00FEFD;
 }
 
-
 .linkLabel{
-    font-size: 1.0em;
+    font-size: 0.5em;
     opacity: 0.0;     /*最初は透明*/
 }
 
@@ -69,7 +68,7 @@ h1 {
 .link {
     fill: none;
     stroke: #00FEFD;
-    stroke-width: 1.5px;
+    stroke-width: 0.15em;
     opacity: 1.0;
 }
 .link.Flat {
@@ -98,14 +97,14 @@ h1 {
 .node circle {
     fill: #0F1230;
     stroke: #00FEFD;
-    stroke-width: 1.5px;
+    stroke-width: 0.1em;
     opacity: 1.0;
 }
 
 .node.highlight circle{
     fill: #0F1230;
     stroke: #E551FA;
-    stroke-width: 3.0px;
+    stroke-width: 0.2em;
 }
 
 .node circle.mid-highlight{
@@ -114,8 +113,8 @@ h1 {
 }
 
 .node text{
-    font-size: 1.0em;
-    font-weight: bold;
+    font-size: 1.5em;
+    font-weight: 500;
 }
 
 .node text.label {
@@ -124,7 +123,7 @@ h1 {
 
 .node.highlight text.label {
     fill: #E551FA;
-    font-size: 1.5em;
+    font-size: 2.0em;
 }
 
 .node text.label_bg {
@@ -134,6 +133,6 @@ h1 {
 }
 
 .node.highlight text.label_bg {
-    font-size: 1.5em;
+    font-size: 2.0em;
 }
 

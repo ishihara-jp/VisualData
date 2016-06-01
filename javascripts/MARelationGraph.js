@@ -17,8 +17,8 @@ var langKey;
 var companies;      //企業データ
 var graphData;      //データ配列
 var graph;          //唯一のグラフオブジェクト
-var R_def = 10;     //ノード半径
-var R_Zoom = 20;    //ノード半径（ズーム時）
+var R_def = 15;     //ノード半径
+var R_Zoom = 30;    //ノード半径（ズーム時）
 var L = 300;        //リンク距離
 var w = 960, h = 700;
 var color = d3.scale.category10();

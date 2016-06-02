@@ -146,7 +146,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
     var rScale = d3.scale.sqrt().domain([0, maxAssets]).range([0, 10]);
     var rScale2D = d3.scale.sqrt().domain([0, maxAssets]).range([0, 30]);
     var colorScale = d3.scale.linear()
-                .domain([-1.0,1.0])
+                .domain([-1.0,0,1.0])
                 .interpolate(d3.interpolateRgb)
                 .range(["#2b5add", "#1cd2d2", "#E551FA"]);
 

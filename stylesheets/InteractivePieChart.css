@@ -71,7 +71,7 @@ text {
 text.label_bg {
     fill: #fff;
     stroke: #fff; /* ふちどりの色 */
-    stroke-width: 0.5em;  /* ふちどりのふとさ */    
+    stroke-width: 4px;  /* ふちどりのふとさ */    
 }
 text.label_bg.highlight{
     /*opacity: 0; */

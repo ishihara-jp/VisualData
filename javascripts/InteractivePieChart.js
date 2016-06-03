@@ -2,8 +2,8 @@
 //Global Var. //
 ////////////////
 
-var localPrefix = "http://localhost/";
-//var localPrefix = "";
+//var localPrefix = "http://localhost/";
+var localPrefix = "";
 
 var SRC_URL1 = localPrefix + "data/CompanyData.json";
 var SRC_URL2 = localPrefix + "data/MarketShareData.json";

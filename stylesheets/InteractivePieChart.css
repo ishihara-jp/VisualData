@@ -17,11 +17,11 @@ body {
     position: relative;
     padding:1em;
     font-family:Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "ヒラギノ角ゴ Pro W3" , 'Hiragino Kaku Gothic W3 JIS2004', "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
-	font-size: 10px;
+	/*font-size: 10px;*/
 }
 
 h1 {
-	font-size: 3.6em;
+	font-size: 36px;
 	font-weight: 500;
     line-height: 1.1;
 	margin-bottom:0.5em;
@@ -65,7 +65,7 @@ polyline {
 	fill: none;
 }
 text {
-    font-size: 0.8em;
+    /*font-size: 0.8em;*/
 	font-weight: bold;
 }
 text.label_bg {
@@ -94,7 +94,7 @@ text.label.un-highlight {
 
 }
 text.c_label {
-    font-size: 2.5em;
+    /*font-size: 2.5em;*/
     fill: #333;
 	font-weight: bold;
     text-anchor: middle;
@@ -111,7 +111,7 @@ text.c_label.linked.highlight {
 }
 
 text.c_label2 {
-    font-size: 0.8em;
+    /*font-size: 0.8em;*/
     fill: #333;
     text-anchor: middle;
 }
@@ -124,12 +124,12 @@ text.c_label2.un-highlight {
     opacity: 0; /* 不可視 */
 }
 text.rate {
-    font-size: 1.0em;
+    /*font-size: 1.0em;*/
     fill: #999;
 	font-weight: bold;
 }
 text.title {
-    font-size: 1.8em;
+    /*font-size: 1.8em;*/
     fill: #000;    
 	font-weight: bold;
 }
@@ -143,7 +143,7 @@ text.title.un-highlight {
 }
 
 text.sample_label {
-    font-size: 1.0em;
+    /*font-size: 1.0em;*/
 }
 
 #filters {

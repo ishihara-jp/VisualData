@@ -2,8 +2,8 @@
 //Global Var. //
 ////////////////
 
-//var localPrefix = "http://localhost/";
-var localPrefix = "";
+var localPrefix = "http://localhost/";
+//var localPrefix = "";
 
 var SRC_URL1 = localPrefix + "data/CompanyData.json";
 var SRC_URL2 = localPrefix + "data/MarketShareData.json";
@@ -55,14 +55,15 @@ queue()
 // サイズを設定
 // ウィンドウサイズによって可変する
 var size = {
-/*
     //16:9
     width : 1280,
     height: 720
-*/
+
+/*
     //4:3
     width : 1024,
     height: 768
+*/
 };
 
 // 配色
@@ -220,26 +221,28 @@ function render(){
         var caption = chart.append("g")
             .attr("class", "caption");
         
-        //タイトル作成
-        caption.append("text")
-            .attr("class", "title")
-            .attr("dy", "2.0em")
-            .style("text-anchor", "middle")
-            .text(title)
-            .attr("opacity", "0");
-        
         //凡例作成
+        caption.append("text")
+            .attr("class", "sample_label")
+            /*.attr("dy", "1.2em")*/
+            .attr("opacity", "0.5")
+            .attr("fill", function(d){ return c_pallet[category_no-1][1]; })
+            .text(categories[category_no-1])
+            .style("text-anchor", "middle");
+        
         caption.append("path")
             .attr("class", "sample_color")
             .attr("stroke", function(d){ return c_pallet[category_no-1][0]; })
             .attr("opacity", "0.3");        
+        
+        //タイトル作成
         caption.append("text")
-            .attr("class", "sample_label")
-            .attr("dy", "1.2em")
-            .attr("opacity", "0.5")
-            .attr("fill", function(d){ return c_pallet[category_no-1][1]; })
-            .text(categories[category_no-1])
-            .style("text-anchor", "middle");    
+            .attr("class", "title")
+            /*.attr("dy", "2.0em")*/
+            .style("text-anchor", "middle")
+            .text(title)
+            .attr("opacity", "0");
+        
     }
 }
 
@@ -276,7 +279,9 @@ function update(){
         var c_label = chart.select(".c_label");
         var c_label2 = chart.select(".c_label2");
         var sample_line = caption.select(".sample_color");
-        var base_font_size = c_width/15;    //ベースとする相対フォントサイズ
+        var sample_label = caption.select(".sample_label");
+        var title = caption.select(".title");
+        var base_font_size = c_width/15;    //ベースとする相対フォントサイズ(5px)
         // -----パイ------
         // 円グラフの外径を更新
         arc
@@ -285,38 +290,45 @@ function update(){
         outerArc
             .outerRadius(radius * 0.9)
             .innerRadius(radius * 0.8);        
-
-        //円グラフの配置
+        
+        //円グラフの配置とリサイズ
         var cx = j*(c_width+2*c_marginW) + c_width/2 + c_marginW + s_margin,
             cy = k*(c_height+2*c_marginH) + c_height/2 + c_marginH;
-        w_pie.attr("transform", "translate(" + cx + "," + cy + ")");
+        w_pie
+            .attr("width", c_width)
+            .attr("height", c_height)
+            .attr("transform", "translate(" + cx + "," + cy + ")");
         
         //円グラフの着色
         w_pie.selectAll(".arc")
             .attr("stroke", "white")
             .attr("fill", function(d){ return c_pallet[category_no-1][d.data.rank-1]; })
-        
-        //円グラフのフォントサイズ
-        w_pie.style("font-size", function(d){ return base_font_size; });
-        
+                
         //キャプションの配置
-        c_label.attr("dy", ".5em");
-        c_label2.attr("dy", "1em")
-                .attr("transform", function(d){
+        c_label
+            .attr("dy", function(d) { return base_font_size*1; })
+            .attr("font-size", function(d) { return base_font_size*2.5; });
+        c_label2
+            .attr("dy", "1em")
+            .attr("font-size", function(d) { return base_font_size*0.8; })
+            .attr("transform", function(d){
                     return "translate(0," + c_label.node().getBBox().height/2 + ")";
                 });
             
         //グラフタイトルの配置
         var tx = j*(c_width+2*c_marginW) + c_width/2 + c_marginW + s_margin,
             ty = k*(c_height+2*c_marginH) + c_height + c_marginH;
-        caption.attr("transform", "translate(" + tx + "," + ty + ")")
-            .style("font-size", function(d){ return base_font_size;});
+        caption.attr("transform", "translate(" + tx + "," + ty + ")");
         
         //凡例の配置
-        var s_pt = [-(c_width/2-20), base_font_size*1.6];//始点(x,y)
-        var e_pt = [(c_width/2-20), base_font_size*1.6];//終点(x,y)
+        var s_pt = [-(c_width/2-20), base_font_size*0.5];//始点(x,y)
+        var e_pt = [(c_width/2-20), base_font_size*0.5];//終点(x,y)
         var pt = [s_pt, e_pt];//samplelineの引数用に整形
         sample_line.attr("d",sampleline(pt));
+        sample_label.attr("font-size", function(d){ return base_font_size*0.9; });
+        title
+            .attr("transform", "translate(0," + base_font_size*2.5 + ")") 
+            .attr("font-size", function(d) { return base_font_size*1.8; });
         
         if((j+1)%nCOL==0 && j!=0){
             j=0;
@@ -324,7 +336,7 @@ function update(){
         }else{
             j++;
         }
-        // パスのサイズを調整
+        // パイのサイズを調整
         // アニメーションが終了していない場合はサイズを設定しないように
         if( isAnimated ){
             //w_pie.selectAll(function(d){ return ".arc." + d.data.company_id; })
@@ -344,7 +356,8 @@ function update(){
             .style("text-anchor", function(d){
                 var rate = d.data.share;            
                 return rate > TH_RATE ? "middle" : midAngle(d) < Math.PI ? "start" : "end";
-            });
+            })
+            .attr("font-size", function(d){ return base_font_size*0.7; });
         
         // -----引き出し線------
         var lines = w_pie.select(".lines");
@@ -380,7 +393,7 @@ function animate(){
         })
         .each("end", function(transition, callback){
             i++;
-            isAnimated = i === nRanks; //最後の要素の時だけtrue
+            isAnimated = i === nRanks * nCharts; //最後のArc要素の時に来たらtrueへ
         });
 
     //テキストラベルのアニメーション
@@ -434,6 +447,7 @@ function setFlag(){
         companies_highlight[i] = false; //インデックスiがsheares[i]とリンク
     isHighLighted = false;
     isFilterGroup = false;
+    isAnimated = false;
 }
 
 

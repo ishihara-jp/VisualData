@@ -321,8 +321,8 @@ function update(){
         caption.attr("transform", "translate(" + tx + "," + ty + ")");
         
         //凡例の配置
-        var s_pt = [-(c_width/2-20), base_font_size*0.5];//始点(x,y)
-        var e_pt = [(c_width/2-20), base_font_size*0.5];//終点(x,y)
+        var s_pt = [-(c_width/2), base_font_size*0.5];//始点(x,y)
+        var e_pt = [(c_width/2), base_font_size*0.5];//終点(x,y)
         var pt = [s_pt, e_pt];//samplelineの引数用に整形
         sample_line.attr("d",sampleline(pt));
         sample_label.attr("font-size", function(d){ return base_font_size*0.9; });

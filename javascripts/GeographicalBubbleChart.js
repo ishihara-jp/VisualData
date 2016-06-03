@@ -146,9 +146,9 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
     var rScale = d3.scale.sqrt().domain([0, maxAssets]).range([0, 10]);
     var rScale2D = d3.scale.sqrt().domain([0, maxAssets]).range([0, 30]);
     var colorScale = d3.scale.linear()
-                .domain([-1.0,1.0])
+                .domain([-1.0,0,1.0])
                 .interpolate(d3.interpolateRgb)
-                .range(["#1cd2d2", "#E551FA"]);
+                .range(["#2b5add", "#1cd2d2", "#E551FA"]);
 
     //Projection
     var globe2map = interpolatedProjection(projectionGlobe, projectionMap);
@@ -539,11 +539,10 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
                     d.radius = rScale2D(currAsset);
                     return d.radius;
                 })
-            
+
                 .style("fill", function(d) {
                     return colorScale(getChangeRateF(d.id, currIndexF, currIndex));
                 })
-            
                 .classed("visible", function(d){ 
                         return isVisible(d.id, _lon360_now, currIndex); 
                 });
@@ -590,7 +589,7 @@ function ready(error, world, countryData, financialData, companyData, currencyDa
             });
         
         // Assets label
-        cLabels.selectAll(".assetLabel")        
+        cLabels.selectAll(".assetLabel")
             .style("fill", function(d) {
                 return colorScale(getChangeRateF(d.id, currIndexF, currIndex));
             })

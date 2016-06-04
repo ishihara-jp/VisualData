@@ -567,6 +567,10 @@ function filterByCompanyCategory(company_category_id) {
     
     filterByChart();
     setHighLight();
+    
+    //中心ラベル変更
+    setCenterLabel(company_id);
+
 }
 
 function filterByCompany(company_id){
@@ -581,7 +585,7 @@ function filterByCompany(company_id){
     filterByChart();
     setHighLight();
     
-    //中心ラベル表示
+    //中心ラベル変更
     setCenterLabel(company_id);
 }
 
@@ -599,12 +603,12 @@ function setCenterLabel(company_id){
                                 return (langKey=="Japan") ? 
                                     "第" + shares[i].chart_item[j].rank + "位"
                                     :
-                                    shares[i].chart_item[j].rank;
+                                    "No." + shares[i].chart_item[j].rank;
                             }
                         }
                     });
                 c_label2.text(function(d){
-                    return (langKey=="Japan") ? "" : "Rank";
+                    return "" /*(langKey=="Japan") ? "" : "Rank"*/;
                     /*
                     for(j=0; j<nRanks; j++){
                         if(shares[i].chart_item[j].company_id == company_id){
@@ -614,7 +618,7 @@ function setCenterLabel(company_id){
                     */
                 });
             }
-    }
+        }
     }else{
         for(i=startChartNo; i<nCharts; i++){
             var volume = shares[i].total_volume;

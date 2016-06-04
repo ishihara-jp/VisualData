@@ -598,24 +598,18 @@ function setCenterLabel(company_id){
                 var c_label = d3.select(".chart" + chart_no).select(".c_label");
                 var c_label2 = d3.select(".chart" + chart_no).select(".c_label2");
                 c_label.text(function(d){
-                        for(j=0; j<nRanks; j++){
-                            if(shares[i].chart_item[j].company_id == company_id){
-                                return (langKey=="Japan") ? 
-                                    "第" + shares[i].chart_item[j].rank + "位"
-                                    :
-                                    "No." + shares[i].chart_item[j].rank;
-                            }
-                        }
-                    });
-                c_label2.text(function(d){
-                    return "" /*(langKey=="Japan") ? "" : "Rank"*/;
-                    /*
                     for(j=0; j<nRanks; j++){
                         if(shares[i].chart_item[j].company_id == company_id){
-                            return shares[i].chart_item[j].share + "%";
+                            return (langKey=="Japan") ? 
+                                "第" + shares[i].chart_item[j].rank + "位"
+                                :
+                                "No." + shares[i].chart_item[j].rank;
                         }
                     }
-                    */
+                });
+            }else{
+                c_label2.text(function(d){
+                    return "";
                 });
             }
         }

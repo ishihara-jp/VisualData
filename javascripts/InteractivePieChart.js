@@ -607,11 +607,10 @@ function setCenterLabel(company_id){
                         }
                     }
                 });
-            }else{
-                c_label2.text(function(d){
-                    return "";
-                });
             }
+            c_label2.text(function(d){
+                return "";
+            });
         }
     }else{
         for(i=startChartNo; i<nCharts; i++){

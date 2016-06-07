@@ -1,7 +1,7 @@
 # VisualData
 
 ## Overview
-This project is visualization for financial and market data of the major electric companies's with D3.js.
+This project is visualization for financial and market data of the major electric companies with D3.js.
 
  * Histrical bubble charts
     This chart visualize the electoronics companies' revenue, operation profit and market capitalization from 1981 to 2015.
@@ -20,7 +20,7 @@ This project is visualization for financial and market data of the major electri
     http://ishihara-jp.github.io/VisualData/MARelationGraph_en.html
 
 ## Memo
-* This program uses  D3.js  ,  Bootstrap  ,  jQuery  as JavaScript libraries.
+* This program uses D3.js, Bootstrap, jQuery as JavaScript libraries.
 * Amount of money are converted to "US Doller" according to the currency rate at the time.
 * Financial statements of the 2015 fiscal year was unpublished at that time ( January 2015 ). Therefore, I used the data of consolidated performance forecast or last fisical year. 
 * I defined that the market capitalization is the annual avearege of adjusted closing price * the current outstanding shares.

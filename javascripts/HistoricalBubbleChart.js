@@ -350,7 +350,7 @@ function ready(error, data1, data2) {
         .attr("text-anchor", "end")
         .attr("x", width)
         .attr("y", t_height - 10)
-        .text("年");
+        .text(function(d){return ((langKey == "Japan") ? "年" : "Year");});
     var gradient = timeline.append("svg:defs")
         .append("svg:linearGradient")
         .attr("id", "gradient")

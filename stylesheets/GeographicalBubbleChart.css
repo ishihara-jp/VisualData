@@ -61,7 +61,7 @@ svg {
 }
 .cLabels.visible text{
     stroke: #fff;
-    stroke-width: 4px;
+    stroke-width: 0.1em;
 }
 .rateLabel{
     opacity: 0; /* hidden */

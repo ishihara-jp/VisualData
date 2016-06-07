@@ -56,13 +56,15 @@ svg {
 }
 .cLabels.visible{
     font-size: 1em;
-    fill: #66C2FF;    
+    /*fill: #66C2FF;*/    
     opacity: 1;
 }
+/*
 .cLabels.visible text{
     stroke: #000;
     stroke-width: 0.1em;
 }
+*/
 .rateLabel{
     opacity: 0; /* hidden */
 }

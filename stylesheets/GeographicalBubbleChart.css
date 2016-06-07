@@ -59,6 +59,10 @@ svg {
     fill: #66C2FF;    
     opacity: 1;
 }
+.cLabels.visible text{
+    stroke: #fff;
+    stroke-width: 4px;
+}
 .rateLabel{
     opacity: 0; /* hidden */
 }

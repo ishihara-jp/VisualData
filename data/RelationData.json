@@ -84,7 +84,7 @@
 {"source":"LENOVO","target":"NEC","arrow":"Flat","topic":"ICT","description_jp":"PC事業統合","description_us":"Business integration (PC)"},
 {"source":"LENOVO","target":"SHARP","arrow":"Flat","topic":"TV","description_jp":"事業提携","description_us":"Business partnership (TV)"},
 {"source":"FOXCONN","target":"SONY","arrow":"Arrow","topic":"TV","description_jp":"OEM供給","description_us":"OEM"},
-{"source":"SHARP","target":"FOXCONN","Semiconductor chipsarrow":"Arrow","topic":"TV","description_jp":"子会社化","description_us":"M&A"},
+{"source":"SHARP","target":"FOXCONN","arrow":"Arrow","topic":"TV","description_jp":"子会社化","description_us":"M&A"},
 {"source":"FOXCONN","target":"HP","arrow":"Arrow","topic":"ICT","description_jp":"サーバ製造","description_us":"Contract manufacturing (Server)"},
 {"source":"TSMC","target":"APPLE","arrow":"Arrow","topic":"Smart device","description_jp":"チップ供給","description_us":"Supplier (Semiconductor chips)"},
 {"source":"TSMC","target":"INTEL","arrow":"Flat","topic":"Semiconductor","description_jp":"共同開発","description_us":"Technical partnership (Semiconductor)"},

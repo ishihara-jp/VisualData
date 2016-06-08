@@ -345,6 +345,9 @@ function ready(error, companyData, relationData) {
             while(i<links.length){
                 if((links[i].source.id == select_nodeId) ||  (links[i].target.id == select_nodeId)){
                     var linked_nodeId = (links[i].source.id == select_nodeId) ? links[i].target.id : links[i].source.id;
+                    //ID指定
+                    vis.selectAll("#" + select_nodeId + "_" + linked_nodeId)
+                        .classed("highlight", false);
                     vis.selectAll("#" + linked_nodeId)
                         .classed("mid-highlight", false);
                 }

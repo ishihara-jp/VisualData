@@ -25,7 +25,8 @@ var isAnimated = false; // アニメーション終了の判定フラグ
 var companies_highlight = [];    // ハイライト対象の企業一覧
 var charts_highlight = [];       // ハイライト対象のチャート一覧
 var isHighLighted = false;       // ハイライト表示中の判定フラグ
-var isFilterGroup = false;      // グループ指定フラグ
+var isFilterCategory = false;      // カテゴリフィルタフラグ
+var isFilterArea = false;       // エリアフィルタフラグ
 var startChartNo;    //表示する最初チャート番号
 var endChartNo;    //表示する最後チャート番号
 var nCOL;  //チャート列数
@@ -446,7 +447,8 @@ function setFlag(){
     for(i=0; i<nCompanies; i++)
         companies_highlight[i] = false; //インデックスiがsheares[i]とリンク
     isHighLighted = false;
-    isFilterGroup = false;
+    isFilterCategory = false;
+    isFilterArea = false;
     isAnimated = false;
 }
 
@@ -524,12 +526,14 @@ function filterByArea(area_id) {
         }
     }
 
-    isFilterGroup = true;
+    isFilterArea = true;
 
     filterByChart();
     setHighLight();
     //企業リストに無いその他の企業の可視化
     setOther(filter);
+    //中心ラベル変更(引数はダミー）
+    setCenterLabel(area_id);
 }
 
 function setOther(filter){
@@ -563,14 +567,13 @@ function filterByCompanyCategory(company_category_id) {
         }
     }
 
-    isFilterGroup = true;
+    isFilterCategory = true;
     
-    filterByChart();
+    filterByChart(company_category_id);
     setHighLight();
     
-    //中心ラベル変更
-    setCenterLabel(company_id);
-
+    //中心ラベル変更(引数はダミー）
+    setCenterLabel(company_category_id);
 }
 
 function filterByCompany(company_id){
@@ -597,24 +600,25 @@ function setCenterLabel(company_id){
                 var chart_no = shares[i].chart_no;
                 var c_label = d3.select(".chart" + chart_no).select(".c_label");
                 var c_label2 = d3.select(".chart" + chart_no).select(".c_label2");
-                c_label.text(function(d){
-                    for(j=0; j<nRanks; j++){
-                        if(shares[i].chart_item[j].company_id == company_id){
-                            return (langKey=="Japan") ? 
-                                "第" + shares[i].chart_item[j].rank + "位"
-                                :
-                                "No." + shares[i].chart_item[j].rank;
+                if(isFilterCategory || isFilterArea){
+                    c_label.text("");
+                    c_label2.text("");
+                }else{
+                    c_label.text(function(d){
+                        for(j=0; j<nRanks; j++){
+                            if(shares[i].chart_item[j].company_id == company_id){
+                                return (langKey=="Japan") ? 
+                                    "第" + shares[i].chart_item[j].rank + "位"
+                                    :
+                                    "No." + shares[i].chart_item[j].rank;
+                            }
                         }
-                    }
-                });
-                /*
-                c_label2.text(function(d){
-                    return "";
-                });
-                */
+                    });
+                    c_label2.text(function(d){
+                        return "";
+                    });
+                }
             }
-            
-            d3.selectAll(".c_label2").text("");
         }
     }else{
         for(i=startChartNo; i<nCharts; i++){
@@ -635,16 +639,31 @@ function setCenterLabel(company_id){
     }
    
 }
-function filterByChart(){
+function filterByChart(category_no){
     //可視化フラグのついた企業が属するチャートの可視化フラグをON
     for(var i=startChartNo; i<nCharts; i++){
         for(var j=0; j<nRanks; j++){
+            if(isFilterCategory){
+                if(shares[i].chart_item[j].category_no == category_no){
+                    //フラグＯＮ
+                    charts_highlight[i] = true;
+                    break;
+                }
+            }
             for(var k=0; k<nCompanies; k++){
                 if(companies_highlight[k]){
                     if(shares[i].chart_item[j].company_id == companies[k].id){                      
                         //フラグON
                         charts_highlight[i] = true;
                         break;
+                    }
+
+                    if(isFilterArea){
+                        if(shares[i].chart_item[j].company_country == companies[k].country_us){
+                            //フラグＯＮ
+                            charts_highlight[i] = true;
+                            break;
+                        }                        
                     }
                 }
             }
@@ -665,7 +684,7 @@ function setHighLight(){
         //ボタンの可視化フラグ
         var button_all = d3.select("#filters_company").selectAll("a");
         button_all.classed('highlight', false);
-        if(isFilterGroup)
+        if(isFilterCategory || isFilterArea)
             button_all.classed('linked', false);   
         //タイトルの可視化フラグ
         var title_all = d3.selectAll(".title");
@@ -682,7 +701,7 @@ function setHighLight(){
         var c_label_all = d3.selectAll(".c_label");
         c_label_all.classed('un-highlight', false);
         c_label_all.classed('highlight', false);
-        if(isFilterGroup)
+        if(isFilterCategory || isFilterArea)
             c_label_all.classed('linked', false);   
         var c_label2_all = d3.selectAll(".c_label2");
         c_label2_all.classed('un-highlight', false);
@@ -713,7 +732,7 @@ function setHighLight(){
                 //ボタンの可視化フラグ
                 var button_selected = d3.select("#filters_company").selectAll("a." + company_id);
                 button_selected.classed('highlight', true);
-                if(isFilterGroup)
+                if(isFilterCategory || isFilterArea)
                     button_selected.classed('linked', true);
                 
                 //ラベルの可視化フラグ
@@ -736,7 +755,7 @@ function setHighLight(){
                 var c_label_selected = d3.select(".chart" + chart_no).selectAll(".c_label");
                 c_label_selected.classed('un-highlight', false);
                 c_label_selected.classed('highlight', true);
-                if(isFilterGroup)
+                if(isFilterCategory || isFilterArea)
                     c_label_selected.classed('linked', true);
                 
                 var c_label2_selected = d3.select(".chart" + chart_no).selectAll(".c_label2");

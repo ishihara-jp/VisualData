@@ -23,6 +23,7 @@ var L = 300;        //リンク距離
 var w = 960, h = 700;
 var color = d3.scale.category10();
 var flgCurveLine = true;   //リンク線のスタイル
+var didFirstClick = false;  //ダブルクリック用の初回クリック判定
 
 //Set Language
 function setLangKey(_langKey){
@@ -336,28 +337,43 @@ function ready(error, companyData, relationData) {
     }
 
     function mousedown() {
-        var selectedNode = d3.select(this)
-        var select_nodeId = selectedNode/*.select(".nodeCircle")*/.attr("id");
-
-        if(selectedNode.attr("class") == "node select highlight"){
-            selectedNode.classed("select", false);
-            var i=0;
-            while(i<links.length){
-                if((links[i].source.id == select_nodeId) ||  (links[i].target.id == select_nodeId)){
-                    var linked_nodeId = (links[i].source.id == select_nodeId) ? links[i].target.id : links[i].source.id;
-                    //ID指定
-                    vis.selectAll("#" + select_nodeId + "_" + linked_nodeId)
-                        .classed("highlight", false);
-                    vis.selectAll("#" + linked_nodeId)
-                        .classed("mid-highlight", false);
-                }
-                i++;
-            }
-            removeLinksBySelect(select_nodeId);
+        if(!disFirstClick){
+            // 1回目のクリック判定を真にする
+    		didFirstClick = true ;
+    
+    		// 350ミリ秒だけ、1回目のクリック判定を残す
+    		setTimeout( function() {
+    			didFirstClick = false ;
+    		}, 350 ) ;
+    	
+    	//ダブルクリック判定
         }else{
-            selectedNode.classed("select", true);
-            addLinksBySelect(select_nodeId);
-        }        
+            var selectedNode = d3.select(this)
+            var select_nodeId = selectedNode/*.select(".nodeCircle")*/.attr("id");
+    
+            if(selectedNode.attr("class") == "node select highlight"){
+                selectedNode.classed("select", false);
+                var i=0;
+                while(i<links.length){
+                    if((links[i].source.id == select_nodeId) ||  (links[i].target.id == select_nodeId)){
+                        var linked_nodeId = (links[i].source.id == select_nodeId) ? links[i].target.id : links[i].source.id;
+                        //ID指定
+                        vis.selectAll("#" + select_nodeId + "_" + linked_nodeId)
+                            .classed("highlight", false);
+                        vis.selectAll("#" + linked_nodeId)
+                            .classed("mid-highlight", false);
+                    }
+                    i++;
+                }
+                removeLinksBySelect(select_nodeId);
+            }else{
+                selectedNode.classed("select", true);
+                addLinksBySelect(select_nodeId);
+            }        
+            
+    		// 1回目のクリック判定を解除
+    		didFirstClick = false ;            
+        }
     }
 
     function addLinksBySelect(nodeId){

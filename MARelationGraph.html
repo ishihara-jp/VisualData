@@ -35,12 +35,15 @@
             
             $('#filters a').click(function() {
                 var topicId = $(this).attr("id");
-                if($(this).attr("class") == "select" || topicId == "RESET")
+                if(topicId == "RESET"){
                     removeLinksByTopic(topicId);
-                else
-                    addLinksByTopic(topicId);
-
-                $(this).toggleClass("select");
+                }else{
+                    if($(this).attr("class") == "select")
+                        removeLinksByTopic(topicId);
+                    else
+                        addLinksByTopic(topicId);
+                    $(this).toggleClass("select");
+                }
             });        
         });
     </script>  

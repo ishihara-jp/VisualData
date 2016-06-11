@@ -506,7 +506,7 @@ function ready(error, companyData, relationData) {
 function removeLinksByTopic(topicId){
     var linksArr = graphData.links;    
     for(var i=0; i<linksArr.length; i++){
-        if(topicId == "All"){
+        if(topicId == "All" || topicId == "RESET"){
             graph.removeAllLinks();
         }else if(linksArr[i].topic == topicId){
             graph.removeLink(

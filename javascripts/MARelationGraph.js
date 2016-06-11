@@ -337,7 +337,7 @@ function ready(error, companyData, relationData) {
     }
 
     function mousedown() {
-        if(!disFirstClick){
+        if(!didFirstClick){
             // 1回目のクリック判定を真にする
     		didFirstClick = true ;
     

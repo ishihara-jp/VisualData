@@ -35,7 +35,7 @@
             
             $('#filters a').click(function() {
                 var topicId = $(this).attr("id");
-                if($(this).attr("class") == "select")
+                if($(this).attr("class") == "select" || topicId == "RESET")
                     removeLinksByTopic(topicId);
                 else
                     addLinksByTopic(topicId);

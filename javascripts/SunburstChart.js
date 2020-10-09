@@ -47,7 +47,7 @@ function getColor(d){
   }
 }
 
-d3.json("../data/DigitalBudget2021.json", function(error, data) {
+d3.json("./data/DigitalBudget2021.json", function(error, data) {
 
   data = pre_data(data);
   var g = svg.selectAll("g")
